@@ -1,0 +1,27 @@
+site_name: g-2 modified DAQ Manual
+theme:
+  name: 'material' 
+
+nav:
+  - Home: index.md
+  - Hardware Overview: hardware.md
+  - Software Overview: software.md
+  - Software Dependencies: software_dependencies.md
+  - Software Add-ons: software_add_ons.md
+  - ODB Configuration: odb_config.md
+  - Debugging Common Errors: debugging.md
+  - Miscellaneous: miscellaneous.md
+
+plugins:
+  - search
+  - print-site
+  - with-pdf:
+  - git-revision-date-localized:
+      enable_creation_date: false
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+- 'css/extra.css'
+- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css

@@ -1,0 +1,1 @@
+# Active Target Data Acqusition System (ATAR DAQ) manual
