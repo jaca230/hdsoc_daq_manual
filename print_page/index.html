@@ -1,0 +1,2508 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Print Site - ATAR DAQ Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ATAR DAQ Manual" class="md-header__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATAR DAQ Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Print Site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATAR DAQ Manual" class="md-nav__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATAR DAQ Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        Hardware Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        Software Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_dependencies/" class="md-nav__link">
+        Software Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_add_ons/" class="md-nav__link">
+        Software Add-ons
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odb_config/" class="md-nav__link">
+        ODB Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging Common Errors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#" class="md-nav__link">
+    1. Home
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    2. Hardware Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    3. Software Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software_dependencies" class="md-nav__link">
+    4. Software Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software_add_ons" class="md-nav__link">
+    5. Software Add-ons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odb_config" class="md-nav__link">
+    6. ODB Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    7. Scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    8. Debugging Common Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    9. Miscellaneous
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div id="print-site-page" class="print-site-enumerate-headings print-site-enumerate-figures">
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="3">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>Table of Contents</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index"><h1 id="index-welcome-to-the-atar-daq-manual">Welcome to the ATAR DAQ Manual</h1>
+<p><img alt="DAQ_Image" src="../images/hdsoc.png" style="max-width:100%; height:auto;" /></p>
+<p>The purpose of this manual is to aid users with setup, usage, and debugging of the ATAR data acquisition (DAQ) system. This DAQ's purpose is to be used for readout of the <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">Nalu's HDSoC FMC boards</a> (and possibly other boards). Most topics are simplified to only include information needed for operating this DAQ. Some external links are provided for additional, generalized information.</p>
+<p>Many of the guides on this webpage are thorough, as they are aimed to give solutions to problems I've encountered. However, every system is different; there may be some additional debugging to be done on the user's end.</p>
+<h2 id="index-pdf-version">PDF Version</h2>
+<p>A <a href="../pdfs/manual.pdf">pdf version of this manual</a> is automatically generated using <a href="https://pypi.org/project/mkdocs-with-pdf/">MkDocs with pdf plugin</a>.</p>
+<h2 id="index-contact">Contact</h2>
+<p>Manual Written by Jack Carlton. <br>
+Ph.D. Candidate, Department of Physics and Astronomy, University of Kentucky.
+<br>
+<i class="fas fa-envelope"></i> Email: <a href="mailto:j.carlton@uky.edu">j.carlton@uky.edu</a>
+<br>
+<i class="fab fa-github"></i> GitHub: <a href="https://github.com/jaca230">jaca230</a></p>
+<p>Feel free to reach out with any questions, to correct mistakes, point out missing information, or otherwise. Feel free to contribute additional information on github or otherwise.</p></section><section class="print-page" id="hardware"><h1 id="hardware-hardware">Hardware</h1>
+<h2 id="hardware-general-hardware-overview">General Hardware Overview</h2>
+<h3 id="hardware-conceptual-diagram">Conceptual Diagram</h3>
+<p><img alt="DAQ_Diagram" src="../images/DAQ_Diagram.png" style="max-width:100%; height:auto;" /></p>
+<ul>
+<li><strong>Trigger Signal</strong>: An external signal to tell the board when to digitize the input waveforms. Should be LVCMOS25 (0-2.5V) with width 10-100 ns.</li>
+<li><strong>Waveforms</strong>: Analog signal to be digitized. Should be LVCMOS25 (0-2.5V). Max width is 1984 nanoseconds by default, but this depends on the sampling rate (default 1Gsps).</li>
+<li><strong>HDSoC</strong>: Digitization board that handles inputs across multiple channels. Can be set to trigger on external or internal (self) signals.</li>
+<li><strong>Nexys Video Artix-7 FPGA</strong>: Acts as a parent board to the HDSoC. Handles 1GbE communication and firmware storage among other things.</li>
+<li><strong>Desktop</strong>: Receives and processes events that are effectively streamed from the digitization system.</li>
+</ul>
+<h3 id="hardware-labled-picture">Labled Picture</h3>
+<p><img alt="DAQ_Diagram" src="../images/DAQ_image_labled.png" style="max-width:100%; height:auto;" /></p>
+<hr />
+<h2 id="hardware-1gbe-nic-gigabit-ethernet-network-interface-card">1GbE NIC (Gigabit Ethernet Network Interface Card)</h2>
+<h3 id="hardware-overview">Overview</h3>
+<p>These NICs are generally PCIe Cards that are "plug and play". They provide a 1 gigabit per second ethernet connection for the host computer.</p>
+<h3 id="hardware-configuration">Configuration</h3>
+<p>If you machine has a GUI, you may find it easier to edit network settings that way. Otherwise, you can edit settings from command line. For example for UKY's teststand we use:</p>
+<pre><code>nmcli connection modify enp3s0 \
+    ipv4.addresses 192.168.1.1/24 \
+    ipv4.method manual \
+    connection.autoconnect yes \
+    ipv6.method ignore
+</code></pre>
+<p>You may need to create a connection configuration file first if it doesn't exist. For example for UKY's teststand we use:</p>
+<pre><code>nmcli connection add type ethernet con-name enp3s0 ifname enp3s0
+</code></pre>
+<p>In particular, the <code>ipv4.addresses</code> is important. Here the port is specified to accept any traffic on the 192.168.1.xxx subnet. See the <a href="#miscellaneous-networking-tutorial">networking page</a> for more details.</p>
+<hr />
+<h2 id="hardware-nexys-a7-video-card">Nexys A7 Video Card</h2>
+<h3 id="hardware-overview_1">Overview</h3>
+<p>The Nexys A7 is a versatile and high-performance FPGA development board from Digilent, featuring the Xilinx Artix-7 FPGA. It is like the "mother board" for the HDSoC. For this use case it will provide power, an interface to update firmware, and an interface for data transfer. You can read more about this board on <a href="https://digilent.com/shop/nexys-video-artix-7-fpga-trainer-board-for-multimedia-applications/?srsltid=AfmBOordpqUnzjcLV98y-AH6sYCWQ9arHT61rksyZw5j6ej5Duj9RDYr">diligent's Nexys Video Artix-7 FPGA page</a>. </p>
+<h3 id="hardware-fmcs">FMCs</h3>
+<h4 id="hardware-hdsoc">HDSoC</h4>
+<p>The HDSoC (or other nalu board) connects to the FPGA board via an FMC connector. See <a href="#hardware-hdsocv1-rev-2">HDSoCv1 rev 2</a> for more info.</p>
+<h3 id="hardware-wired-connections">Wired Connections</h3>
+<h4 id="hardware-usb-a-to-microusb">USB A to microUSB</h4>
+<p>A USB A to microUSB can be used for UART communication. This can be used for data transfer via UART (very slow, limited to ~100 KB/s) and uploading firmware to the board. See the <a href="#hardware-labled-picture">hardware diagram</a> for port locations.</p>
+<h4 id="hardware-1gbe-connection">1GbE Connection</h4>
+<p>Connect an ethernet cable between the board and a host desktop computer. Most modern ethernet cables should work. See the <a href="#hardware-labled-picture">hardware diagram</a> for port locations.</p>
+<h3 id="hardware-configuration_1">Configuration</h3>
+<p>To congfigure the board, the appropriate firmware must be uploaded to it. This can be retrieved from <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">nalu scientific's board downloads page</a>. There are several options, the easiest two are:</p>
+<ol>
+<li>Use microSD card with loaded firmware (see <a href="../pdfs/HDSoC_quick_start.pdf">HDSoC quickstart guide</a>)</li>
+<li>Upload the firmware via Vivado</li>
+</ol>
+<p>Steps to complete step 2 are below.</p>
+<h4 id="hardware-downloading-the-firmware">Downloading the firmware</h4>
+<p>Navigate to <a href="https://support.naluscientific.com/faq/">Nalu Scientific's support website</a>. Go to the page for the <a href="#hardware-(https:-support.naluscientific.com-boards-hdsocv1-evalr2-)">HDSoCv1-evalr2</a> (or appropriate board). Download the most recent firmware version. This DAQ has been tested with firmware version 938. The file should be something like <code>HDSoC_eval_v938.bit</code>.</p>
+<h4 id="hardware-downloading-vivado">Downloading Vivado</h4>
+<p><strong>Note:</strong> Vivado may take a <em>long</em> time to install because it is a very large program. This step could take serveral hours. A full Vivado installation can be around 200 GB. Below is a "minimal" installation that is ~50GB</p>
+<p>The easiest way to upload firmware to the board is via Vivado. Download the most recent version of Vivado for your system from <a href="https://www.xilinx.com/support/download.html">Xilinx's download page</a>. You will need to make an account with AMD to install. This is easiest on a machine with a GUI. For a simple install follow these steps:</p>
+<ol>
+<li>Run installer. On linux run the bin file with <code>/path/to/.../installer.bin</code>.</li>
+<li>On the welcome page, hit  next</li>
+<li>Enter credentials, download and install now, hit next</li>
+<li>Under products to install select Vivado, hit next</li>
+<li>For customizing the installation.<ol>
+<li>Under "Design Tools" select only "Vivado Design Suite"</li>
+<li>Under "Devices" select only "Production Devices"&gt;"7 Series"</li>
+<li>Under "Installation Options", make sure you have "Install Cable Drivers" selected. Hit next.</li>
+</ol>
+</li>
+<li>Agree to License agreements, hit next.</li>
+<li>Select which directory to install to. Hit next. Begin installation.</li>
+</ol>
+<h4 id="hardware-uploading-firmware">Uploading Firmware</h4>
+<p>Once Vivado is installed run it. On linux you may need to source the settings file with <code>source /path/to/.../Xilinx/Vivado/202x.x/settings64.sh</code>, then you can run the command <code>vivado</code> to launch vivado. </p>
+<p>A new project needs to be created. This can be a "dummy" project since we're just uploading firmware. <a href="https://www.realdigital.org/doc/4ddc6ee53d1a2d71b25eaccc29cdec4b">Step 1 of this guide</a> gives all the details needed to creatae new project.</p>
+<p>To load firmware onto the Nexys A7 using Vivado, plug the USB A to microUSB connection into the program port of the Nexys A7 board. See the <a href="#hardware-labled-picture">hardware diagram</a> for port locations. Follow these steps to upload firmware such that it persists when the board reboots:</p>
+<ol>
+<li><strong>Open Vivado Hardware Manager and Connect to the Board</strong></li>
+<li>Open Vivado and go to <strong>Tools</strong> &gt; <strong>Hardware Manager</strong>. <strong>Hardware Manager</strong> should also be visible on the left sidebar of the project page.</li>
+<li>
+<p>In the <strong>Hardware Manager</strong> window, click <strong>Open Target</strong> and select <strong>Auto Connect</strong> or choose the appropriate JTAG or USB connection to connect to your board.
+   If the board is connected properly, Vivado should automatically detect it.</p>
+</li>
+<li>
+<p><strong>Convert the Bitstream to a Binary File</strong>
+   To program the flash, you need to convert the bitstream to a binary file. Nalu provides a <code>.bit</code> files, but we can convert the <code>.bit</code> file into a <code>.bin</code> file. Here’s how you can do it:</p>
+</li>
+<li>
+<p>After the bitstream is generated, open a the TCL Console (<strong>Window</strong>&gt;<strong>Tcl Console</strong>) and use the following command to generate the <code>.bin</code> file from the <code>.bit</code> file:</p>
+<p><code>bash
+ write_flash -force -file /path/to/output/firmware.bin -bitstream /path/to/input/firmware.bit</code></p>
+<p>Replace the paths with the appropriate file locations for your system.</p>
+<p>Example:</p>
+<p><code>bash
+ write_flash -force -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin -bitstream /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit</code></p>
+</li>
+<li>
+<p><strong>Add Configuration Memory Device</strong>
+   Once the <code>.bin</code> file is ready, go back to the <strong>Hardware Manager</strong> in Vivado and:</p>
+</li>
+<li>
+<p>Right-click on your connected device in the <strong>Devices</strong> pane (in the Hardware Manager).</p>
+</li>
+<li>Click <strong>Add Configuration Memory Device</strong>.</li>
+<li>In the dialog box, select the appropriate part for your flash device. For the Nexys A7, the part number will likely be something like <strong>S25FL256Sxxxxxx0-SPI-x1_x2_x4</strong>.</li>
+<li>
+<p>Click <strong>OK</strong> to confirm.</p>
+</li>
+<li>
+<p><strong>Program the Flash Memory</strong>
+   After selecting the configuration memory device:</p>
+</li>
+<li>
+<p>Vivado will prompt you to <strong>program the flash memory</strong>.</p>
+</li>
+<li>Select the <strong>firmware <code>.bin</code> file</strong> you generated earlier.</li>
+<li>
+<p>Click <strong>Program</strong> to start the flashing process.
+   The process will take some time depending on the size of your firmware file and the connection speed.</p>
+</li>
+<li>
+<p><strong>Power Cycle the Device</strong>
+   After programming is complete, power down the device and power it back on. Once powered on, you should see indicators (such as green lights on the HDSoC board) signaling that the firmware has been loaded successfully.</p>
+</li>
+</ol>
+<hr />
+<h2 id="hardware-hdsocv1-rev-2">HDSoCv1 rev 2</h2>
+<h3 id="hardware-overview_2">Overview</h3>
+<p>The HDSoC is a high density digitizer system on a chip evaluation board. It provides a flexible digitization system. The high density part makes it appealing to for use in the ATAR DAQ, as the ATAR will have thousands of channels. You can read more in the <a href="../pdfs/HDSoC_product_sheet.pdf">HDSoC product sheet</a> or on <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">Nalu Scientific's HDSoC page</a>.</p>
+<h3 id="hardware-wired-connections_1">Wired Connections</h3>
+<h4 id="hardware-mmcx-connector">MMCX connector</h4>
+<p>The HDSoC's inputs (channel inputs and external trigger) and outputs (external trigger output) use a MMCX connectors. See the <a href="#hardware-labled-picture">labeled picture</a> and <a href="#hardware-conceptual-diagram">conceptual diagram</a> to see where these inputs are on the board.</p>
+<h3 id="hardware-configuration_2">Configuration</h3>
+<p>See the <a href="../pdfs/HDSoC_quick_start.pdf">HDSoC quickstart guide</a>. You don't need to worry about using the SD card to boot the firmware if you've already uploaded it.</p>
+<hr /></section><section class="print-page" id="software"><h1 id="software-general-sofware-overview">General Sofware Overview</h1>
+<h2 id="software-software-dependency-diagram">Software Dependency Diagram</h2>
+<p><img alt="Software_Diagram" src="../images/software_dependency_diagram.png" style="max-width:100%; height:auto;" />
+<strong>Note:</strong> <a href="../images/software_dependency_diagram.svg">an SVG version of this diagram with links to each repository is avaiable here</a>.</p>
+<hr />
+<h2 id="software-software-data-and-control-flow-diagram">Software Data and Control Flow Diagram</h2>
+<p><img alt="Software_Diagram" src="../images/software_pipeline_diagram.png" style="max-width:100%; height:auto;" /></p>
+<ul>
+<li><strong>Ethernet Controller</strong>: The systems ethernet controller which sockets are formed on.</li>
+<li><strong>UDP Socket</strong>: Two sockets are constructed. One by <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a> to communicate with the board. And one by the UDP receiver to receive data.</li>
+<li><strong>Nalu Event Collector</strong>: A library to collect events from a UDP socket receiving events from a nalu scientific board<ul>
+<li><strong>UDP Buffer</strong>: Receives UDP packets and puts them in a buffer to be processed.</li>
+<li><strong>Event Buffer</strong>: Processes UDP packets into events and puts them in a buffer.</li>
+<li><strong>Event Collector Manager</strong>: Manages interfacing with the buffers. I.e. getting data, configuration, etc.</li>
+</ul>
+</li>
+<li><strong>Nalu Board Controller</strong>: C++ methods to configure the nalu scientific board to prepare for data taking.<ul>
+<li><strong>C++ pybind wrapper</strong>: C++ wrapper around some methods from the <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a>.</li>
+<li><strong>Board Controller Manager</strong>: Manages interfacing with the board from another C++ program.</li>
+</ul>
+</li>
+<li><strong>Midas Frontend</strong>: Handles run control, configuration via ODB, data bank creation, etc. Interfaces with the board controller and event collector.</li>
+<li><strong>Event Builder</strong>: Builds events from data banks provided by potentially multiple frontends. Not necessary if only using one frontend.</li>
+</ul>
+<hr />
+<h2 id="software-atar_daq">ATAR_DAQ</h2>
+<h3 id="software-overview">Overview</h3>
+<p>The ATAR DAQ software is a midas frontend that interfaces with several other softwares (see <a href="#software">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
+<h3 id="software-installation">Installation</h3>
+<p>Make sure you have installed the <a href="#software_dependencies-development-tools">development tools</a>, <a href="#software_dependencies-python-packages">python packages</a>, and <a href="#software_dependencies-midas">midas</a> before continuing. Furthmore, make sure you have <a href="#miscellaneous-getting-access-to-the-pioneer-repository">set-up access to the pioneer experiment repository</a> first.</p>
+<p>1 <strong>Clone the repository:</strong></p>
+<pre><code>git clone git@github.com:PIONEER-Experiment/atar_daq.git
+</code></pre>
+<p>2 <strong>Set up the enviromment</strong></p>
+<pre><code>cd atar_daq/scripts/environment_setup
+./detect_environment.sh
+</code></pre>
+<p><code>environment_variables.txt</code> should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:</p>
+<pre><code>MIDASSYS=/home/pioneer/packages/midas
+MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
+MIDAS_EXPT_NAME=ATAR_DAQ
+ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
+</code></pre>
+<p>For more information on what the correct paths should look like, check <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables">TRIUMF's midas quickstart guide</a>.</p>
+<p>After verifying the paths are correct:</p>
+<pre><code>source ./setup_environment.sh --add
+</code></pre>
+<p><strong>Note</strong>: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:</p>
+<pre><code>echo 'source /path/to/.../atar_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
+</code></pre>
+<p>replacing the above with the correct path to the script.</p>
+<p>3 <strong>Installed additionally dependencies:</strong></p>
+<p>These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+</code></pre>
+<p>4 <strong>Build</strong></p>
+<pre><code>$ATAR_DAQ_DIR/scripts/build.sh --overwrite
+</code></pre>
+<h3 id="software-running">Running</h3>
+<h4 id="software-starting-a-midas-webpage">Starting a Midas Webpage</h4>
+<p>Midas provides a great user interface via their webpage. To start it, use the helper script:</p>
+<pre><code>$ATAR_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+</code></pre>
+<p>Then navigate to <code>localhost:8080</code> in your favorite web browser.</p>
+<p><strong>Note</strong>: For some reason, this script may need to be run twice sometimes for it to work properly.</p>
+<p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output</p>
+<h4 id="software-manually-starting-the-frontend">Manually Starting the Frontend</h4>
+<p>I recommend doing this the first time to make sure everything is working properly.</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/run.sh
+</code></pre>
+<h4 id="software-starting-the-frontend-as-a-screen">Starting the Frontend as a Screen</h4>
+<p>Use the screening helper script</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+</code></pre>
+<p><strong>Note</strong>: Exclusing <code>-i</code> flag will set the index to 0. This is the frontend index to support running multiple frontends.</p>
+<p>to stop the screen</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+</code></pre>
+<h4 id="software-starting-the-frontend-as-midas-program">Starting the Frontend as Midas Program</h4>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts">g-2 modified DAQ Manual's guide for adding program startup scripts</a>. For the start command, use the screen command above.</p>
+<h3 id="software-configuration">Configuration</h3>
+<p>See the <a href="#odb_config">ODB configuration page</a> for a description of each ODB setting.</p>
+<hr /></section><section class="print-page" id="software_dependencies"><h1 id="software_dependencies-software-dependencies">Software Dependencies</h1>
+<h2 id="software_dependencies-pioneer-repository">PIONEER Repository</h2>
+<p>Some installations are on the PIONEER repository, which requires access to pull from. See <a href="#miscellaneous-getting-access-to-the-pioneer-repository">how to get access</a>.</p>
+<hr />
+<h2 id="software_dependencies-development-tools">Development Tools</h2>
+<h3 id="software_dependencies-overview">Overview</h3>
+<p>These tools include compilers, libraries, and other utilities that facilitate software development and installation.</p>
+<h3 id="software_dependencies-installation-guide">Installation Guide</h3>
+<p>This guide should work for ALMA9. You can use <code>dnf</code> for ALMA9, but I prefer to work with <code>yum</code></p>
+<p>1 <strong>Install yum package manager</strong></p>
+<pre><code>sudo dnf install yum
+</code></pre>
+<p>2 <strong>Update the package index</strong>:</p>
+<pre><code>sudo yum update
+</code></pre>
+<p>3 <strong>Enable the EPEL repository</strong>:</p>
+<pre><code>sudo yum install epel-release
+</code></pre>
+<p>4 <strong>Install Development Tools and Dependencies</strong>:</p>
+<pre><code>sudo yum groupinstall &quot;Development Tools&quot;
+sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel
+</code></pre>
+<p>5 <strong>Install Python3</strong></p>
+<pre><code>sudo yum install python3-devel
+</code></pre>
+<p>6 <strong>Install CMake from Source</strong>  </p>
+<p>If the installed CMake version is <strong>not</strong> <code>&gt;=3.23</code>, (you can check with <code>cmake --version</code>) follow these steps to install CMake manually:</p>
+<p>6.1. <strong>Remove Old CMake (If Installed)</strong></p>
+<pre><code>sudo yum remove -y cmake
+</code></pre>
+<p>Verify removal:</p>
+<pre><code class="language-bash">cmake --version  # Should return &quot;command not found&quot;
+</code></pre>
+<p>6.2. <strong>Install Required Dependencies</strong></p>
+<pre><code>sudo yum groupinstall -y &quot;Development Tools&quot;
+sudo yum install -y gcc gcc-c++ make openssl-devel
+</code></pre>
+<p>6.3. <strong>Download and Install the Latest CMake from Source</strong></p>
+<ol>
+<li>
+<p><strong>Download the latest version</strong> (Check <a href="https://cmake.org/download/">Kitware's website</a> for the latest version):
+   <code>wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz</code></p>
+</li>
+<li>
+<p><strong>Extract the archive</strong>:
+   <code>tar -xvzf cmake-3.29.0.tar.gz
+   cd cmake-3.29.0</code></p>
+</li>
+<li>
+<p><strong>Build and install</strong>:
+   <code>./bootstrap
+   make -j$(nproc)
+   sudo make install</code></p>
+</li>
+<li>
+<p><strong>Verify the New Installation</strong>:
+   <code>cmake --version</code></p>
+</li>
+</ol>
+<hr />
+<h2 id="software_dependencies-python-packages">Python Packages</h2>
+<h3 id="software_dependencies-overview_1">Overview</h3>
+<p>Although this DAQ is written mostly in C++, it interfaces with with Nalu Scientific's "naludaq" package, which is a python module used for interfacing with the board. However, our use case requires C++. To avoid rewriting all of Nalu Scientific's methods in C++, pybind is used to wrap some C++ methods around existing naludaq python methods.</p>
+<h3 id="software_dependencies-installation-guide_1">Installation Guide</h3>
+<p>Install any needed packages with pip. Two that are needed are:</p>
+<pre><code>pip install pybind11 naludaq
+</code></pre>
+<hr />
+<h2 id="software_dependencies-root">ROOT</h2>
+<h3 id="software_dependencies-overview_2">Overview</h3>
+<p><a href="https://root.cern.ch/">ROOT</a> is an open-source data analysis framework developed by CERN. It is widely used in high-energy physics for data processing, statistical analysis, visualization, and storage. It is needed for some features of Midas.</p>
+<h3 id="software_dependencies-installation-guide_2">Installation Guide</h3>
+<p>General installaiton guides are provided by ROOT at their <a href="https://root.cern/install/">Installing ROOT</a> and <a href="https://root.cern/install/build_from_source/">Building ROOT from source</a> pages.</p>
+<h4 id="software_dependencies-using-yum-package-manager">Using <code>yum</code> Package Manager</h4>
+<p>1 <strong>Enable the EPEL repository</strong>:</p>
+<pre><code>sudo yum install epel-release
+</code></pre>
+<p>2 <strong>Download and Install ROOT</strong>:</p>
+<pre><code>sudo yum install root
+</code></pre>
+<h4 id="software_dependencies-building-from-source">Building from source</h4>
+<p>1 <strong>Example building latest stable branch from source</strong></p>
+<pre><code>git clone --branch latest-stable --depth=1 https://github.com/root-project/root.git root_src
+mkdir root_build root_install &amp;&amp; cd root_build
+cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src # &amp;&amp; check cmake configuration output for warnings or errors
+cmake --build . -- install -j4 # if you have 4 cores available for compilation
+source ../root_install/bin/thisroot.sh # or thisroot.{fish,csh}
+</code></pre>
+<p><strong>Note</strong>: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the <a href="https://root.cern.ch/">official ROOT website</a>. Furthermore, if you are not building from source you are installing precompiled binaries, which may not be up to date versions of ROOT. For specific versions, you may need to build root from source.</p>
+<hr />
+<h2 id="software_dependencies-midas">Midas</h2>
+<h3 id="software_dependencies-overview_3">Overview</h3>
+<p><a href="https://daq00.triumf.ca/MidasWiki/index.php/Main_Page">Midas</a> is a data acquisition system used in high-energy physics experiments.
+Midas provides the following functionalities:</p>
+<ul>
+<li>Run control</li>
+<li>Experiment configuration</li>
+<li>Data readout</li>
+<li>Event building</li>
+<li>Data storage</li>
+<li>Slow control</li>
+<li>Alarm systems</li>
+<li>... much more ...</li>
+</ul>
+<h3 id="software_dependencies-installation-guide_3">Installation Guide</h3>
+<p>For a general Midas installation, you can follow this <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux">Linux Quick Start Guide</a>. For the g-2 modified DAQ, we use a custom version of midas, which can be cloned and installed as follows:</p>
+<p>1 <strong>Set experiment name environment variable</strong></p>
+<pre><code>export MIDAS_EXPT_NAME=DAQ
+</code></pre>
+<p>2 <strong>Create exptab file</strong></p>
+<pre><code>mkdir online
+cd online
+touch exptab
+echo &quot;$MIDAS_EXPT_NAME $(pwd) system&quot; &gt;&gt; exptab
+export MIDAS_EXPTAB=$(pwd)/exptab   
+</code></pre>
+<p>3 <strong>Install Midas</strong></p>
+<pre><code>cd ..
+mkdir packages
+git clone --recursive git@github.com:PIONEER-Experiment/midas-modified.git midas
+cd midas
+mkdir build
+cd build
+cmake ..
+make -j$(nproc) install
+cd ..
+</code></pre>
+<p>4 <strong>Set <code>MIDASSYS</code> environment variable and add to path</strong></p>
+<pre><code>export MIDASSYS=$(pwd)
+export PATH=$PATH:$MIDASSYS/bin
+</code></pre>
+<p><strong>Note</strong>: you can hardcode the environment variables <code>MIDASSYS</code> (and add to path), <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code> by adding the appropriate commands to your .bashrc file. This way, the environment variables are set with each new terminal session for that user.</p>
+<p>5 <strong>(Optional) it is recommended to also install the midas python package</strong>:</p>
+<pre><code>pip install -e $MIDASSYS/python --user
+</code></pre>
+<hr />
+<h2 id="software_dependencies-nalu-board-controller">Nalu Board Controller</h2>
+<h3 id="software_dependencies-overview_4">Overview</h3>
+<p>The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the <a href="https://github.com/jaca230/nalu_board_controller">github page for this library</a>.</p>
+<h3 id="software_dependencies-installation-guide_4">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
+<hr />
+<h2 id="software_dependencies-nalu-event-collector">Nalu Event Collector</h2>
+<h3 id="software_dependencies-overview_5">Overview</h3>
+<p>The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the <a href="https://github.com/jaca230/nalu_event_collector">github page for this library</a>.</p>
+<h3 id="software_dependencies-installation-guide_5">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
+<hr />
+<h2 id="software_dependencies-reflect-cpp">reflect-cpp</h2>
+<h3 id="software_dependencies-overview_6">Overview</h3>
+<p>Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the <a href="https://github.com/getml/reflect-cpp">github page for this library</a>.</p>
+<h3 id="software_dependencies-installation-guide_6">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
+<hr /></section><section class="print-page" id="odb_config"><h1 id="odb_config-midas-online-data-base-configuration-parameters">Midas' Online Data Base Configuration Parameters</h1>
+<h2 id="odb_config-odb-basics">ODB Basics</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics">g-2 modified DAQ's ODB Basics section</a> for some general midas ODB settings.</p>
+<h2 id="odb_config-atar-daq-specific-odb-configuration">ATAR DAQ specific ODB Configuration</h2>
+<h3 id="odb_config-nalu-event-collector">Nalu Event Collector</h3>
+<h4 id="odb_config-absolute-window-mask">Absolute Window Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/abs_wind_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the absolute window position bits</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-channel-mask">Channel Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/chan_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the channel index bits</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-channel-shift">Channel Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/chan_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift in channel indices</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-check-packet-integrity">Check Packet Integrity</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/check_packet_integrity</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether or not each recieved UDP packet should be checked to see if it matches the expected format</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>yes</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: You can get slight performance improvement by setting this to <code>no</code>. However, the performance with it set to <code>yes</code> should be good enough to handle any data rate the HDSoC can achieve.</p>
+<h4 id="odb_config-constructed-packet-footer">Constructed Packet Footer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/constructed_packet_footer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Footer bytes for packets constructed. Potentially useful to consumer programs looking for a specific byte sequence.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 4 byte unsigned integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>65535</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-constructed-packet-footer_1">Constructed Packet Footer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/constructed_packet_header</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header bytes for packets constructed. Potentially useful to consumer programs looking for a specific byte sequence.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 4 byte unsigned integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>43690</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-event-window-mask">Event Window Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/evt_wind_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the event window position</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-event-window-shift">Event Window Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/evt_wind_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift on event window values</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>6</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-packet-size">Packet Size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/packet_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>How big one "packet" of channel information is</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>74</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-start-marker">Start marker</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/start_marker</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Start marker a packet of channel information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>0E</td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-stop-marker">Stop marker</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/stop_marker</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Stop marker a packet of channel information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>FA5A</td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-timing-mask">Timing Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/timing_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on timing information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4095</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-timing-shift">Timing Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/timing_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift in timing information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>12</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-udp-buffer-size">UDP buffer size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/buffer_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Number of bytes in the UDP buffer before it throws an overflow error</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>104857600</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-udp-buffer-size_1">UDP buffer size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/max_packet_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Max number of bytes in a UDP packet that the UDP receiver will consider</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1040</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-udp-timeout">UDP Timeout</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/timeout_sec</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Number of seconds the UDP thread will wait before quitting due to timeout</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>3</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-event-header">Event Header</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_header</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header for each constructed event. Potentially userful for consumer programs looking for specific byte sequences.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative 4 byte integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>48059</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-event-trailer">Event Trailer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_trailer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header for each constructed event. Potentially userful for consumer programs looking for specific byte sequences.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative 4 byte integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>61166</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-max-event-in-the-event-buffer">Max Event in the Event Buffer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_events_in_buffer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Maximum number of events in the buffer. Should be set to a within the total RAM constraints of your system.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>50000</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-max-lookback">Max Lookback</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_lookback</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Maximum number of events the event builder will retroactively look back at to try to find a match for a packet.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Look backs only occur "shortly" after new events begin just in case packets are received out of order. See <a href="https://github.com/jaca230/nalu_event_collector/blob/main/src/nalu_event_builder.cpp">this file</a> if you're curious.</p>
+<h4 id="odb_config-max-trigger-time">Max Trigger Time</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_trigger_time</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The maximum number of clock ticks the board will report before restarting at 0.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>16777216</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-time-threshold">Time Threshold</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/time_threshold</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The maximum number of clock ticks two packets can be seperated by and still be considered part of the same event</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>500</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> If this is set too high or too low, events will stop forming and the frontend will crash. For most use cases, <code>500</code> is fine. For the HDSoC `there are about 23843000 clock ticks a second.</p>
+<h3 id="odb_config-nalu-board-controller">Nalu Board Controller</h3>
+<h4 id="odb_config-channel-dac-value">Channel DAC Value</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/dac_value</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The digital analog converter value for the channel</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-channel-enabled">Channel Enabled</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/enabled</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether that channel is enabled for readout</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>yes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-channel-trigger-value">Channel Trigger Value</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/trigger_value</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The threshold used for the internal or self triggering mode</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-assign-dac-values">Assign DAC Values</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/assign_dac_values</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether the DAQ values are assigned and used by the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>no</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-digitization-lookback">Digitization Lookback</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/lookback</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to "look back" after digitizing "write after trigger" more windows.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the lookback parameter</p>
+<h4 id="odb_config-digitization-lookback-mode">Digitization Lookback Mode</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/lookback_mode</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to "look back" after digitizing "write after trigger" more windows.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>forced</code>, <code>trig</code> or empty (empty defaults to <code>trig</code>)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 17 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the lookback mode parameter</p>
+<h4 id="odb_config-target-ip-port">Target IP Port</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/target_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) that the board will send data to over 1GbE</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any valid IP with port</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.1:12345</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-trigger-mode">Trigger Mode</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/trigger_mode</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>What trigger mode (external, self, or immediate) to use. External is from an external signal, self is based on a threshold for the channel, and immediate is automatic triggers as fast as possible.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>ext</code>, <code>self</code>, or <code>imm</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>ext</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-digitization-windows">Digitization Windows</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/windows</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) that will be digitized</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the windows parameter</p>
+<h4 id="odb_config-digitization-write-after-trigger">Digitization Write After Trigger</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/write_after_trig</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to continue to digitize following the trigger event</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the write after trig parameter</p>
+<h4 id="odb_config-board-ip">Board IP</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/board_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) of the board.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid IP and port</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.59:4660</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> For the HDSoC, this is currently hardcoded to <code>192.168.1.59:4660</code>. I.e. you cannot change this.</p>
+<h4 id="odb_config-board-clock-file">Board Clock File</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/clock_file</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Path to a clock file for the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid path or empty string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-board-configuration-file">Board Configuration File</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/config_file</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Path to a configuration file for the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid path or empty string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-host-ip">Host IP</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/host_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) of the host. For communication with the board (not data).</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid IP</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.1:4660</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-board-model">Board Model</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/board</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The name of the board model used</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid board model, select from AARDVARCv3, HDSOCv1_evalr2, ASOCv3, AODSv2, TRBHM, AODSOC_AODS, AODSOC_ASOC, or UPAC32. However, only HDSOCv1_evalr2, ASOCv3, and TRBHM support UDP transfer.</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>HDSOCv1_evalr2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="odb_config-midas-parameters">Midas Parameters</h3>
+<h4 id="odb_config-midas-atar-data-bank-prefix">Midas ATAR Data Bank Prefix</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/data_bank_prefix</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The 2 letter prefix for midas data bank containing event data</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 2 letter string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>AD</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the data will be in <code>AD00</code> for example.</p>
+<h4 id="odb_config-webpage-initializing-frontend-status-color">Webpage Initializing Frontend Status Color</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/init_color</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The color the frontend status light will be while the frontend is initializing</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 3 byte hex RGB value</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>#8A2BE2</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-logging-level">Logging Level</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/log_level</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The log level for information printed by the frontend software</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>debug, info, warn, error</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>debug</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> <code>debug</code> will show all output, <code>info</code> will show most ouput, <code>warn</code> will only show warnings and errors, <code>error</code> will only show errors.</p>
+<h4 id="odb_config-minimum-bytes-to-trigger-on">Minimum Bytes to Trigger on</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/min_bytes_to_trigger_on</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The minimum bytes needed to be present in the UDP buffer before the midas thread will trigger collection</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Higher values may see some performance gain, at the cost of events coming in batches</p>
+<h4 id="odb_config-polling-interval-in-microseconds">Polling Interval in Microseconds</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/polling_interval_us</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The minimum number of microseconds between two consecutive triggers</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Higher values may see some performance gain, at the cost of events coming in batches</p>
+<h4 id="odb_config-webpage-ready-status-color">Webpage Ready Status Color</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/ready_color</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The color the frontend status light will be while the frontend is ready</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 3 byte hex RGB value</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>greenLight</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odb_config-midas-atar-timing-bank-prefix">Midas ATAR Timing Bank Prefix</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/timing_bank_prefix</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The 2 letter prefix for midas data bank containing event data</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 2 letter string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>AD</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the timing information will be in <code>AT00</code> for example.</p>
+<hr /></section><section class="print-page" id="scripts"><h1 id="scripts-scripts">Scripts</h1>
+<h2 id="scripts-top-level">Top Level</h2>
+<h3 id="scripts-buildsh">build.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/build.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Builds the project using CMake and Make. If the <code>--overwrite</code> flag is used, it cleans the previous build first.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>-o, --overwrite</code> → Remove the existing build directory before building.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./build.sh</code> <br> <code>./build.sh --overwrite</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-runsh">run.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/run.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Runs the <code>frontend</code> executable. Supports running in background mode, with debugging, and setting an index.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--debug</code> → Runs the executable in GDB. <br> <br> <code>-i &lt;number&gt;</code> → Specifies an index (default: 0). <br> <code>--help</code> → Displays usage help.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./run.sh</code> <br> <code>./run.sh --debug</code> <br> <code>./run.sh -i 2</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scripts-data-management">Data management</h2>
+<h3 id="scripts-delete_datash">delete_data.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/delete_data.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Deletes MIDAS data files in the experiment directory. If <code>--dry-run</code> is used, it lists files without deleting them.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--dry-run</code> → Lists files that would be deleted without removing them.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./delete_data.sh</code> <br> <code>./delete_data.sh --dry-run</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-find_data_dirsh">find_data_dir.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/find_data_dir.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Finds the experiment data directory and writes it to <code>experiment_dir.txt</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><em>(None)</em></td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./find_data_dir.sh</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scripts-environment-setup">Environment Setup</h2>
+<h3 id="scripts-clear_environmentsh">clear_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/clear_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Clears the MIDAS environment variables by unsetting <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><em>(None)</em></td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./clear_environment.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-detect_environmentsh">detect_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/detect_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Searches for the <code>midas</code> directory and <code>exptab</code> file, sets <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code>, and saves them to <code>environment_variables.txt</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><em>(None)</em></td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./detect_environment.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-setup_environmentsh">setup_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/setup_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Reads <code>environment_variables.txt</code> to set environment variables and optionally adds <code>MIDASSYS/bin</code> to the <code>PATH</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>-a, --add</code> → Adds <code>MIDASSYS/bin</code> to <code>PATH</code> if <code>MIDASSYS</code> is set. <br> <code>-q, --quiet</code> → Suppresses all output. <br> <code>-h, --help</code> → Displays usage help.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./setup_environment.sh</code> <br> <code>./setup_environment.sh --add</code> <br> <code>./setup_environment.sh --quiet</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scripts-install-libraries">Install Libraries</h2>
+<h3 id="scripts-install_dependenciessh">install_dependencies.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/install_libaries/install_dependencies.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Installs all required dependencies by calling their respective installation scripts.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>(None)</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>./install_dependencies.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-install_reflect_cppsh">install_reflect_cpp.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/install_libaries/install_reflect_cpp.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Installs the Reflect-C++ library, allowing customization of installation directory, C++ standard, and build type.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td><code>-o, --overwrite</code> → Removes the previous build before installing. <br> <code>-p, --prefix &lt;path&gt;</code> → Specifies the installation directory (default: /usr/local). <br> <code>-s, --cxx-standard &lt;version&gt;</code> → Sets the C++ standard (default: 20). <br> <code>-b, --build-type &lt;type&gt;</code> → Sets the build type (default: Release).</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>./install_reflect_cpp.sh</code> <br> <code>./install_reflect_cpp.sh --overwrite</code> <br> <code>./install_reflect_cpp.sh --prefix /opt/custom</code> <br> <code>./install_reflect_cpp.sh --cxx-standard 17 --build-type Debug</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scripts-odb">ODB</h2>
+<h3 id="scripts-set_enabled_channelspy">set_enabled_channels.py</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/odb/set_enabled_channels.py</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Updates the enabled channels in the ODB by setting the number of enabled channels from the start (0) and disabling the rest.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td><code>num_enabled_channels</code> → The number of enabled channels (between 0 and 32).</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>python3 set_enabled_channels.py 16</code> <br> Enables the first 16 channels and disables the rest.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scripts-screen-control">Screen Control</h2>
+<h3 id="scripts-screen_frontendsh">screen_frontend.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Starts a specified script inside a <code>screen</code> session, optionally passing an index value.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td><code>-i</code> → Index for the session name (defaults to 0).</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>bash screen_frontend.sh -i 1</code> <br> Starts the script <code>run.sh</code> inside a <code>screen</code> session with index 1.</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td><code>screen</code> (for managing screen sessions).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-stop_screensh">stop_screen.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Stops a running <code>screen</code> session specified by the index.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td><code>-i</code> → Index for the session name (defaults to 0).</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>bash stop_screen.sh -i 1</code> <br> Stops the <code>screen</code> session with index 1.</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td><code>screen</code> (for managing screen sessions).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scripts-webpage-scripts">Webpage Scripts</h2>
+<h3 id="scripts-start_midas_webpagesh">start_midas_webpage.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Starts processes in the background, each inside a <code>screen</code> session, using process names from a <code>screen_names.txt</code> file.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>bash start_midas_webpage.sh</code> <br> Starts all processes defined in <code>screen_names.txt</code>.</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td><code>screen</code> (for managing screen sessions), <code>MIDASSYS</code> environment variable must be defined.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scripts-stop_midas_webpagesh">stop_midas_webpage.sh</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Stops processes running in <code>screen</code> sessions based on names listed in <code>screen_names.txt</code>.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td><code>bash stop_midas_webpage.sh</code> <br> Stops all processes defined in <code>screen_names.txt</code>.</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td><code>screen</code> (for managing screen sessions), <code>MIDASSYS</code> environment variable must be defined.</td>
+</tr>
+</tbody>
+</table>
+<hr /></section><section class="print-page" id="miscellaneous"><h1 id="miscellaneous-miscellaneous">Miscellaneous</h1>
+<h2 id="miscellaneous-additional-notes">Additional Notes</h2>
+<p>If you're feeling desperate (or perhaps lucky), you can sift through <a href="https://jaca230.github.io/joplin_notes_page/">Jack Carlton's work notes</a>. <strong>I warn you that these are not well organized and contain lots of information not about this DAQ</strong>. However, they do contain some documentation of my assembly and troubleshooting of this DAQ.</p>
+<hr />
+<h2 id="miscellaneous-initialism-cheatsheet">Initialism Cheatsheet</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/miscellaneous_info/#initialism-cheatsheet">g-2 modified DAQ's initialism cheatsheet</a>, many of the initialisms are still applicable to this DAQ.</p>
+<hr />
+<h2 id="miscellaneous-networking-tutorial">Networking Tutorial</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/networking/">g-2 modified DAQ's networking tutorial</a> for basics. There are many additional (and probably better) online resources as well.</p>
+<hr />
+<h2 id="miscellaneous-useful-midas-information">Useful Midas Information</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/">g-2 modified DAQ's midas information page</a> for some general midas tips. There is much more information available on TRIUMF's <a href="https://daq00.triumf.ca/MidasWiki/index.php/Main_Page">Midas Wiki</a> page.</p>
+<hr />
+<h2 id="miscellaneous-getting-access-to-the-pioneer-repository">Getting Access to the PIONEER repository</h2>
+<p>See the g-2 modified DAQ manual's <a href="https://jaca230.github.io/teststand_daq_manual/software_dependencies/#pioneer-experiment-repositories">accessing the pioneer repository section</a> and <a href="https://jaca230.github.io/teststand_daq_manual/software_dependencies/#setting-up-a-github-ssh-token-on-rhel79-systems">setting up a github ssh token section</a>.</p>
+<hr />
+<h2 id="miscellaneous-port-forwarding-an-ssh-connection">Port Forwarding an SSH Connection</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/miscellaneous_info/#port-forwarding-an-ssh-connection">g-2 modified DAQ's port forwarding an SSH connection section</a>.</p>
+<hr />
+<h2 id="miscellaneous-using-screens-in-linux">Using Screens in Linux</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/miscellaneous_info/#using-screens-in-linux">g-2 modified DAQ's using screens in linux page</a>.</p>
+<hr /></section></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>

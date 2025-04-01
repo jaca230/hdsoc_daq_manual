@@ -1,0 +1,761 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Software Overview - ATAR DAQ Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-sofware-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ATAR DAQ Manual" class="md-header__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATAR DAQ Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATAR DAQ Manual" class="md-nav__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATAR DAQ Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        Hardware Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Software Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Software Overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-dependency-diagram" class="md-nav__link">
+    Software Dependency Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-data-and-control-flow-diagram" class="md-nav__link">
+    Software Data and Control Flow Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atar_daq" class="md-nav__link">
+    ATAR_DAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAR_DAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+    <nav class="md-nav" aria-label="Running">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-a-midas-webpage" class="md-nav__link">
+    Starting a Midas Webpage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manually-starting-the-frontend" class="md-nav__link">
+    Manually Starting the Frontend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-frontend-as-a-screen" class="md-nav__link">
+    Starting the Frontend as a Screen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-frontend-as-midas-program" class="md-nav__link">
+    Starting the Frontend as Midas Program
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_dependencies/" class="md-nav__link">
+        Software Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_add_ons/" class="md-nav__link">
+        Software Add-ons
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odb_config/" class="md-nav__link">
+        ODB Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging Common Errors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-dependency-diagram" class="md-nav__link">
+    Software Dependency Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-data-and-control-flow-diagram" class="md-nav__link">
+    Software Data and Control Flow Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atar_daq" class="md-nav__link">
+    ATAR_DAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAR_DAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+    <nav class="md-nav" aria-label="Running">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-a-midas-webpage" class="md-nav__link">
+    Starting a Midas Webpage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manually-starting-the-frontend" class="md-nav__link">
+    Manually Starting the Frontend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-frontend-as-a-screen" class="md-nav__link">
+    Starting the Frontend as a Screen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-frontend-as-midas-program" class="md-nav__link">
+    Starting the Frontend as Midas Program
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="general-sofware-overview">General Sofware Overview</h1>
+<h2 id="software-dependency-diagram">Software Dependency Diagram</h2>
+<p><img alt="Software_Diagram" src="../images/software_dependency_diagram.png" style="max-width:100%; height:auto;" />
+<strong>Note:</strong> <a href="../images/software_dependency_diagram.svg">an SVG version of this diagram with links to each repository is avaiable here</a>.</p>
+<hr />
+<h2 id="software-data-and-control-flow-diagram">Software Data and Control Flow Diagram</h2>
+<p><img alt="Software_Diagram" src="../images/software_pipeline_diagram.png" style="max-width:100%; height:auto;" /></p>
+<ul>
+<li><strong>Ethernet Controller</strong>: The systems ethernet controller which sockets are formed on.</li>
+<li><strong>UDP Socket</strong>: Two sockets are constructed. One by <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a> to communicate with the board. And one by the UDP receiver to receive data.</li>
+<li><strong>Nalu Event Collector</strong>: A library to collect events from a UDP socket receiving events from a nalu scientific board<ul>
+<li><strong>UDP Buffer</strong>: Receives UDP packets and puts them in a buffer to be processed.</li>
+<li><strong>Event Buffer</strong>: Processes UDP packets into events and puts them in a buffer.</li>
+<li><strong>Event Collector Manager</strong>: Manages interfacing with the buffers. I.e. getting data, configuration, etc.</li>
+</ul>
+</li>
+<li><strong>Nalu Board Controller</strong>: C++ methods to configure the nalu scientific board to prepare for data taking.<ul>
+<li><strong>C++ pybind wrapper</strong>: C++ wrapper around some methods from the <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a>.</li>
+<li><strong>Board Controller Manager</strong>: Manages interfacing with the board from another C++ program.</li>
+</ul>
+</li>
+<li><strong>Midas Frontend</strong>: Handles run control, configuration via ODB, data bank creation, etc. Interfaces with the board controller and event collector.</li>
+<li><strong>Event Builder</strong>: Builds events from data banks provided by potentially multiple frontends. Not necessary if only using one frontend.</li>
+</ul>
+<hr />
+<h2 id="atar_daq">ATAR_DAQ</h2>
+<h3 id="overview">Overview</h3>
+<p>The ATAR DAQ software is a midas frontend that interfaces with several other softwares (see <a href="./">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
+<h3 id="installation">Installation</h3>
+<p>Make sure you have installed the <a href="../software_dependencies/#development-tools">development tools</a>, <a href="../software_dependencies/#python-packages">python packages</a>, and <a href="../software_dependencies/#midas">midas</a> before continuing. Furthmore, make sure you have <a href="../miscellaneous/#getting-access-to-the-pioneer-repository">set-up access to the pioneer experiment repository</a> first.</p>
+<p>1 <strong>Clone the repository:</strong></p>
+<pre><code>git clone git@github.com:PIONEER-Experiment/atar_daq.git
+</code></pre>
+<p>2 <strong>Set up the enviromment</strong></p>
+<pre><code>cd atar_daq/scripts/environment_setup
+./detect_environment.sh
+</code></pre>
+<p><code>environment_variables.txt</code> should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:</p>
+<pre><code>MIDASSYS=/home/pioneer/packages/midas
+MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
+MIDAS_EXPT_NAME=ATAR_DAQ
+ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
+</code></pre>
+<p>For more information on what the correct paths should look like, check <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables">TRIUMF's midas quickstart guide</a>.</p>
+<p>After verifying the paths are correct:</p>
+<pre><code>source ./setup_environment.sh --add
+</code></pre>
+<p><strong>Note</strong>: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:</p>
+<pre><code>echo 'source /path/to/.../atar_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
+</code></pre>
+<p>replacing the above with the correct path to the script.</p>
+<p>3 <strong>Installed additionally dependencies:</strong></p>
+<p>These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+</code></pre>
+<p>4 <strong>Build</strong></p>
+<pre><code>$ATAR_DAQ_DIR/scripts/build.sh --overwrite
+</code></pre>
+<h3 id="running">Running</h3>
+<h4 id="starting-a-midas-webpage">Starting a Midas Webpage</h4>
+<p>Midas provides a great user interface via their webpage. To start it, use the helper script:</p>
+<pre><code>$ATAR_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+</code></pre>
+<p>Then navigate to <code>localhost:8080</code> in your favorite web browser.</p>
+<p><strong>Note</strong>: For some reason, this script may need to be run twice sometimes for it to work properly.</p>
+<p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output</p>
+<h4 id="manually-starting-the-frontend">Manually Starting the Frontend</h4>
+<p>I recommend doing this the first time to make sure everything is working properly.</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/run.sh
+</code></pre>
+<h4 id="starting-the-frontend-as-a-screen">Starting the Frontend as a Screen</h4>
+<p>Use the screening helper script</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+</code></pre>
+<p><strong>Note</strong>: Exclusing <code>-i</code> flag will set the index to 0. This is the frontend index to support running multiple frontends.</p>
+<p>to stop the screen</p>
+<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+</code></pre>
+<h4 id="starting-the-frontend-as-midas-program">Starting the Frontend as Midas Program</h4>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts">g-2 modified DAQ Manual's guide for adding program startup scripts</a>. For the start command, use the screen command above.</p>
+<h3 id="configuration">Configuration</h3>
+<p>See the <a href="../odb_config/">ODB configuration page</a> for a description of each ODB setting.</p>
+<hr />
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../hardware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hardware Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Hardware Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../software_dependencies/" class="md-footer__link md-footer__link--next" aria-label="Next: Software Dependencies" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Software Dependencies
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>
