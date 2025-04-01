@@ -1,0 +1,2443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>ODB Configuration - ATAR DAQ Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#midas-online-data-base-configuration-parameters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ATAR DAQ Manual" class="md-header__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATAR DAQ Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ODB Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATAR DAQ Manual" class="md-nav__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATAR DAQ Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        Hardware Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        Software Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_dependencies/" class="md-nav__link">
+        Software Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_add_ons/" class="md-nav__link">
+        Software Add-ons
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ODB Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ODB Configuration
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#odb-basics" class="md-nav__link">
+    ODB Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atar-daq-specific-odb-configuration" class="md-nav__link">
+    ATAR DAQ specific ODB Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAR DAQ specific ODB Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nalu-event-collector" class="md-nav__link">
+    Nalu Event Collector
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Event Collector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolute-window-mask" class="md-nav__link">
+    Absolute Window Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-mask" class="md-nav__link">
+    Channel Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-shift" class="md-nav__link">
+    Channel Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-packet-integrity" class="md-nav__link">
+    Check Packet Integrity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructed-packet-footer" class="md-nav__link">
+    Constructed Packet Footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructed-packet-footer_1" class="md-nav__link">
+    Constructed Packet Footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-window-mask" class="md-nav__link">
+    Event Window Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-window-shift" class="md-nav__link">
+    Event Window Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-size" class="md-nav__link">
+    Packet Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-marker" class="md-nav__link">
+    Start marker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-marker" class="md-nav__link">
+    Stop marker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing-mask" class="md-nav__link">
+    Timing Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing-shift" class="md-nav__link">
+    Timing Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-buffer-size" class="md-nav__link">
+    UDP buffer size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-buffer-size_1" class="md-nav__link">
+    UDP buffer size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-timeout" class="md-nav__link">
+    UDP Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-header" class="md-nav__link">
+    Event Header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-trailer" class="md-nav__link">
+    Event Trailer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-event-in-the-event-buffer" class="md-nav__link">
+    Max Event in the Event Buffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-lookback" class="md-nav__link">
+    Max Lookback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-trigger-time" class="md-nav__link">
+    Max Trigger Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-threshold" class="md-nav__link">
+    Time Threshold
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nalu-board-controller" class="md-nav__link">
+    Nalu Board Controller
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Board Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-dac-value" class="md-nav__link">
+    Channel DAC Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-enabled" class="md-nav__link">
+    Channel Enabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-trigger-value" class="md-nav__link">
+    Channel Trigger Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-dac-values" class="md-nav__link">
+    Assign DAC Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-lookback" class="md-nav__link">
+    Digitization Lookback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-lookback-mode" class="md-nav__link">
+    Digitization Lookback Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-ip-port" class="md-nav__link">
+    Target IP Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-mode" class="md-nav__link">
+    Trigger Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-windows" class="md-nav__link">
+    Digitization Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-write-after-trigger" class="md-nav__link">
+    Digitization Write After Trigger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-ip" class="md-nav__link">
+    Board IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-clock-file" class="md-nav__link">
+    Board Clock File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-configuration-file" class="md-nav__link">
+    Board Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-ip" class="md-nav__link">
+    Host IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-model" class="md-nav__link">
+    Board Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#midas-parameters" class="md-nav__link">
+    Midas Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Midas Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#midas-atar-data-bank-prefix" class="md-nav__link">
+    Midas ATAR Data Bank Prefix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webpage-initializing-frontend-status-color" class="md-nav__link">
+    Webpage Initializing Frontend Status Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-level" class="md-nav__link">
+    Logging Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-bytes-to-trigger-on" class="md-nav__link">
+    Minimum Bytes to Trigger on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polling-interval-in-microseconds" class="md-nav__link">
+    Polling Interval in Microseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webpage-ready-status-color" class="md-nav__link">
+    Webpage Ready Status Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#midas-atar-timing-bank-prefix" class="md-nav__link">
+    Midas ATAR Timing Bank Prefix
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging Common Errors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#odb-basics" class="md-nav__link">
+    ODB Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atar-daq-specific-odb-configuration" class="md-nav__link">
+    ATAR DAQ specific ODB Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAR DAQ specific ODB Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nalu-event-collector" class="md-nav__link">
+    Nalu Event Collector
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Event Collector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolute-window-mask" class="md-nav__link">
+    Absolute Window Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-mask" class="md-nav__link">
+    Channel Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-shift" class="md-nav__link">
+    Channel Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-packet-integrity" class="md-nav__link">
+    Check Packet Integrity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructed-packet-footer" class="md-nav__link">
+    Constructed Packet Footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructed-packet-footer_1" class="md-nav__link">
+    Constructed Packet Footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-window-mask" class="md-nav__link">
+    Event Window Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-window-shift" class="md-nav__link">
+    Event Window Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-size" class="md-nav__link">
+    Packet Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-marker" class="md-nav__link">
+    Start marker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-marker" class="md-nav__link">
+    Stop marker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing-mask" class="md-nav__link">
+    Timing Mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing-shift" class="md-nav__link">
+    Timing Shift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-buffer-size" class="md-nav__link">
+    UDP buffer size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-buffer-size_1" class="md-nav__link">
+    UDP buffer size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-timeout" class="md-nav__link">
+    UDP Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-header" class="md-nav__link">
+    Event Header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-trailer" class="md-nav__link">
+    Event Trailer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-event-in-the-event-buffer" class="md-nav__link">
+    Max Event in the Event Buffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-lookback" class="md-nav__link">
+    Max Lookback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-trigger-time" class="md-nav__link">
+    Max Trigger Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-threshold" class="md-nav__link">
+    Time Threshold
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nalu-board-controller" class="md-nav__link">
+    Nalu Board Controller
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Board Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-dac-value" class="md-nav__link">
+    Channel DAC Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-enabled" class="md-nav__link">
+    Channel Enabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-trigger-value" class="md-nav__link">
+    Channel Trigger Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-dac-values" class="md-nav__link">
+    Assign DAC Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-lookback" class="md-nav__link">
+    Digitization Lookback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-lookback-mode" class="md-nav__link">
+    Digitization Lookback Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-ip-port" class="md-nav__link">
+    Target IP Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-mode" class="md-nav__link">
+    Trigger Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-windows" class="md-nav__link">
+    Digitization Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitization-write-after-trigger" class="md-nav__link">
+    Digitization Write After Trigger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-ip" class="md-nav__link">
+    Board IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-clock-file" class="md-nav__link">
+    Board Clock File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-configuration-file" class="md-nav__link">
+    Board Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-ip" class="md-nav__link">
+    Host IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-model" class="md-nav__link">
+    Board Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#midas-parameters" class="md-nav__link">
+    Midas Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Midas Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#midas-atar-data-bank-prefix" class="md-nav__link">
+    Midas ATAR Data Bank Prefix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webpage-initializing-frontend-status-color" class="md-nav__link">
+    Webpage Initializing Frontend Status Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-level" class="md-nav__link">
+    Logging Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-bytes-to-trigger-on" class="md-nav__link">
+    Minimum Bytes to Trigger on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polling-interval-in-microseconds" class="md-nav__link">
+    Polling Interval in Microseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webpage-ready-status-color" class="md-nav__link">
+    Webpage Ready Status Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#midas-atar-timing-bank-prefix" class="md-nav__link">
+    Midas ATAR Timing Bank Prefix
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="midas-online-data-base-configuration-parameters">Midas' Online Data Base Configuration Parameters</h1>
+<h2 id="odb-basics">ODB Basics</h2>
+<p>See the <a href="https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics">g-2 modified DAQ's ODB Basics section</a> for some general midas ODB settings.</p>
+<h2 id="atar-daq-specific-odb-configuration">ATAR DAQ specific ODB Configuration</h2>
+<h3 id="nalu-event-collector">Nalu Event Collector</h3>
+<h4 id="absolute-window-mask">Absolute Window Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/abs_wind_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the absolute window position bits</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="channel-mask">Channel Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/chan_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the channel index bits</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="channel-shift">Channel Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/chan_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift in channel indices</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="check-packet-integrity">Check Packet Integrity</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/check_packet_integrity</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether or not each recieved UDP packet should be checked to see if it matches the expected format</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>yes</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: You can get slight performance improvement by setting this to <code>no</code>. However, the performance with it set to <code>yes</code> should be good enough to handle any data rate the HDSoC can achieve.</p>
+<h4 id="constructed-packet-footer">Constructed Packet Footer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/constructed_packet_footer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Footer bytes for packets constructed. Potentially useful to consumer programs looking for a specific byte sequence.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 4 byte unsigned integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>65535</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="constructed-packet-footer_1">Constructed Packet Footer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/constructed_packet_header</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header bytes for packets constructed. Potentially useful to consumer programs looking for a specific byte sequence.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 4 byte unsigned integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>43690</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-window-mask">Event Window Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/evt_wind_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on the event window position</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any bit mask (ex. 63 = <code>0x3F</code> = `0011 1111)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>63</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-window-shift">Event Window Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/evt_wind_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift on event window values</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>6</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="packet-size">Packet Size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/packet_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>How big one "packet" of channel information is</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>74</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="start-marker">Start marker</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/start_marker</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Start marker a packet of channel information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>0E</td>
+</tr>
+</tbody>
+</table>
+<h4 id="stop-marker">Stop marker</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/stop_marker</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Stop marker a packet of channel information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>FA5A</td>
+</tr>
+</tbody>
+</table>
+<h4 id="timing-mask">Timing Mask</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/timing_mask</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Bit mask on timing information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any string representation of hexidecimal</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4095</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="timing-shift">Timing Shift</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_packet_parser/timing_shift</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Global shift in timing information</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>12</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="udp-buffer-size">UDP buffer size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/buffer_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Number of bytes in the UDP buffer before it throws an overflow error</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>104857600</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="udp-buffer-size_1">UDP buffer size</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/max_packet_size</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Max number of bytes in a UDP packet that the UDP receiver will consider</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1040</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="udp-timeout">UDP Timeout</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_udp_receiver/timeout_sec</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Number of seconds the UDP thread will wait before quitting due to timeout</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>3</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-header">Event Header</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_header</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header for each constructed event. Potentially userful for consumer programs looking for specific byte sequences.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative 4 byte integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>48059</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-trailer">Event Trailer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_trailer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Header for each constructed event. Potentially userful for consumer programs looking for specific byte sequences.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative 4 byte integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>61166</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="max-event-in-the-event-buffer">Max Event in the Event Buffer</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_events_in_buffer</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Maximum number of events in the buffer. Should be set to a within the total RAM constraints of your system.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>50000</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="max-lookback">Max Lookback</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_lookback</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Maximum number of events the event builder will retroactively look back at to try to find a match for a packet.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Look backs only occur "shortly" after new events begin just in case packets are received out of order. See <a href="https://github.com/jaca230/nalu_event_collector/blob/main/src/nalu_event_builder.cpp">this file</a> if you're curious.</p>
+<h4 id="max-trigger-time">Max Trigger Time</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/max_trigger_time</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The maximum number of clock ticks the board will report before restarting at 0.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>16777216</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="time-threshold">Time Threshold</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/time_threshold</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The maximum number of clock ticks two packets can be seperated by and still be considered part of the same event</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>500</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> If this is set too high or too low, events will stop forming and the frontend will crash. For most use cases, <code>500</code> is fine. For the HDSoC `there are about 23843000 clock ticks a second.</p>
+<h3 id="nalu-board-controller">Nalu Board Controller</h3>
+<h4 id="channel-dac-value">Channel DAC Value</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/dac_value</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The digital analog converter value for the channel</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="channel-enabled">Channel Enabled</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/enabled</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether that channel is enabled for readout</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>yes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="channel-trigger-value">Channel Trigger Value</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/channels/{channel_index}/trigger_value</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The threshold used for the internal or self triggering mode</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="assign-dac-values">Assign DAC Values</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/assign_dac_values</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Whether the DAQ values are assigned and used by the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>no</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="digitization-lookback">Digitization Lookback</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/lookback</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to "look back" after digitizing "write after trigger" more windows.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the lookback parameter</p>
+<h4 id="digitization-lookback-mode">Digitization Lookback Mode</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/lookback_mode</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to "look back" after digitizing "write after trigger" more windows.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>forced</code>, <code>trig</code> or empty (empty defaults to <code>trig</code>)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 17 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the lookback mode parameter</p>
+<h4 id="target-ip-port">Target IP Port</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/target_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) that the board will send data to over 1GbE</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any valid IP with port</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.1:12345</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="trigger-mode">Trigger Mode</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/trigger_mode</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>What trigger mode (external, self, or immediate) to use. External is from an external signal, self is based on a threshold for the channel, and immediate is automatic triggers as fast as possible.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>ext</code>, <code>self</code>, or <code>imm</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>ext</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="digitization-windows">Digitization Windows</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/windows</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) that will be digitized</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the windows parameter</p>
+<h4 id="digitization-write-after-trigger">Digitization Write After Trigger</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/write_after_trig</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The number of windows (32 samples) to continue to digitize following the trigger event</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any positive integer between <code>1</code> and <code>62</code> (for the HDSoC)</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: See page 18 of the <a href="../pdfs/NaluScope_manual.pdf">NaluScope manual</a> for a better explanation of the write after trig parameter</p>
+<h4 id="board-ip">Board IP</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/board_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) of the board.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid IP and port</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.59:4660</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> For the HDSoC, this is currently hardcoded to <code>192.168.1.59:4660</code>. I.e. you cannot change this.</p>
+<h4 id="board-clock-file">Board Clock File</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/clock_file</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Path to a clock file for the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid path or empty string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<h4 id="board-configuration-file">Board Configuration File</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/config_file</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Path to a configuration file for the board</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid path or empty string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<h4 id="host-ip">Host IP</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/host_ip_port</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The IP address (with port) of the host. For communication with the board (not data).</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid IP</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>192.168.1.1:4660</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="board-model">Board Model</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_board/board</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The name of the board model used</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any valid board model, select from AARDVARCv3, HDSOCv1_evalr2, ASOCv3, AODSv2, TRBHM, AODSOC_AODS, AODSOC_ASOC, or UPAC32. However, only HDSOCv1_evalr2, ASOCv3, and TRBHM support UDP transfer.</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>HDSOCv1_evalr2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="midas-parameters">Midas Parameters</h3>
+<h4 id="midas-atar-data-bank-prefix">Midas ATAR Data Bank Prefix</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/data_bank_prefix</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The 2 letter prefix for midas data bank containing event data</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 2 letter string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>AD</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the data will be in <code>AD00</code> for example.</p>
+<h4 id="webpage-initializing-frontend-status-color">Webpage Initializing Frontend Status Color</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/init_color</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The color the frontend status light will be while the frontend is initializing</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 3 byte hex RGB value</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>#8A2BE2</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="logging-level">Logging Level</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/log_level</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The log level for information printed by the frontend software</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td><code>debug, info, warn, error</code></td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>debug</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> <code>debug</code> will show all output, <code>info</code> will show most ouput, <code>warn</code> will only show warnings and errors, <code>error</code> will only show errors.</p>
+<h4 id="minimum-bytes-to-trigger-on">Minimum Bytes to Trigger on</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/min_bytes_to_trigger_on</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The minimum bytes needed to be present in the UDP buffer before the midas thread will trigger collection</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Higher values may see some performance gain, at the cost of events coming in batches</p>
+<h4 id="polling-interval-in-microseconds">Polling Interval in Microseconds</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/polling_interval_us</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The minimum number of microseconds between two consecutive triggers</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>any non-negative integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Higher values may see some performance gain, at the cost of events coming in batches</p>
+<h4 id="webpage-ready-status-color">Webpage Ready Status Color</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/ready_color</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The color the frontend status light will be while the frontend is ready</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 3 byte hex RGB value</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>greenLight</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="midas-atar-timing-bank-prefix">Midas ATAR Timing Bank Prefix</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/midas_params/timing_bank_prefix</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The 2 letter prefix for midas data bank containing event data</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any 2 letter string</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>AD</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the timing information will be in <code>AT00</code> for example.</p>
+<hr />
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../software_add_ons/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Add-ons" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Software Add-ons
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../scripts/" class="md-footer__link md-footer__link--next" aria-label="Next: Scripts" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Scripts
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>

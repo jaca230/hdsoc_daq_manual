@@ -1,0 +1,9 @@
+.md-container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+code.hljs {            
+    display: block;      
+    white-space: pre-wrap
+}

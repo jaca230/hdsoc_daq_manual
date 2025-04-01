@@ -121,7 +121,6 @@
 | Description        | Starts a specified script inside a `screen` session, optionally passing an index value. |
 | Flags              | `-i` → Index for the session name (defaults to 0).             |
 | Example Usage      | `bash screen_frontend.sh -i 1` <br> Starts the script `run.sh` inside a `screen` session with index 1. |
-| Dependencies       | `screen` (for managing screen sessions).                        |
 
 
 ### stop_screen.sh
@@ -132,7 +131,6 @@
 | Description        | Stops a running `screen` session specified by the index.       |
 | Flags              | `-i` → Index for the session name (defaults to 0).             |
 | Example Usage      | `bash stop_screen.sh -i 1` <br> Stops the `screen` session with index 1. |
-| Dependencies       | `screen` (for managing screen sessions).                        |
 
 ---
 
@@ -146,7 +144,6 @@
 | Description        | Starts processes in the background, each inside a `screen` session, using process names from a `screen_names.txt` file. |
 | Flags              | None.                                                           |
 | Example Usage      | `bash start_midas_webpage.sh` <br> Starts all processes defined in `screen_names.txt`. |
-| Dependencies       | `screen` (for managing screen sessions), `MIDASSYS` environment variable must be defined. |
 
 
 ### stop_midas_webpage.sh
@@ -157,7 +154,6 @@
 | Description        | Stops processes running in `screen` sessions based on names listed in `screen_names.txt`. |
 | Flags              | None.                                                           |
 | Example Usage      | `bash stop_midas_webpage.sh` <br> Stops all processes defined in `screen_names.txt`. |
-| Dependencies       | `screen` (for managing screen sessions), `MIDASSYS` environment variable must be defined. |
 
 ---
 

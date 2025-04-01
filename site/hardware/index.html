@@ -1,0 +1,1034 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Hardware Overview - ATAR DAQ Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ATAR DAQ Manual" class="md-header__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATAR DAQ Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATAR DAQ Manual" class="md-nav__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATAR DAQ Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hardware Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hardware Overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-hardware-overview" class="md-nav__link">
+    General Hardware Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="General Hardware Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-diagram" class="md-nav__link">
+    Conceptual Diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labled-picture" class="md-nav__link">
+    Labled Picture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1gbe-nic-gigabit-ethernet-network-interface-card" class="md-nav__link">
+    1GbE NIC (Gigabit Ethernet Network Interface Card)
+  </a>
+  
+    <nav class="md-nav" aria-label="1GbE NIC (Gigabit Ethernet Network Interface Card)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nexys-a7-video-card" class="md-nav__link">
+    Nexys A7 Video Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Nexys A7 Video Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fmcs" class="md-nav__link">
+    FMCs
+  </a>
+  
+    <nav class="md-nav" aria-label="FMCs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdsoc" class="md-nav__link">
+    HDSoC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-connections" class="md-nav__link">
+    Wired Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Wired Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usb-a-to-microusb" class="md-nav__link">
+    USB A to microUSB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1gbe-connection" class="md-nav__link">
+    1GbE Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-the-firmware" class="md-nav__link">
+    Downloading the firmware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloading-vivado" class="md-nav__link">
+    Downloading Vivado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploading-firmware" class="md-nav__link">
+    Uploading Firmware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdsocv1-rev-2" class="md-nav__link">
+    HDSoCv1 rev 2
+  </a>
+  
+    <nav class="md-nav" aria-label="HDSoCv1 rev 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-connections_1" class="md-nav__link">
+    Wired Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Wired Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mmcx-connector" class="md-nav__link">
+    MMCX connector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_2" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        Software Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_dependencies/" class="md-nav__link">
+        Software Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_add_ons/" class="md-nav__link">
+        Software Add-ons
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odb_config/" class="md-nav__link">
+        ODB Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging Common Errors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-hardware-overview" class="md-nav__link">
+    General Hardware Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="General Hardware Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-diagram" class="md-nav__link">
+    Conceptual Diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labled-picture" class="md-nav__link">
+    Labled Picture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1gbe-nic-gigabit-ethernet-network-interface-card" class="md-nav__link">
+    1GbE NIC (Gigabit Ethernet Network Interface Card)
+  </a>
+  
+    <nav class="md-nav" aria-label="1GbE NIC (Gigabit Ethernet Network Interface Card)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nexys-a7-video-card" class="md-nav__link">
+    Nexys A7 Video Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Nexys A7 Video Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fmcs" class="md-nav__link">
+    FMCs
+  </a>
+  
+    <nav class="md-nav" aria-label="FMCs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdsoc" class="md-nav__link">
+    HDSoC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-connections" class="md-nav__link">
+    Wired Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Wired Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usb-a-to-microusb" class="md-nav__link">
+    USB A to microUSB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1gbe-connection" class="md-nav__link">
+    1GbE Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-the-firmware" class="md-nav__link">
+    Downloading the firmware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloading-vivado" class="md-nav__link">
+    Downloading Vivado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploading-firmware" class="md-nav__link">
+    Uploading Firmware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdsocv1-rev-2" class="md-nav__link">
+    HDSoCv1 rev 2
+  </a>
+  
+    <nav class="md-nav" aria-label="HDSoCv1 rev 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-connections_1" class="md-nav__link">
+    Wired Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Wired Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mmcx-connector" class="md-nav__link">
+    MMCX connector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_2" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="hardware">Hardware</h1>
+<h2 id="general-hardware-overview">General Hardware Overview</h2>
+<h3 id="conceptual-diagram">Conceptual Diagram</h3>
+<p><img alt="DAQ_Diagram" src="../images/DAQ_Diagram.png" style="max-width:100%; height:auto;" /></p>
+<ul>
+<li><strong>Trigger Signal</strong>: An external signal to tell the board when to digitize the input waveforms. Should be LVCMOS25 (0-2.5V) with width 10-100 ns.</li>
+<li><strong>Waveforms</strong>: Analog signal to be digitized. Should be LVCMOS25 (0-2.5V). Max width is 1984 nanoseconds by default, but this depends on the sampling rate (default 1Gsps).</li>
+<li><strong>HDSoC</strong>: Digitization board that handles inputs across multiple channels. Can be set to trigger on external or internal (self) signals.</li>
+<li><strong>Nexys Video Artix-7 FPGA</strong>: Acts as a parent board to the HDSoC. Handles 1GbE communication and firmware storage among other things.</li>
+<li><strong>Desktop</strong>: Receives and processes events that are effectively streamed from the digitization system.</li>
+</ul>
+<h3 id="labled-picture">Labled Picture</h3>
+<p><img alt="DAQ_Diagram" src="../images/DAQ_image_labled.png" style="max-width:100%; height:auto;" /></p>
+<hr />
+<h2 id="1gbe-nic-gigabit-ethernet-network-interface-card">1GbE NIC (Gigabit Ethernet Network Interface Card)</h2>
+<h3 id="overview">Overview</h3>
+<p>These NICs are generally PCIe Cards that are "plug and play". They provide a 1 gigabit per second ethernet connection for the host computer.</p>
+<h3 id="configuration">Configuration</h3>
+<p>If you machine has a GUI, you may find it easier to edit network settings that way. Otherwise, you can edit settings from command line. For example for UKY's teststand we use:</p>
+<pre><code>nmcli connection modify enp3s0 \
+    ipv4.addresses 192.168.1.1/24 \
+    ipv4.method manual \
+    connection.autoconnect yes \
+    ipv6.method ignore
+</code></pre>
+<p>You may need to create a connection configuration file first if it doesn't exist. For example for UKY's teststand we use:</p>
+<pre><code>nmcli connection add type ethernet con-name enp3s0 ifname enp3s0
+</code></pre>
+<p>In particular, the <code>ipv4.addresses</code> is important. Here the port is specified to accept any traffic on the 192.168.1.xxx subnet. See the <a href="../miscellaneous/#networking-tutorial">networking page</a> for more details.</p>
+<hr />
+<h2 id="nexys-a7-video-card">Nexys A7 Video Card</h2>
+<h3 id="overview_1">Overview</h3>
+<p>The Nexys A7 is a versatile and high-performance FPGA development board from Digilent, featuring the Xilinx Artix-7 FPGA. It is like the "mother board" for the HDSoC. For this use case it will provide power, an interface to update firmware, and an interface for data transfer. You can read more about this board on <a href="https://digilent.com/shop/nexys-video-artix-7-fpga-trainer-board-for-multimedia-applications/?srsltid=AfmBOordpqUnzjcLV98y-AH6sYCWQ9arHT61rksyZw5j6ej5Duj9RDYr">diligent's Nexys Video Artix-7 FPGA page</a>. </p>
+<h3 id="fmcs">FMCs</h3>
+<h4 id="hdsoc">HDSoC</h4>
+<p>The HDSoC (or other nalu board) connects to the FPGA board via an FMC connector. See <a href="./#hdsocv1-rev-2">HDSoCv1 rev 2</a> for more info.</p>
+<h3 id="wired-connections">Wired Connections</h3>
+<h4 id="usb-a-to-microusb">USB A to microUSB</h4>
+<p>A USB A to microUSB can be used for UART communication. This can be used for data transfer via UART (very slow, limited to ~100 KB/s) and uploading firmware to the board. See the <a href="./#labled-picture">hardware diagram</a> for port locations.</p>
+<h4 id="1gbe-connection">1GbE Connection</h4>
+<p>Connect an ethernet cable between the board and a host desktop computer. Most modern ethernet cables should work. See the <a href="./#labled-picture">hardware diagram</a> for port locations.</p>
+<h3 id="configuration_1">Configuration</h3>
+<p>To congfigure the board, the appropriate firmware must be uploaded to it. This can be retrieved from <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">nalu scientific's board downloads page</a>. There are several options, the easiest two are:</p>
+<ol>
+<li>Use microSD card with loaded firmware (see <a href="../pdfs/HDSoC_quick_start.pdf">HDSoC quickstart guide</a>)</li>
+<li>Upload the firmware via Vivado</li>
+</ol>
+<p>Steps to complete step 2 are below.</p>
+<h4 id="downloading-the-firmware">Downloading the firmware</h4>
+<p>Navigate to <a href="https://support.naluscientific.com/faq/">Nalu Scientific's support website</a>. Go to the page for the <a href="(https://support.naluscientific.com/boards/hdsocv1-evalr2/)">HDSoCv1-evalr2</a> (or appropriate board). Download the most recent firmware version. This DAQ has been tested with firmware version 938. The file should be something like <code>HDSoC_eval_v938.bit</code>.</p>
+<h4 id="downloading-vivado">Downloading Vivado</h4>
+<p><strong>Note:</strong> Vivado may take a <em>long</em> time to install because it is a very large program. This step could take serveral hours. A full Vivado installation can be around 200 GB. Below is a "minimal" installation that is ~50GB</p>
+<p>The easiest way to upload firmware to the board is via Vivado. Download the most recent version of Vivado for your system from <a href="https://www.xilinx.com/support/download.html">Xilinx's download page</a>. You will need to make an account with AMD to install. This is easiest on a machine with a GUI. For a simple install follow these steps:</p>
+<ol>
+<li>Run installer. On linux run the bin file with <code>/path/to/.../installer.bin</code>.</li>
+<li>On the welcome page, hit  next</li>
+<li>Enter credentials, download and install now, hit next</li>
+<li>Under products to install select Vivado, hit next</li>
+<li>For customizing the installation.<ol>
+<li>Under "Design Tools" select only "Vivado Design Suite"</li>
+<li>Under "Devices" select only "Production Devices"&gt;"7 Series"</li>
+<li>Under "Installation Options", make sure you have "Install Cable Drivers" selected. Hit next.</li>
+</ol>
+</li>
+<li>Agree to License agreements, hit next.</li>
+<li>Select which directory to install to. Hit next. Begin installation.</li>
+</ol>
+<h4 id="uploading-firmware">Uploading Firmware</h4>
+<p>Once Vivado is installed run it. On linux you may need to source the settings file with <code>source /path/to/.../Xilinx/Vivado/202x.x/settings64.sh</code>, then you can run the command <code>vivado</code> to launch vivado. </p>
+<p>A new project needs to be created. This can be a "dummy" project since we're just uploading firmware. <a href="https://www.realdigital.org/doc/4ddc6ee53d1a2d71b25eaccc29cdec4b">Step 1 of this guide</a> gives all the details needed to creatae new project.</p>
+<p>To load firmware onto the Nexys A7 using Vivado, plug the USB A to microUSB connection into the program port of the Nexys A7 board. See the <a href="./#labled-picture">hardware diagram</a> for port locations. Follow these steps to upload firmware such that it persists when the board reboots:</p>
+<ol>
+<li><strong>Open Vivado Hardware Manager and Connect to the Board</strong></li>
+<li>Open Vivado and go to <strong>Tools</strong> &gt; <strong>Hardware Manager</strong>. <strong>Hardware Manager</strong> should also be visible on the left sidebar of the project page.</li>
+<li>
+<p>In the <strong>Hardware Manager</strong> window, click <strong>Open Target</strong> and select <strong>Auto Connect</strong> or choose the appropriate JTAG or USB connection to connect to your board.
+   If the board is connected properly, Vivado should automatically detect it.</p>
+</li>
+<li>
+<p><strong>Convert the Bitstream to a Binary File</strong>
+   To program the flash, you need to convert the bitstream to a binary file. Nalu provides a <code>.bit</code> files, but we can convert the <code>.bit</code> file into a <code>.bin</code> file. Here’s how you can do it:</p>
+</li>
+<li>
+<p>After the bitstream is generated, open a the TCL Console (<strong>Window</strong>&gt;<strong>Tcl Console</strong>) and use the following command to generate the <code>.bin</code> file from the <code>.bit</code> file:</p>
+<p><code>bash
+ write_flash -force -file /path/to/output/firmware.bin -bitstream /path/to/input/firmware.bit</code></p>
+<p>Replace the paths with the appropriate file locations for your system.</p>
+<p>Example:</p>
+<p><code>bash
+ write_flash -force -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin -bitstream /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit</code></p>
+</li>
+<li>
+<p><strong>Add Configuration Memory Device</strong>
+   Once the <code>.bin</code> file is ready, go back to the <strong>Hardware Manager</strong> in Vivado and:</p>
+</li>
+<li>
+<p>Right-click on your connected device in the <strong>Devices</strong> pane (in the Hardware Manager).</p>
+</li>
+<li>Click <strong>Add Configuration Memory Device</strong>.</li>
+<li>In the dialog box, select the appropriate part for your flash device. For the Nexys A7, the part number will likely be something like <strong>S25FL256Sxxxxxx0-SPI-x1_x2_x4</strong>.</li>
+<li>
+<p>Click <strong>OK</strong> to confirm.</p>
+</li>
+<li>
+<p><strong>Program the Flash Memory</strong>
+   After selecting the configuration memory device:</p>
+</li>
+<li>
+<p>Vivado will prompt you to <strong>program the flash memory</strong>.</p>
+</li>
+<li>Select the <strong>firmware <code>.bin</code> file</strong> you generated earlier.</li>
+<li>
+<p>Click <strong>Program</strong> to start the flashing process.
+   The process will take some time depending on the size of your firmware file and the connection speed.</p>
+</li>
+<li>
+<p><strong>Power Cycle the Device</strong>
+   After programming is complete, power down the device and power it back on. Once powered on, you should see indicators (such as green lights on the HDSoC board) signaling that the firmware has been loaded successfully.</p>
+</li>
+</ol>
+<hr />
+<h2 id="hdsocv1-rev-2">HDSoCv1 rev 2</h2>
+<h3 id="overview_2">Overview</h3>
+<p>The HDSoC is a high density digitizer system on a chip evaluation board. It provides a flexible digitization system. The high density part makes it appealing to for use in the ATAR DAQ, as the ATAR will have thousands of channels. You can read more in the <a href="../pdfs/HDSoC_product_sheet.pdf">HDSoC product sheet</a> or on <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">Nalu Scientific's HDSoC page</a>.</p>
+<h3 id="wired-connections_1">Wired Connections</h3>
+<h4 id="mmcx-connector">MMCX connector</h4>
+<p>The HDSoC's inputs (channel inputs and external trigger) and outputs (external trigger output) use a MMCX connectors. See the <a href="./#labled-picture">labeled picture</a> and <a href="./#conceptual-diagram">conceptual diagram</a> to see where these inputs are on the board.</p>
+<h3 id="configuration_2">Configuration</h3>
+<p>See the <a href="../pdfs/HDSoC_quick_start.pdf">HDSoC quickstart guide</a>. You don't need to worry about using the SD card to boot the firmware if you've already uploaded it.</p>
+<hr />
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../software/" class="md-footer__link md-footer__link--next" aria-label="Next: Software Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Software Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>

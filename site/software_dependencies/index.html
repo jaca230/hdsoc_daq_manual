@@ -1,0 +1,1086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Software Dependencies - ATAR DAQ Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-dependencies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ATAR DAQ Manual" class="md-header__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATAR DAQ Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software Dependencies
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATAR DAQ Manual" class="md-nav__button md-logo" aria-label="ATAR DAQ Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATAR DAQ Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        Hardware Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        Software Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Software Dependencies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Software Dependencies
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pioneer-repository" class="md-nav__link">
+    PIONEER Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-tools" class="md-nav__link">
+    Development Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_1" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root" class="md-nav__link">
+    ROOT
+  </a>
+  
+    <nav class="md-nav" aria-label="ROOT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_2" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-yum-package-manager" class="md-nav__link">
+    Using yum Package Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    Building from source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#midas" class="md-nav__link">
+    Midas
+  </a>
+  
+    <nav class="md-nav" aria-label="Midas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_3" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nalu-board-controller" class="md-nav__link">
+    Nalu Board Controller
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Board Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_4" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nalu-event-collector" class="md-nav__link">
+    Nalu Event Collector
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Event Collector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_5" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_5" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflect-cpp" class="md-nav__link">
+    reflect-cpp
+  </a>
+  
+    <nav class="md-nav" aria-label="reflect-cpp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_6" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_6" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_add_ons/" class="md-nav__link">
+        Software Add-ons
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odb_config/" class="md-nav__link">
+        ODB Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging Common Errors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pioneer-repository" class="md-nav__link">
+    PIONEER Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-tools" class="md-nav__link">
+    Development Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_1" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root" class="md-nav__link">
+    ROOT
+  </a>
+  
+    <nav class="md-nav" aria-label="ROOT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_2" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-yum-package-manager" class="md-nav__link">
+    Using yum Package Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    Building from source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#midas" class="md-nav__link">
+    Midas
+  </a>
+  
+    <nav class="md-nav" aria-label="Midas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_3" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nalu-board-controller" class="md-nav__link">
+    Nalu Board Controller
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Board Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_4" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nalu-event-collector" class="md-nav__link">
+    Nalu Event Collector
+  </a>
+  
+    <nav class="md-nav" aria-label="Nalu Event Collector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_5" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_5" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflect-cpp" class="md-nav__link">
+    reflect-cpp
+  </a>
+  
+    <nav class="md-nav" aria-label="reflect-cpp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_6" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guide_6" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="software-dependencies">Software Dependencies</h1>
+<h2 id="pioneer-repository">PIONEER Repository</h2>
+<p>Some installations are on the PIONEER repository, which requires access to pull from. See <a href="../miscellaneous/#getting-access-to-the-pioneer-repository">how to get access</a>.</p>
+<hr />
+<h2 id="development-tools">Development Tools</h2>
+<h3 id="overview">Overview</h3>
+<p>These tools include compilers, libraries, and other utilities that facilitate software development and installation.</p>
+<h3 id="installation-guide">Installation Guide</h3>
+<p>This guide should work for ALMA9. You can use <code>dnf</code> for ALMA9, but I prefer to work with <code>yum</code></p>
+<p>1 <strong>Install yum package manager</strong></p>
+<pre><code>sudo dnf install yum
+</code></pre>
+<p>2 <strong>Update the package index</strong>:</p>
+<pre><code>sudo yum update
+</code></pre>
+<p>3 <strong>Enable the EPEL repository</strong>:</p>
+<pre><code>sudo yum install epel-release
+</code></pre>
+<p>4 <strong>Install Development Tools and Dependencies</strong>:</p>
+<pre><code>sudo yum groupinstall &quot;Development Tools&quot;
+sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel
+</code></pre>
+<p>5 <strong>Install Python3</strong></p>
+<pre><code>sudo yum install python3-devel
+</code></pre>
+<p>6 <strong>Install CMake from Source</strong>  </p>
+<p>If the installed CMake version is <strong>not</strong> <code>&gt;=3.23</code>, (you can check with <code>cmake --version</code>) follow these steps to install CMake manually:</p>
+<p>6.1. <strong>Remove Old CMake (If Installed)</strong></p>
+<pre><code>sudo yum remove -y cmake
+</code></pre>
+<p>Verify removal:</p>
+<pre><code class="language-bash">cmake --version  # Should return &quot;command not found&quot;
+</code></pre>
+<p>6.2. <strong>Install Required Dependencies</strong></p>
+<pre><code>sudo yum groupinstall -y &quot;Development Tools&quot;
+sudo yum install -y gcc gcc-c++ make openssl-devel
+</code></pre>
+<p>6.3. <strong>Download and Install the Latest CMake from Source</strong></p>
+<ol>
+<li>
+<p><strong>Download the latest version</strong> (Check <a href="https://cmake.org/download/">Kitware's website</a> for the latest version):
+   <code>wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz</code></p>
+</li>
+<li>
+<p><strong>Extract the archive</strong>:
+   <code>tar -xvzf cmake-3.29.0.tar.gz
+   cd cmake-3.29.0</code></p>
+</li>
+<li>
+<p><strong>Build and install</strong>:
+   <code>./bootstrap
+   make -j$(nproc)
+   sudo make install</code></p>
+</li>
+<li>
+<p><strong>Verify the New Installation</strong>:
+   <code>cmake --version</code></p>
+</li>
+</ol>
+<hr />
+<h2 id="python-packages">Python Packages</h2>
+<h3 id="overview_1">Overview</h3>
+<p>Although this DAQ is written mostly in C++, it interfaces with with Nalu Scientific's "naludaq" package, which is a python module used for interfacing with the board. However, our use case requires C++. To avoid rewriting all of Nalu Scientific's methods in C++, pybind is used to wrap some C++ methods around existing naludaq python methods.</p>
+<h3 id="installation-guide_1">Installation Guide</h3>
+<p>Install any needed packages with pip. Two that are needed are:</p>
+<pre><code>pip install pybind11 naludaq
+</code></pre>
+<hr />
+<h2 id="root">ROOT</h2>
+<h3 id="overview_2">Overview</h3>
+<p><a href="https://root.cern.ch/">ROOT</a> is an open-source data analysis framework developed by CERN. It is widely used in high-energy physics for data processing, statistical analysis, visualization, and storage. It is needed for some features of Midas.</p>
+<h3 id="installation-guide_2">Installation Guide</h3>
+<p>General installaiton guides are provided by ROOT at their <a href="https://root.cern/install/">Installing ROOT</a> and <a href="https://root.cern/install/build_from_source/">Building ROOT from source</a> pages.</p>
+<h4 id="using-yum-package-manager">Using <code>yum</code> Package Manager</h4>
+<p>1 <strong>Enable the EPEL repository</strong>:</p>
+<pre><code>sudo yum install epel-release
+</code></pre>
+<p>2 <strong>Download and Install ROOT</strong>:</p>
+<pre><code>sudo yum install root
+</code></pre>
+<h4 id="building-from-source">Building from source</h4>
+<p>1 <strong>Example building latest stable branch from source</strong></p>
+<pre><code>git clone --branch latest-stable --depth=1 https://github.com/root-project/root.git root_src
+mkdir root_build root_install &amp;&amp; cd root_build
+cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src # &amp;&amp; check cmake configuration output for warnings or errors
+cmake --build . -- install -j4 # if you have 4 cores available for compilation
+source ../root_install/bin/thisroot.sh # or thisroot.{fish,csh}
+</code></pre>
+<p><strong>Note</strong>: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the <a href="https://root.cern.ch/">official ROOT website</a>. Furthermore, if you are not building from source you are installing precompiled binaries, which may not be up to date versions of ROOT. For specific versions, you may need to build root from source.</p>
+<hr />
+<h2 id="midas">Midas</h2>
+<h3 id="overview_3">Overview</h3>
+<p><a href="https://daq00.triumf.ca/MidasWiki/index.php/Main_Page">Midas</a> is a data acquisition system used in high-energy physics experiments.
+Midas provides the following functionalities:</p>
+<ul>
+<li>Run control</li>
+<li>Experiment configuration</li>
+<li>Data readout</li>
+<li>Event building</li>
+<li>Data storage</li>
+<li>Slow control</li>
+<li>Alarm systems</li>
+<li>... much more ...</li>
+</ul>
+<h3 id="installation-guide_3">Installation Guide</h3>
+<p>For a general Midas installation, you can follow this <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux">Linux Quick Start Guide</a>. For the g-2 modified DAQ, we use a custom version of midas, which can be cloned and installed as follows:</p>
+<p>1 <strong>Set experiment name environment variable</strong></p>
+<pre><code>export MIDAS_EXPT_NAME=DAQ
+</code></pre>
+<p>2 <strong>Create exptab file</strong></p>
+<pre><code>mkdir online
+cd online
+touch exptab
+echo &quot;$MIDAS_EXPT_NAME $(pwd) system&quot; &gt;&gt; exptab
+export MIDAS_EXPTAB=$(pwd)/exptab   
+</code></pre>
+<p>3 <strong>Install Midas</strong></p>
+<pre><code>cd ..
+mkdir packages
+git clone --recursive git@github.com:PIONEER-Experiment/midas-modified.git midas
+cd midas
+mkdir build
+cd build
+cmake ..
+make -j$(nproc) install
+cd ..
+</code></pre>
+<p>4 <strong>Set <code>MIDASSYS</code> environment variable and add to path</strong></p>
+<pre><code>export MIDASSYS=$(pwd)
+export PATH=$PATH:$MIDASSYS/bin
+</code></pre>
+<p><strong>Note</strong>: you can hardcode the environment variables <code>MIDASSYS</code> (and add to path), <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code> by adding the appropriate commands to your .bashrc file. This way, the environment variables are set with each new terminal session for that user.</p>
+<p>5 <strong>(Optional) it is recommended to also install the midas python package</strong>:</p>
+<pre><code>pip install -e $MIDASSYS/python --user
+</code></pre>
+<hr />
+<h2 id="nalu-board-controller">Nalu Board Controller</h2>
+<h3 id="overview_4">Overview</h3>
+<p>The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the <a href="https://github.com/jaca230/nalu_board_controller">github page for this library</a>.</p>
+<h3 id="installation-guide_4">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
+<hr />
+<h2 id="nalu-event-collector">Nalu Event Collector</h2>
+<h3 id="overview_5">Overview</h3>
+<p>The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the <a href="https://github.com/jaca230/nalu_event_collector">github page for this library</a>.</p>
+<h3 id="installation-guide_5">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
+<hr />
+<h2 id="reflect-cpp">reflect-cpp</h2>
+<h3 id="overview_6">Overview</h3>
+<p>Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the <a href="https://github.com/getml/reflect-cpp">github page for this library</a>.</p>
+<h3 id="installation-guide_6">Installation Guide</h3>
+<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
+<hr />
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../software/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Software Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../software_add_ons/" class="md-footer__link md-footer__link--next" aria-label="Next: Software Add-ons" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Software Add-ons
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>
