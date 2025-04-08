@@ -223,6 +223,8 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 | **Valid Values**| Any non-negative integer                                    |
 | **Suggested Value**| `0`  |
 
+**Note**: These won't be applied unless [Assign DAC values](odb_config.md#assign-dac-values) is set to yes.
+
 #### Channel Enabled
 
 | Field           | Description                                                        |
@@ -246,7 +248,7 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 | Field           | Description                                                        |
 |-----------------|--------------------------------------------------------------------|
 | **Path**        | `/Equipment/HDSoC-{frontend #}/Settings/nalu_board_controller/nalu_capture/assign_dac_values` |
-| **Description** | Whether the DAQ values are assigned and used by the board         |
+| **Description** | Whether the DAC values are assigned and used by the board         |
 | **Valid Values**| `yes` or `no`                                |
 | **Suggested Value**| `no`  |
 
