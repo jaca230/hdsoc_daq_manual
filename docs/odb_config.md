@@ -4,7 +4,7 @@
 
 See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics) for some general midas ODB settings.
 
-## ATAR DAQ specific ODB Configuration
+## HDSoC DAQ specific ODB Configuration
 
 ### Nalu Event Collector
 
@@ -212,6 +212,18 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 
 **Note:** If this is set too high or too low, events will stop forming and the frontend will crash. For most use cases, `500` is fine. For the HDSoC `there are about 23843000 clock ticks a second.
 
+#### Event Collection Time
+
+| Field           | Description                                                        |
+|-----------------|--------------------------------------------------------------------|
+| **Path**        | `/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_collection_time_us` |
+| **Description** | The amount of time in microseconds an event will allow new packets to be added to it before being marked complete (given that those packets have HDSoC trigger timestamps seperated by an amount less than the time threshold above). Self trigger mode only. |
+| **Valid Values**| Any positive integer                                    |
+| **Suggested Value**| `10000`  |
+
+**Note:** This will also act as a delay before events start forming. The first event must wait this time before. This setting is only relevant for the self triggering mode.
+
+
 ### Nalu Board Controller
 
 #### Channel DAC Value
@@ -364,7 +376,7 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 
 ### Midas Parameters
 
-#### Midas ATAR Data Bank Prefix
+#### Midas Data Bank Prefix
 
 | Field           | Description                                                        |
 |-----------------|--------------------------------------------------------------------|
@@ -373,7 +385,7 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 | **Valid Values**| Any 2 letter string                          |
 | **Suggested Value**| `AD`  |
 
-**Note**: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the data will be in `AD00` for example.
+**Note**: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the data will be in `AD00` for example.
 
 #### Webpage Initializing Frontend Status Color
 
@@ -427,7 +439,7 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 | **Suggested Value**| `greenLight`  |
 
 
-#### Midas ATAR Timing Bank Prefix
+#### Midas Timing Bank Prefix
 
 | Field           | Description                                                        |
 |-----------------|--------------------------------------------------------------------|
@@ -436,6 +448,6 @@ See the [g-2 modified DAQ's ODB Basics section](https://jaca230.github.io/testst
 | **Valid Values**| Any 2 letter string                          |
 | **Suggested Value**| `AD`  |
 
-**Note**: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the timing information will be in `AT00` for example.
+**Note**: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the timing information will be in `AT00` for example.
 
 ---

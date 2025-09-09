@@ -1,8 +1,8 @@
-# Welcome to the ATAR DAQ Manual
+# Welcome to the HDSoC DAQ Manual
 
 ![DAQ_Image](images/hdsoc.png){: style="max-width:100%; height:auto;"}
 
-The purpose of this manual is to aid users with setup, usage, and debugging of the ATAR data acquisition (DAQ) system. This DAQ's purpose is to be used for readout of the [Nalu's HDSoC FMC boards](https://support.naluscientific.com/boards/hdsocv1-evalr2/) (and possibly other boards). Most topics are simplified to only include information needed for operating this DAQ. Some external links are provided for additional, generalized information.
+The purpose of this manual is to aid users with setup, usage, and debugging of the HDSoC data acquisition (DAQ) system. This DAQ's purpose is to be used for readout of the [Nalu's HDSoC FMC boards](https://support.naluscientific.com/boards/hdsocv1-evalr2/) (and possibly other boards). Most topics are simplified to only include information needed for operating this DAQ. Some external links are provided for additional, generalized information.
 
 Many of the guides on this webpage are thorough, as they are aimed to give solutions to problems I've encountered. However, every system is different; there may be some additional debugging to be done on the user's end.
 

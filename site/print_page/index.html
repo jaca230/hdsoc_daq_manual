@@ -1451,6 +1451,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 </tbody>
 </table>
+<p><strong>Note</strong>: These won't be applied unless <a href="#odb_config-assign-dac-values">Assign DAC values</a> is set to yes.</p>
 <h4 id="odb_config-channel-enabled">Channel Enabled</h4>
 <table>
 <thead>
@@ -1520,7 +1521,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td><strong>Description</strong></td>
-<td>Whether the DAQ values are assigned and used by the board</td>
+<td>Whether the DAC values are assigned and used by the board</td>
 </tr>
 <tr>
 <td><strong>Valid Values</strong></td>
@@ -2305,7 +2306,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>python3 set_enabled_channels.py 16</code> <br> Enables the first 16 channels and disables the rest.</td>
+<td><code>./set_enabled_channels.py 16</code> <br> Enables the first 16 channels and disables the rest.</td>
 </tr>
 </tbody>
 </table>
@@ -2333,11 +2334,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>bash screen_frontend.sh -i 1</code> <br> Starts the script <code>run.sh</code> inside a <code>screen</code> session with index 1.</td>
-</tr>
-<tr>
-<td>Dependencies</td>
-<td><code>screen</code> (for managing screen sessions).</td>
+<td><code>./screen_frontend.sh -i 1</code> <br> Starts the script <code>run.sh</code> inside a <code>screen</code> session with index 1.</td>
 </tr>
 </tbody>
 </table>
@@ -2364,11 +2361,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>bash stop_screen.sh -i 1</code> <br> Stops the <code>screen</code> session with index 1.</td>
-</tr>
-<tr>
-<td>Dependencies</td>
-<td><code>screen</code> (for managing screen sessions).</td>
+<td><code>./stop_screen.sh -i 1</code> <br> Stops the <code>screen</code> session with index 1.</td>
 </tr>
 </tbody>
 </table>
@@ -2397,11 +2390,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>bash start_midas_webpage.sh</code> <br> Starts all processes defined in <code>screen_names.txt</code>.</td>
-</tr>
-<tr>
-<td>Dependencies</td>
-<td><code>screen</code> (for managing screen sessions), <code>MIDASSYS</code> environment variable must be defined.</td>
+<td><code>./start_midas_webpage.sh</code> <br> Starts all processes defined in <code>screen_names.txt</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -2428,11 +2417,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>bash stop_midas_webpage.sh</code> <br> Stops all processes defined in <code>screen_names.txt</code>.</td>
-</tr>
-<tr>
-<td>Dependencies</td>
-<td><code>screen</code> (for managing screen sessions), <code>MIDASSYS</code> environment variable must be defined.</td>
+<td><code>./stop_midas_webpage.sh</code> <br> Stops all processes defined in <code>screen_names.txt</code>.</td>
 </tr>
 </tbody>
 </table>
