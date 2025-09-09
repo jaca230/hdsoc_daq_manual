@@ -444,9 +444,9 @@
                 </nav>
             </div>
         </section>
-        <section class="print-page" id="index"><h1 id="index-welcome-to-the-atar-daq-manual">Welcome to the ATAR DAQ Manual</h1>
+        <section class="print-page" id="index"><h1 id="index-welcome-to-the-hdsoc-daq-manual">Welcome to the HDSoC DAQ Manual</h1>
 <p><img alt="DAQ_Image" src="../images/hdsoc.png" style="max-width:100%; height:auto;" /></p>
-<p>The purpose of this manual is to aid users with setup, usage, and debugging of the ATAR data acquisition (DAQ) system. This DAQ's purpose is to be used for readout of the <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">Nalu's HDSoC FMC boards</a> (and possibly other boards). Most topics are simplified to only include information needed for operating this DAQ. Some external links are provided for additional, generalized information.</p>
+<p>The purpose of this manual is to aid users with setup, usage, and debugging of the HDSoC data acquisition (DAQ) system. This DAQ's purpose is to be used for readout of the <a href="https://support.naluscientific.com/boards/hdsocv1-evalr2/">Nalu's HDSoC FMC boards</a> (and possibly other boards). Most topics are simplified to only include information needed for operating this DAQ. Some external links are provided for additional, generalized information.</p>
 <p>Many of the guides on this webpage are thorough, as they are aimed to give solutions to problems I've encountered. However, every system is different; there may be some additional debugging to be done on the user's end.</p>
 <h2 id="index-pdf-version">PDF Version</h2>
 <p>A <a href="../pdfs/manual.pdf">pdf version of this manual</a> is automatically generated using <a href="https://pypi.org/project/mkdocs-with-pdf/">MkDocs with pdf plugin</a>.</p>
@@ -824,7 +824,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <hr /></section><section class="print-page" id="odb_config"><h1 id="odb_config-midas-online-data-base-configuration-parameters">Midas' Online Data Base Configuration Parameters</h1>
 <h2 id="odb_config-odb-basics">ODB Basics</h2>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics">g-2 modified DAQ's ODB Basics section</a> for some general midas ODB settings.</p>
-<h2 id="odb_config-atar-daq-specific-odb-configuration">ATAR DAQ specific ODB Configuration</h2>
+<h2 id="odb_config-hdsoc-daq-specific-odb-configuration">HDSoC DAQ specific ODB Configuration</h2>
 <h3 id="odb_config-nalu-event-collector">Nalu Event Collector</h3>
 <h4 id="odb_config-absolute-window-mask">Absolute Window Mask</h4>
 <table>
@@ -1423,6 +1423,34 @@ export PATH=$PATH:$MIDASSYS/bin
 </tbody>
 </table>
 <p><strong>Note:</strong> If this is set too high or too low, events will stop forming and the frontend will crash. For most use cases, <code>500</code> is fine. For the HDSoC `there are about 23843000 clock ticks a second.</p>
+<h4 id="odb_config-event-collection-time">Event Collection Time</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_collection_time_us</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The amount of time in microseconds an event will allow new packets to be added to it before being marked complete (given that those packets have HDSoC trigger timestamps seperated by an amount less than the time threshold above). Self trigger mode only.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>10000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> This will also act as a delay before events start forming. The first event must wait this time before. This setting is only relevant for the self triggering mode.</p>
 <h3 id="odb_config-nalu-board-controller">Nalu Board Controller</h3>
 <h4 id="odb_config-channel-dac-value">Channel DAC Value</h4>
 <table>
@@ -1836,7 +1864,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tbody>
 </table>
 <h3 id="odb_config-midas-parameters">Midas Parameters</h3>
-<h4 id="odb_config-midas-atar-data-bank-prefix">Midas ATAR Data Bank Prefix</h4>
+<h4 id="odb_config-midas-data-bank-prefix">Midas Data Bank Prefix</h4>
 <table>
 <thead>
 <tr>
@@ -1863,7 +1891,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the data will be in <code>AD00</code> for example.</p>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the data will be in <code>AD00</code> for example.</p>
 <h4 id="odb_config-webpage-initializing-frontend-status-color">Webpage Initializing Frontend Status Color</h4>
 <table>
 <thead>
@@ -2002,7 +2030,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 </tbody>
 </table>
-<h4 id="odb_config-midas-atar-timing-bank-prefix">Midas ATAR Timing Bank Prefix</h4>
+<h4 id="odb_config-midas-timing-bank-prefix">Midas Timing Bank Prefix</h4>
 <table>
 <thead>
 <tr>
@@ -2029,7 +2057,7 @@ export PATH=$PATH:$MIDASSYS/bin
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the timing information will be in <code>AT00</code> for example.</p>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the timing information will be in <code>AT00</code> for example.</p>
 <hr /></section><section class="print-page" id="scripts"><h1 id="scripts-scripts">Scripts</h1>
 <h2 id="scripts-top-level">Top Level</h2>
 <h3 id="scripts-buildsh">build.sh</h3>
