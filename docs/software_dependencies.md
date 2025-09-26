@@ -223,7 +223,7 @@ The Nalu Board Controller library is a C++ library that uses pybind to wrap arou
 
 ### Installation Guide
 
-This should be automatically installed when installing the [ATAR DAQ midas frontend](software.md#atar_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1).
+This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1).
 
 ---
 
@@ -235,7 +235,7 @@ The Nalu Event Collector library is a C++ library that handles event collection 
 
 ### Installation Guide
 
-This should be automatically installed when installing the [ATAR DAQ midas frontend](software.md#atar_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation).
+This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation).
 
 ---
 
@@ -247,6 +247,6 @@ Reflect-cpp is a C++ library that achieves some level of reflection in C++. For 
 
 ### Installation Guide
 
-This should be automatically installed when installing the [ATAR DAQ midas frontend](software.md#atar_daq). If you want to manually install, see [reflect-cpp's installation guide](https://rfl.getml.com/install/#option-2-compilation-using-cmake). I suggest compiling using cmake.
+This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see [reflect-cpp's installation guide](https://rfl.getml.com/install/#option-2-compilation-using-cmake). I suggest compiling using cmake.
 
 ---

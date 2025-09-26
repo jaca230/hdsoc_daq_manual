@@ -23,11 +23,11 @@
 
 ---
 
-## ATAR_DAQ
+## HDSOC_DAQ
 
 ### Overview
 
-The ATAR DAQ software is a midas frontend that interfaces with several other softwares (see [software dependencies page](software.md)) to read out events from a nalu scientific board while working within the midas framework.
+The HDSoC DAQ software is a midas frontend that interfaces with several other softwares (see [software dependencies page](software.md)) to read out events from a nalu scientific board while working within the midas framework.
 
 ### Installation
 
@@ -36,21 +36,21 @@ Make sure you have installed the [development tools](software_dependencies.md#de
 1 **Clone the repository:**
 
 ```
-git clone git@github.com:PIONEER-Experiment/atar_daq.git
+git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
 ```
 
 2 **Set up the enviromment**
 
 ```
-cd atar_daq/scripts/environment_setup
+cd hdsoc_daq/scripts/environment_setup
 ./detect_environment.sh
 ```
 `environment_variables.txt` should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:
 ```
 MIDASSYS=/home/pioneer/packages/midas
 MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
-MIDAS_EXPT_NAME=ATAR_DAQ
-ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
+MIDAS_EXPT_NAME=HDSOC_DAQ
+HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
 ```
 
 For more information on what the correct paths should look like, check [TRIUMF's midas quickstart guide](https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables).
@@ -62,7 +62,7 @@ source ./setup_environment.sh --add
 
 **Note**: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:
 ```
-echo 'source /path/to/.../atar_daq/scripts/environment_setup/setup_environment.sh --add --quiet' >> ~/.bashrc
+echo 'source /path/to/.../hdsoc_daq/scripts/environment_setup/setup_environment.sh --add --quiet' >> ~/.bashrc
 ```
 replacing the above with the correct path to the script.
 
@@ -71,13 +71,13 @@ replacing the above with the correct path to the script.
 These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.
 
 ```
-$ATAR_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+$HDSOC_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
 ```
 
 4 **Build**
 
 ```
-$ATAR_DAQ_DIR/scripts/build.sh --overwrite
+$HDSOC_DAQ_DIR/scripts/build.sh --overwrite
 ```
 
 ### Running
@@ -87,7 +87,7 @@ $ATAR_DAQ_DIR/scripts/build.sh --overwrite
 Midas provides a great user interface via their webpage. To start it, use the helper script:
 
 ```
-$ATAR_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+$HDSOC_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
 ```
 Then navigate to `localhost:8080` in your favorite web browser.
 
@@ -100,21 +100,21 @@ Then navigate to `localhost:8080` in your favorite web browser.
 I recommend doing this the first time to make sure everything is working properly.
 
 ```
-$ATAR_DAQ_DIR/scripts/run.sh
+$HDSOC_DAQ_DIR/scripts/run.sh
 ```
 
 #### Starting the Frontend as a Screen
 
 Use the screening helper script
 ```
-$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
 ```
 
 **Note**: Exclusing `-i` flag will set the index to 0. This is the frontend index to support running multiple frontends.
 
 to stop the screen
 ```
-$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
 ```
 
 #### Starting the Frontend as Midas Program
