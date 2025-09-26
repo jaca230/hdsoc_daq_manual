@@ -317,11 +317,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atar-daq-specific-odb-configuration" class="md-nav__link">
-    ATAR DAQ specific ODB Configuration
+  <a href="#hdsoc-daq-specific-odb-configuration" class="md-nav__link">
+    HDSoC DAQ specific ODB Configuration
   </a>
   
-    <nav class="md-nav" aria-label="ATAR DAQ specific ODB Configuration">
+    <nav class="md-nav" aria-label="HDSoC DAQ specific ODB Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -486,6 +486,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#event-collection-time" class="md-nav__link">
+    Event Collection Time
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -618,8 +625,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#midas-atar-data-bank-prefix" class="md-nav__link">
-    Midas ATAR Data Bank Prefix
+  <a href="#midas-data-bank-prefix" class="md-nav__link">
+    Midas Data Bank Prefix
   </a>
   
 </li>
@@ -660,8 +667,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#midas-atar-timing-bank-prefix" class="md-nav__link">
-    Midas ATAR Timing Bank Prefix
+  <a href="#midas-timing-bank-prefix" class="md-nav__link">
+    Midas Timing Bank Prefix
   </a>
   
 </li>
@@ -763,11 +770,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atar-daq-specific-odb-configuration" class="md-nav__link">
-    ATAR DAQ specific ODB Configuration
+  <a href="#hdsoc-daq-specific-odb-configuration" class="md-nav__link">
+    HDSoC DAQ specific ODB Configuration
   </a>
   
-    <nav class="md-nav" aria-label="ATAR DAQ specific ODB Configuration">
+    <nav class="md-nav" aria-label="HDSoC DAQ specific ODB Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -932,6 +939,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#event-collection-time" class="md-nav__link">
+    Event Collection Time
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1064,8 +1078,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#midas-atar-data-bank-prefix" class="md-nav__link">
-    Midas ATAR Data Bank Prefix
+  <a href="#midas-data-bank-prefix" class="md-nav__link">
+    Midas Data Bank Prefix
   </a>
   
 </li>
@@ -1106,8 +1120,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#midas-atar-timing-bank-prefix" class="md-nav__link">
-    Midas ATAR Timing Bank Prefix
+  <a href="#midas-timing-bank-prefix" class="md-nav__link">
+    Midas Timing Bank Prefix
   </a>
   
 </li>
@@ -1140,7 +1154,7 @@
 <h1 id="midas-online-data-base-configuration-parameters">Midas' Online Data Base Configuration Parameters</h1>
 <h2 id="odb-basics">ODB Basics</h2>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics">g-2 modified DAQ's ODB Basics section</a> for some general midas ODB settings.</p>
-<h2 id="atar-daq-specific-odb-configuration">ATAR DAQ specific ODB Configuration</h2>
+<h2 id="hdsoc-daq-specific-odb-configuration">HDSoC DAQ specific ODB Configuration</h2>
 <h3 id="nalu-event-collector">Nalu Event Collector</h3>
 <h4 id="absolute-window-mask">Absolute Window Mask</h4>
 <table>
@@ -1739,6 +1753,34 @@
 </tbody>
 </table>
 <p><strong>Note:</strong> If this is set too high or too low, events will stop forming and the frontend will crash. For most use cases, <code>500</code> is fine. For the HDSoC `there are about 23843000 clock ticks a second.</p>
+<h4 id="event-collection-time">Event Collection Time</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>/Equipment/HDSoC-{frontend #}/Settings/nalu_event_collector/nalu_event_builder/event_collection_time_us</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>The amount of time in microseconds an event will allow new packets to be added to it before being marked complete (given that those packets have HDSoC trigger timestamps seperated by an amount less than the time threshold above). Self trigger mode only.</td>
+</tr>
+<tr>
+<td><strong>Valid Values</strong></td>
+<td>Any positive integer</td>
+</tr>
+<tr>
+<td><strong>Suggested Value</strong></td>
+<td><code>10000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> This will also act as a delay before events start forming. The first event must wait this time before. This setting is only relevant for the self triggering mode.</p>
 <h3 id="nalu-board-controller">Nalu Board Controller</h3>
 <h4 id="channel-dac-value">Channel DAC Value</h4>
 <table>
@@ -2152,7 +2194,7 @@
 </tbody>
 </table>
 <h3 id="midas-parameters">Midas Parameters</h3>
-<h4 id="midas-atar-data-bank-prefix">Midas ATAR Data Bank Prefix</h4>
+<h4 id="midas-data-bank-prefix">Midas Data Bank Prefix</h4>
 <table>
 <thead>
 <tr>
@@ -2179,7 +2221,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the data will be in <code>AD00</code> for example.</p>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the data will be in <code>AD00</code> for example.</p>
 <h4 id="webpage-initializing-frontend-status-color">Webpage Initializing Frontend Status Color</h4>
 <table>
 <thead>
@@ -2318,7 +2360,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="midas-atar-timing-bank-prefix">Midas ATAR Timing Bank Prefix</h4>
+<h4 id="midas-timing-bank-prefix">Midas Timing Bank Prefix</h4>
 <table>
 <thead>
 <tr>
@@ -2345,7 +2387,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 ATAR frontend, the timing information will be in <code>AT00</code> for example.</p>
+<p><strong>Note</strong>: Midas data banks can only be 4 characters. The first 2 characters we use for identification, the second 2 for indexing. So if there is 1 frontend, the timing information will be in <code>AT00</code> for example.</p>
 <hr />
 
   <hr>
@@ -2353,7 +2395,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 9, 2025</span>
       
     
   </small>
