@@ -611,58 +611,58 @@ Ph.D. Candidate, Department of Physics and Astronomy, University of Kentucky.
 <li><strong>Event Builder</strong>: Builds events from data banks provided by potentially multiple frontends. Not necessary if only using one frontend.</li>
 </ul>
 <hr />
-<h2 id="software-atar_daq">ATAR_DAQ</h2>
+<h2 id="software-hdsoc_daq">HDSOC_DAQ</h2>
 <h3 id="software-overview">Overview</h3>
-<p>The ATAR DAQ software is a midas frontend that interfaces with several other softwares (see <a href="#software">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
+<p>The HDSoC DAQ software is a midas frontend that interfaces with several other softwares (see <a href="#software">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
 <h3 id="software-installation">Installation</h3>
 <p>Make sure you have installed the <a href="#software_dependencies-development-tools">development tools</a>, <a href="#software_dependencies-python-packages">python packages</a>, and <a href="#software_dependencies-midas">midas</a> before continuing. Furthmore, make sure you have <a href="#miscellaneous-getting-access-to-the-pioneer-repository">set-up access to the pioneer experiment repository</a> first.</p>
 <p>1 <strong>Clone the repository:</strong></p>
-<pre><code>git clone git@github.com:PIONEER-Experiment/atar_daq.git
+<pre><code>git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
 </code></pre>
 <p>2 <strong>Set up the enviromment</strong></p>
-<pre><code>cd atar_daq/scripts/environment_setup
+<pre><code>cd hdsoc_daq/scripts/environment_setup
 ./detect_environment.sh
 </code></pre>
 <p><code>environment_variables.txt</code> should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:</p>
 <pre><code>MIDASSYS=/home/pioneer/packages/midas
 MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
-MIDAS_EXPT_NAME=ATAR_DAQ
-ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
+MIDAS_EXPT_NAME=HDSOC_DAQ
+HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
 </code></pre>
 <p>For more information on what the correct paths should look like, check <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables">TRIUMF's midas quickstart guide</a>.</p>
 <p>After verifying the paths are correct:</p>
 <pre><code>source ./setup_environment.sh --add
 </code></pre>
 <p><strong>Note</strong>: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:</p>
-<pre><code>echo 'source /path/to/.../atar_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
+<pre><code>echo 'source /path/to/.../hdsoc_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
 </code></pre>
 <p>replacing the above with the correct path to the script.</p>
 <p>3 <strong>Installed additionally dependencies:</strong></p>
 <p>These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+<pre><code>$HDSOC_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
 </code></pre>
 <p>4 <strong>Build</strong></p>
-<pre><code>$ATAR_DAQ_DIR/scripts/build.sh --overwrite
+<pre><code>$HDSOC_DAQ_DIR/scripts/build.sh --overwrite
 </code></pre>
 <h3 id="software-running">Running</h3>
 <h4 id="software-starting-a-midas-webpage">Starting a Midas Webpage</h4>
 <p>Midas provides a great user interface via their webpage. To start it, use the helper script:</p>
-<pre><code>$ATAR_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+<pre><code>$HDSOC_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
 </code></pre>
 <p>Then navigate to <code>localhost:8080</code> in your favorite web browser.</p>
 <p><strong>Note</strong>: For some reason, this script may need to be run twice sometimes for it to work properly.</p>
 <p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output</p>
 <h4 id="software-manually-starting-the-frontend">Manually Starting the Frontend</h4>
 <p>I recommend doing this the first time to make sure everything is working properly.</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/run.sh
+<pre><code>$HDSOC_DAQ_DIR/scripts/run.sh
 </code></pre>
 <h4 id="software-starting-the-frontend-as-a-screen">Starting the Frontend as a Screen</h4>
 <p>Use the screening helper script</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
 </code></pre>
 <p><strong>Note</strong>: Exclusing <code>-i</code> flag will set the index to 0. This is the frontend index to support running multiple frontends.</p>
 <p>to stop the screen</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
 </code></pre>
 <h4 id="software-starting-the-frontend-as-midas-program">Starting the Frontend as Midas Program</h4>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts">g-2 modified DAQ Manual's guide for adding program startup scripts</a>. For the start command, use the screen command above.</p>
@@ -808,19 +808,19 @@ export PATH=$PATH:$MIDASSYS/bin
 <h3 id="software_dependencies-overview_4">Overview</h3>
 <p>The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the <a href="https://github.com/jaca230/nalu_board_controller">github page for this library</a>.</p>
 <h3 id="software_dependencies-installation-guide_4">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
+<p>This should be automatically installed when installing the <a href="#software-hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
 <hr />
 <h2 id="software_dependencies-nalu-event-collector">Nalu Event Collector</h2>
 <h3 id="software_dependencies-overview_5">Overview</h3>
 <p>The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the <a href="https://github.com/jaca230/nalu_event_collector">github page for this library</a>.</p>
 <h3 id="software_dependencies-installation-guide_5">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
+<p>This should be automatically installed when installing the <a href="#software-hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
 <hr />
 <h2 id="software_dependencies-reflect-cpp">reflect-cpp</h2>
 <h3 id="software_dependencies-overview_6">Overview</h3>
 <p>Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the <a href="https://github.com/getml/reflect-cpp">github page for this library</a>.</p>
 <h3 id="software_dependencies-installation-guide_6">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="#software-atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
+<p>This should be automatically installed when installing the <a href="#software-hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
 <hr /></section><section class="print-page" id="odb_config"><h1 id="odb_config-midas-online-data-base-configuration-parameters">Midas' Online Data Base Configuration Parameters</h1>
 <h2 id="odb_config-odb-basics">ODB Basics</h2>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/odb_config/#odb-basics">g-2 modified DAQ's ODB Basics section</a> for some general midas ODB settings.</p>
@@ -2071,7 +2071,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/build.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/build.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2098,7 +2098,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/run.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/run.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2127,7 +2127,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/delete_data.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/delete_data.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2154,7 +2154,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/find_data_dir.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/find_data_dir.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2183,7 +2183,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/clear_environment.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/clear_environment.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2210,7 +2210,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/detect_environment.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/detect_environment.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2237,7 +2237,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$ATAR_DAQ_DIR/scripts/environment_setup/setup_environment.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/setup_environment.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -2266,7 +2266,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/install_libaries/install_dependencies.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/install_libaries/install_dependencies.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2293,7 +2293,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/install_libaries/install_reflect_cpp.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/install_libaries/install_reflect_cpp.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2322,7 +2322,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/odb/set_enabled_channels.py</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/odb/set_enabled_channels.py</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2350,7 +2350,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2377,7 +2377,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2406,7 +2406,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -2433,7 +2433,7 @@ export PATH=$PATH:$MIDASSYS/bin
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
+<td><code>$HDSOC_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>

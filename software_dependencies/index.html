@@ -975,19 +975,19 @@ export PATH=$PATH:$MIDASSYS/bin
 <h3 id="overview_4">Overview</h3>
 <p>The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the <a href="https://github.com/jaca230/nalu_board_controller">github page for this library</a>.</p>
 <h3 id="installation-guide_4">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
+<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
 <hr />
 <h2 id="nalu-event-collector">Nalu Event Collector</h2>
 <h3 id="overview_5">Overview</h3>
 <p>The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the <a href="https://github.com/jaca230/nalu_event_collector">github page for this library</a>.</p>
 <h3 id="installation-guide_5">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
+<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
 <hr />
 <h2 id="reflect-cpp">reflect-cpp</h2>
 <h3 id="overview_6">Overview</h3>
 <p>Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the <a href="https://github.com/getml/reflect-cpp">github page for this library</a>.</p>
 <h3 id="installation-guide_6">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#atar_daq">ATAR DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
+<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
 <hr />
 
   <hr>
@@ -995,7 +995,7 @@ export PATH=$PATH:$MIDASSYS/bin
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2025</span>
       
     
   </small>
