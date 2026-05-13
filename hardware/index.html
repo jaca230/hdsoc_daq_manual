@@ -887,16 +887,14 @@
 </li>
 <li>
 <p><strong>Convert the Bitstream to a Binary File</strong>
-   To program the flash, you need to convert the bitstream to a binary file. Nalu provides a <code>.bit</code> files, but we can convert the <code>.bit</code> file into a <code>.bin</code> file. Here’s how you can do it:</p>
+   To program the flash, you need to convert the bitstream to a binary file. Nalu provides <code>.bit</code> files, but we can convert the <code>.bit</code> file into a <code>.bin</code> file. Here’s how you can do it:</p>
 </li>
 <li>
-<p>After the bitstream is generated, open a the TCL Console (<strong>Window</strong>&gt;<strong>Tcl Console</strong>) and use the following command to generate the <code>.bin</code> file from the <code>.bit</code> file:</p>
-<p><code>bash
- write_flash -force -file /path/to/output/firmware.bin -bitstream /path/to/input/firmware.bit</code></p>
+<p>After the bitstream is generated, open the TCL Console (<strong>Window</strong> &gt; <strong>Tcl Console</strong>) and use the following command to generate the <code>.bin</code> file from the <code>.bit</code> file:</p>
+<p><code>write_cfgmem -force -format bin -interface SPIx4 -size 32 -loadbit "up 0x0 /path/to/input/firmware.bit" -file /path/to/output/firmware.bin</code></p>
 <p>Replace the paths with the appropriate file locations for your system.</p>
 <p>Example:</p>
-<p><code>bash
- write_flash -force -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin -bitstream /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit</code></p>
+<p><code>write_cfgmem -force -format bin -interface SPIx4 -size 32 -loadbit "up 0x0 /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit" -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin</code></p>
 </li>
 <li>
 <p><strong>Add Configuration Memory Device</strong>
@@ -943,7 +941,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 13, 2026</span>
       
     
   </small>
