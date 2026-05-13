@@ -106,21 +106,22 @@ To load firmware onto the Nexys A7 using Vivado, plug the USB A to microUSB conn
    If the board is connected properly, Vivado should automatically detect it.
 
 2. **Convert the Bitstream to a Binary File**
-   To program the flash, you need to convert the bitstream to a binary file. Nalu provides a `.bit` files, but we can convert the `.bit` file into a `.bin` file. Here’s how you can do it:
+   To program the flash, you need to convert the bitstream to a binary file. Nalu provides `.bit` files, but we can convert the `.bit` file into a `.bin` file. Here’s how you can do it:
 
-   - After the bitstream is generated, open a the TCL Console (**Window**>**Tcl Console**) and use the following command to generate the `.bin` file from the `.bit` file:
+   * After the bitstream is generated, open the TCL Console (**Window** > **Tcl Console**) and use the following command to generate the `.bin` file from the `.bit` file:
 
-     ```bash
-     write_flash -force -file /path/to/output/firmware.bin -bitstream /path/to/input/firmware.bit
+     ```
+     write_cfgmem -force -format bin -interface SPIx4 -size 32 -loadbit "up 0x0 /path/to/input/firmware.bit" -file /path/to/output/firmware.bin
      ```
 
      Replace the paths with the appropriate file locations for your system.
 
      Example:
 
-     ```bash
-     write_flash -force -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin -bitstream /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit
      ```
+     write_cfgmem -force -format bin -interface SPIx4 -size 32 -loadbit "up 0x0 /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bit" -file /home/pioneer/vivado_stuff/Nexsys_Video_A7_For_HDSoc/HDSoC_eval_v938.bin
+     ```
+
 
 3. **Add Configuration Memory Device**
    Once the `.bin` file is ready, go back to the **Hardware Manager** in Vivado and:

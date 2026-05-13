@@ -279,11 +279,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atar_daq" class="md-nav__link">
-    ATAR_DAQ
+  <a href="#hdsoc_daq" class="md-nav__link">
+    HDSOC_DAQ
   </a>
   
-    <nav class="md-nav" aria-label="ATAR_DAQ">
+    <nav class="md-nav" aria-label="HDSOC_DAQ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -492,11 +492,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atar_daq" class="md-nav__link">
-    ATAR_DAQ
+  <a href="#hdsoc_daq" class="md-nav__link">
+    HDSOC_DAQ
   </a>
   
-    <nav class="md-nav" aria-label="ATAR_DAQ">
+    <nav class="md-nav" aria-label="HDSOC_DAQ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -606,58 +606,58 @@
 <li><strong>Event Builder</strong>: Builds events from data banks provided by potentially multiple frontends. Not necessary if only using one frontend.</li>
 </ul>
 <hr />
-<h2 id="atar_daq">ATAR_DAQ</h2>
+<h2 id="hdsoc_daq">HDSOC_DAQ</h2>
 <h3 id="overview">Overview</h3>
-<p>The ATAR DAQ software is a midas frontend that interfaces with several other softwares (see <a href="./">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
+<p>The HDSoC DAQ software is a midas frontend that interfaces with several other softwares (see <a href="./">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
 <h3 id="installation">Installation</h3>
 <p>Make sure you have installed the <a href="../software_dependencies/#development-tools">development tools</a>, <a href="../software_dependencies/#python-packages">python packages</a>, and <a href="../software_dependencies/#midas">midas</a> before continuing. Furthmore, make sure you have <a href="../miscellaneous/#getting-access-to-the-pioneer-repository">set-up access to the pioneer experiment repository</a> first.</p>
 <p>1 <strong>Clone the repository:</strong></p>
-<pre><code>git clone git@github.com:PIONEER-Experiment/atar_daq.git
+<pre><code>git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
 </code></pre>
 <p>2 <strong>Set up the enviromment</strong></p>
-<pre><code>cd atar_daq/scripts/environment_setup
+<pre><code>cd hdsoc_daq/scripts/environment_setup
 ./detect_environment.sh
 </code></pre>
 <p><code>environment_variables.txt</code> should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:</p>
 <pre><code>MIDASSYS=/home/pioneer/packages/midas
 MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
-MIDAS_EXPT_NAME=ATAR_DAQ
-ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
+MIDAS_EXPT_NAME=HDSOC_DAQ
+HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
 </code></pre>
 <p>For more information on what the correct paths should look like, check <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables">TRIUMF's midas quickstart guide</a>.</p>
 <p>After verifying the paths are correct:</p>
 <pre><code>source ./setup_environment.sh --add
 </code></pre>
 <p><strong>Note</strong>: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:</p>
-<pre><code>echo 'source /path/to/.../atar_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
+<pre><code>echo 'source /path/to/.../hdsoc_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
 </code></pre>
 <p>replacing the above with the correct path to the script.</p>
 <p>3 <strong>Installed additionally dependencies:</strong></p>
 <p>These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+<pre><code>$HDSOC_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
 </code></pre>
 <p>4 <strong>Build</strong></p>
-<pre><code>$ATAR_DAQ_DIR/scripts/build.sh --overwrite
+<pre><code>$HDSOC_DAQ_DIR/scripts/build.sh --overwrite
 </code></pre>
 <h3 id="running">Running</h3>
 <h4 id="starting-a-midas-webpage">Starting a Midas Webpage</h4>
 <p>Midas provides a great user interface via their webpage. To start it, use the helper script:</p>
-<pre><code>$ATAR_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+<pre><code>$HDSOC_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
 </code></pre>
 <p>Then navigate to <code>localhost:8080</code> in your favorite web browser.</p>
 <p><strong>Note</strong>: For some reason, this script may need to be run twice sometimes for it to work properly.</p>
 <p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output</p>
 <h4 id="manually-starting-the-frontend">Manually Starting the Frontend</h4>
 <p>I recommend doing this the first time to make sure everything is working properly.</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/run.sh
+<pre><code>$HDSOC_DAQ_DIR/scripts/run.sh
 </code></pre>
 <h4 id="starting-the-frontend-as-a-screen">Starting the Frontend as a Screen</h4>
 <p>Use the screening helper script</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
 </code></pre>
 <p><strong>Note</strong>: Exclusing <code>-i</code> flag will set the index to 0. This is the frontend index to support running multiple frontends.</p>
 <p>to stop the screen</p>
-<pre><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
 </code></pre>
 <h4 id="starting-the-frontend-as-midas-program">Starting the Frontend as Midas Program</h4>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts">g-2 modified DAQ Manual's guide for adding program startup scripts</a>. For the start command, use the screen command above.</p>
@@ -670,7 +670,7 @@ ATAR_DAQ_DIR=/home/pioneer/packages/experiments/atar_daq
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2025</span>
       
     
   </small>
