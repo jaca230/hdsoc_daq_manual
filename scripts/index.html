@@ -387,49 +387,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate_environmentsh" class="md-nav__link">
+    activate_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detect_midas_environmentsh" class="md-nav__link">
+    detect_midas_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_environmentsh" class="md-nav__link">
+    load_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_venvsh" class="md-nav__link">
+    setup_venv.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate_venvsh" class="md-nav__link">
+    activate_venv.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#clear_environmentsh" class="md-nav__link">
     clear_environment.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect_environmentsh" class="md-nav__link">
-    detect_environment.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup_environmentsh" class="md-nav__link">
-    setup_environment.sh
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-libraries" class="md-nav__link">
-    Install Libraries
-  </a>
-  
-    <nav class="md-nav" aria-label="Install Libraries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install_dependenciessh" class="md-nav__link">
-    install_dependencies.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install_reflect_cppsh" class="md-nav__link">
-    install_reflect_cpp.sh
   </a>
   
 </li>
@@ -640,49 +641,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate_environmentsh" class="md-nav__link">
+    activate_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detect_midas_environmentsh" class="md-nav__link">
+    detect_midas_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_environmentsh" class="md-nav__link">
+    load_environment.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_venvsh" class="md-nav__link">
+    setup_venv.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate_venvsh" class="md-nav__link">
+    activate_venv.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#clear_environmentsh" class="md-nav__link">
     clear_environment.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect_environmentsh" class="md-nav__link">
-    detect_environment.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup_environmentsh" class="md-nav__link">
-    setup_environment.sh
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-libraries" class="md-nav__link">
-    Install Libraries
-  </a>
-  
-    <nav class="md-nav" aria-label="Install Libraries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install_dependenciessh" class="md-nav__link">
-    install_dependencies.sh
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install_reflect_cppsh" class="md-nav__link">
-    install_reflect_cpp.sh
   </a>
   
 </li>
@@ -794,19 +796,19 @@
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/build.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/build.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
-<td>Builds the project using CMake and Make. If the <code>--overwrite</code> flag is used, it cleans the previous build first.</td>
+<td>Builds the project using CMake. It loads the repository environment first, then configures and builds the project.</td>
 </tr>
 <tr>
 <td><strong>Flags</strong></td>
-<td><code>-o, --overwrite</code> → Remove the existing build directory before building.</td>
+<td><code>-o, --overwrite</code> → Remove the existing build directory before building. <br> <code>--venv PATH</code> → Override the repo-local virtual environment path. <br> <code>--system-python</code> → Ignore the repo-local virtual environment and use the system Python setup.</td>
 </tr>
 <tr>
 <td><strong>Example Usage</strong></td>
-<td><code>./build.sh</code> <br> <code>./build.sh --overwrite</code></td>
+<td><code>./scripts/build.sh</code> <br> <code>./scripts/build.sh --overwrite</code></td>
 </tr>
 </tbody>
 </table>
@@ -821,19 +823,19 @@
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/run.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/run.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
-<td>Runs the <code>frontend</code> executable. Supports running in background mode, with debugging, and setting an index.</td>
+<td>Runs the <code>frontend</code> executable. It can build first, set up the repo-local virtual environment, and run under <code>gdb</code>.</td>
 </tr>
 <tr>
 <td><strong>Flags</strong></td>
-<td><code>--debug</code> → Runs the executable in GDB. <br> <br> <code>-i &lt;number&gt;</code> → Specifies an index (default: 0). <br> <code>--help</code> → Displays usage help.</td>
+<td><code>--build</code> → Build before running. <br> <code>--overwrite</code> → Rebuild from a clean build directory when used with <code>--build</code>. <br> <code>--setup-venv</code> → Create or update the repo-local Python environment before running. <br> <code>--venv PATH</code> → Override the repo-local virtual environment path. <br> <code>--system-python</code> → Skip the repo-local virtual environment and use the system Python setup. <br> <code>--debug</code> → Run the executable in GDB. <br> <code>-i &lt;number&gt;</code> → Specifies an index (default: <code>0</code>).</td>
 </tr>
 <tr>
 <td><strong>Example Usage</strong></td>
-<td><code>./run.sh</code> <br> <code>./run.sh --debug</code> <br> <code>./run.sh -i 2</code></td>
+<td><code>./scripts/run.sh -i 0</code> <br> <code>./scripts/run.sh --build -i 0</code> <br> <code>./scripts/run.sh --setup-venv -i 0</code></td>
 </tr>
 </tbody>
 </table>
@@ -850,7 +852,7 @@
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/delete_data.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/data_management/delete_data.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
@@ -862,7 +864,7 @@
 </tr>
 <tr>
 <td><strong>Example Usage</strong></td>
-<td><code>./delete_data.sh</code> <br> <code>./delete_data.sh --dry-run</code></td>
+<td><code>./scripts/data_management/delete_data.sh</code> <br> <code>./scripts/data_management/delete_data.sh --dry-run</code></td>
 </tr>
 </tbody>
 </table>
@@ -877,11 +879,11 @@
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/find_data_dir.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/data_management/find_data_dir.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
-<td>Finds the experiment data directory and writes it to <code>experiment_dir.txt</code>.</td>
+<td>Finds the experiment data directory from <code>MIDAS_EXPTAB</code> and <code>MIDAS_EXPT_NAME</code>, then writes it to <code>experiment_dir.txt</code>.</td>
 </tr>
 <tr>
 <td><strong>Flags</strong></td>
@@ -889,12 +891,156 @@
 </tr>
 <tr>
 <td><strong>Example Usage</strong></td>
-<td><code>./find_data_dir.sh</code></td>
+<td><code>./scripts/data_management/find_data_dir.sh</code></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="environment-setup">Environment Setup</h2>
+<h3 id="overview">Overview</h3>
+<p>The old <code>scripts/environment_setup</code> helpers have been replaced by a newer environment system under:</p>
+<pre><code class="language-text">scripts/environment/
+scripts/environment/helpers/
+</code></pre>
+<p>The main user entrypoint is:</p>
+<pre><code class="language-bash">source ./scripts/environment/activate_environment.sh
+</code></pre>
+<p>This helper will detect and load MIDAS environment variables, optionally create the repo-local Python virtual environment, and activate it.</p>
+<h3 id="activate_environmentsh">activate_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/activate_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Main shell entrypoint for preparing the ATAR DAQ environment. It detects and saves MIDAS-related environment variables if needed, creates or refreshes the repo-local virtual environment if needed, and activates it.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--quiet</code> → Suppress informational output. <br> <code>--no-midas-bin</code> → Do not prepend <code>MIDASSYS/bin</code> to <code>PATH</code>. <br> <code>--system-python</code> → Skip the repo-local virtual environment and use the system Python setup. <br> <code>--venv PATH</code> → Override the virtual environment path.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>source ./scripts/environment/activate_environment.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="detect_midas_environmentsh">detect_midas_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/helpers/detect_midas_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Searches for the <code>midas</code> directory and <code>exptab</code> file, sets <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code>, and saves them to <code>scripts/environment/helpers/environment_variables.sh</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--output PATH</code> → Override the output file path. <br> <code>-q, --quiet</code> → Suppress the summary output.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./scripts/environment/helpers/detect_midas_environment.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="load_environmentsh">load_environment.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/helpers/load_environment.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Loads the saved repository environment variables and optionally configures access to the repo-local virtual environment. This helper is used internally by <code>build.sh</code>, <code>run.sh</code>, and other scripts.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--quiet</code> → Suppress informational output. <br> <code>--add-midas-bin</code> → Prepend <code>MIDASSYS/bin</code> to <code>PATH</code>. <br> <code>--no-venv</code> → Do not activate or expose the repo-local virtual environment. <br> <code>--setup-venv</code> → Create or update the repo-local virtual environment before loading it. <br> <code>--system-python</code> → Ignore the repo-local virtual environment and isolate from user-site Python. <br> <code>--venv PATH</code> → Override the virtual environment path.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>source ./scripts/environment/helpers/load_environment.sh --add-midas-bin</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="setup_venvsh">setup_venv.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/helpers/setup_venv.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Creates or updates the repo-local Python environment used by board-controller-backed tools. It installs the requirements from <code>requirements/board_tools.txt</code>.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><code>--venv PATH</code> → Override the virtual environment path. <br> <code>--python BIN</code> → Python executable to use for venv creation. <br> <code>--requirements PATH</code> → Requirements file to install. <br> <code>--recreate</code> → Delete and recreate the virtual environment.</td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>./scripts/environment/helpers/setup_venv.sh</code> <br> <code>./scripts/environment/helpers/setup_venv.sh --recreate</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="activate_venvsh">activate_venv.sh</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/helpers/activate_venv.sh</code></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Activates only the repo-local virtual environment.</td>
+</tr>
+<tr>
+<td><strong>Flags</strong></td>
+<td><em>(None)</em></td>
+</tr>
+<tr>
+<td><strong>Example Usage</strong></td>
+<td><code>source ./scripts/environment/helpers/activate_venv.sh</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="clear_environmentsh">clear_environment.sh</h3>
 <table>
 <thead>
@@ -906,11 +1052,11 @@
 <tbody>
 <tr>
 <td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/clear_environment.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/environment/helpers/clear_environment.sh</code></td>
 </tr>
 <tr>
 <td><strong>Description</strong></td>
-<td>Clears the MIDAS environment variables by unsetting <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code>.</td>
+<td>Clears the MIDAS, ATAR DAQ, and Python environment variables set by the environment helpers.</td>
 </tr>
 <tr>
 <td><strong>Flags</strong></td>
@@ -918,117 +1064,7 @@
 </tr>
 <tr>
 <td><strong>Example Usage</strong></td>
-<td><code>./clear_environment.sh</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="detect_environmentsh">detect_environment.sh</h3>
-<table>
-<thead>
-<tr>
-<th><strong>Field</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/detect_environment.sh</code></td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Searches for the <code>midas</code> directory and <code>exptab</code> file, sets <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code>, and saves them to <code>environment_variables.txt</code>.</td>
-</tr>
-<tr>
-<td><strong>Flags</strong></td>
-<td><em>(None)</em></td>
-</tr>
-<tr>
-<td><strong>Example Usage</strong></td>
-<td><code>./detect_environment.sh</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="setup_environmentsh">setup_environment.sh</h3>
-<table>
-<thead>
-<tr>
-<th><strong>Field</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Path</strong></td>
-<td><code>$HDSOC_DAQ_DIR/scripts/environment_setup/setup_environment.sh</code></td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Reads <code>environment_variables.txt</code> to set environment variables and optionally adds <code>MIDASSYS/bin</code> to the <code>PATH</code>.</td>
-</tr>
-<tr>
-<td><strong>Flags</strong></td>
-<td><code>-a, --add</code> → Adds <code>MIDASSYS/bin</code> to <code>PATH</code> if <code>MIDASSYS</code> is set. <br> <code>-q, --quiet</code> → Suppresses all output. <br> <code>-h, --help</code> → Displays usage help.</td>
-</tr>
-<tr>
-<td><strong>Example Usage</strong></td>
-<td><code>./setup_environment.sh</code> <br> <code>./setup_environment.sh --add</code> <br> <code>./setup_environment.sh --quiet</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="install-libraries">Install Libraries</h2>
-<h3 id="install_dependenciessh">install_dependencies.sh</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/install_libaries/install_dependencies.sh</code></td>
-</tr>
-<tr>
-<td>Description</td>
-<td>Installs all required dependencies by calling their respective installation scripts.</td>
-</tr>
-<tr>
-<td>Flags</td>
-<td>(None)</td>
-</tr>
-<tr>
-<td>Example Usage</td>
-<td><code>./install_dependencies.sh</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="install_reflect_cppsh">install_reflect_cpp.sh</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/install_libaries/install_reflect_cpp.sh</code></td>
-</tr>
-<tr>
-<td>Description</td>
-<td>Installs the Reflect-C++ library, allowing customization of installation directory, C++ standard, and build type.</td>
-</tr>
-<tr>
-<td>Flags</td>
-<td><code>-o, --overwrite</code> → Removes the previous build before installing. <br> <code>-p, --prefix &lt;path&gt;</code> → Specifies the installation directory (default: /usr/local). <br> <code>-s, --cxx-standard &lt;version&gt;</code> → Sets the C++ standard (default: 20). <br> <code>-b, --build-type &lt;type&gt;</code> → Sets the build type (default: Release).</td>
-</tr>
-<tr>
-<td>Example Usage</td>
-<td><code>./install_reflect_cpp.sh</code> <br> <code>./install_reflect_cpp.sh --overwrite</code> <br> <code>./install_reflect_cpp.sh --prefix /opt/custom</code> <br> <code>./install_reflect_cpp.sh --cxx-standard 17 --build-type Debug</code></td>
+<td><code>source ./scripts/environment/helpers/clear_environment.sh</code></td>
 </tr>
 </tbody>
 </table>
@@ -1045,19 +1081,19 @@
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/odb/set_enabled_channels.py</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/odb/set_enabled_channels.py</code></td>
 </tr>
 <tr>
 <td>Description</td>
-<td>Updates the enabled channels in the ODB by setting the number of enabled channels from the start (0) and disabling the rest.</td>
+<td>Updates the enabled channels in the ODB by setting the number of enabled channels from the start (<code>0</code>) and disabling the rest.</td>
 </tr>
 <tr>
 <td>Flags</td>
-<td><code>num_enabled_channels</code> → The number of enabled channels (between 0 and 32).</td>
+<td><code>num_enabled_channels</code> → The number of enabled channels, between <code>0</code> and <code>32</code>.</td>
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>./set_enabled_channels.py 16</code> <br> Enables the first 16 channels and disables the rest.</td>
+<td><code>./scripts/odb/set_enabled_channels.py 16</code> <br> Enables the first 16 channels and disables the rest.</td>
 </tr>
 </tbody>
 </table>
@@ -1073,19 +1109,19 @@
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
-<td>Starts a specified script inside a <code>screen</code> session, optionally passing an index value.</td>
+<td>Starts the frontend inside a detached <code>screen</code> session.</td>
 </tr>
 <tr>
 <td>Flags</td>
-<td><code>-i</code> → Index for the session name (defaults to 0).</td>
+<td><code>-i</code> → Index for the session name (defaults to <code>0</code>). <br> <code>--setup-venv</code> → Create or update the repo-local virtual environment before running. <br> <code>--venv PATH</code> → Override the virtual environment path. <br> <code>--system-python</code> → Skip the repo-local virtual environment and use the system Python setup.</td>
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>./screen_frontend.sh -i 1</code> <br> Starts the script <code>run.sh</code> inside a <code>screen</code> session with index 1.</td>
+<td><code>./scripts/screen_control/screen_frontend.sh -i 1</code></td>
 </tr>
 </tbody>
 </table>
@@ -1100,7 +1136,7 @@
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -1108,11 +1144,11 @@
 </tr>
 <tr>
 <td>Flags</td>
-<td><code>-i</code> → Index for the session name (defaults to 0).</td>
+<td><code>-i</code> → Index for the session name (defaults to <code>0</code>).</td>
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>./stop_screen.sh -i 1</code> <br> Stops the <code>screen</code> session with index 1.</td>
+<td><code>./scripts/screen_control/stop_screen.sh -i 1</code></td>
 </tr>
 </tbody>
 </table>
@@ -1129,7 +1165,7 @@
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -1141,7 +1177,7 @@
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>./start_midas_webpage.sh</code> <br> Starts all processes defined in <code>screen_names.txt</code>.</td>
+<td><code>./scripts/webpage_scripts/start_midas_webpage.sh</code></td>
 </tr>
 </tbody>
 </table>
@@ -1156,7 +1192,7 @@
 <tbody>
 <tr>
 <td>Path</td>
-<td><code>$HDSOC_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
+<td><code>$ATAR_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
 </tr>
 <tr>
 <td>Description</td>
@@ -1168,7 +1204,7 @@
 </tr>
 <tr>
 <td>Example Usage</td>
-<td><code>./stop_midas_webpage.sh</code> <br> Stops all processes defined in <code>screen_names.txt</code>.</td>
+<td><code>./scripts/webpage_scripts/stop_midas_webpage.sh</code></td>
 </tr>
 </tbody>
 </table>
@@ -1179,7 +1215,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2026</span>
       
     
   </small>

@@ -590,15 +590,15 @@
 <p><img alt="Software_Diagram" src="../images/software_pipeline_diagram.png" style="max-width:100%; height:auto;" /></p>
 <ul>
 <li><strong>Ethernet Controller</strong>: The systems ethernet controller which sockets are formed on.</li>
-<li><strong>UDP Socket</strong>: Two sockets are constructed. One by <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a> to communicate with the board. And one by the UDP receiver to receive data.</li>
-<li><strong>Nalu Event Collector</strong>: A library to collect events from a UDP socket receiving events from a nalu scientific board<ul>
+<li><strong>UDP Socket</strong>: Two sockets are constructed. One by the Python board-control stack to communicate with the board and one by the UDP receiver to receive data.</li>
+<li><strong>Nalu Event Collector</strong>: A library to collect events from a UDP socket receiving events from a nalu scientific board.<ul>
 <li><strong>UDP Buffer</strong>: Receives UDP packets and puts them in a buffer to be processed.</li>
 <li><strong>Event Buffer</strong>: Processes UDP packets into events and puts them in a buffer.</li>
 <li><strong>Event Collector Manager</strong>: Manages interfacing with the buffers. I.e. getting data, configuration, etc.</li>
 </ul>
 </li>
 <li><strong>Nalu Board Controller</strong>: C++ methods to configure the nalu scientific board to prepare for data taking.<ul>
-<li><strong>C++ pybind wrapper</strong>: C++ wrapper around some methods from the <a href="https://pypi.org/project/naludaq/0.31.9/">naludaq python package</a>.</li>
+<li><strong>C++ pybind wrapper</strong>: C++ wrapper around the Python board-control stack.</li>
 <li><strong>Board Controller Manager</strong>: Manages interfacing with the board from another C++ program.</li>
 </ul>
 </li>
@@ -608,56 +608,85 @@
 <hr />
 <h2 id="hdsoc_daq">HDSOC_DAQ</h2>
 <h3 id="overview">Overview</h3>
-<p>The HDSoC DAQ software is a midas frontend that interfaces with several other softwares (see <a href="./">software dependencies page</a>) to read out events from a nalu scientific board while working within the midas framework.</p>
+<p>The HDSoC DAQ software is a MIDAS frontend that interfaces with several other softwares (see <a href="../software_dependencies/">software dependencies page</a>) to read out events from a nalu scientific board while working within the MIDAS framework.</p>
+<p>The installation chain is now split into two parts:</p>
+<ul>
+<li>External dependencies that must already exist on the host, especially MIDAS and optionally ROOT.</li>
+<li>Dependencies that are handled by this repository itself, either through a repo-local Python virtual environment or through CPM during the CMake configure step.</li>
+</ul>
 <h3 id="installation">Installation</h3>
-<p>Make sure you have installed the <a href="../software_dependencies/#development-tools">development tools</a>, <a href="../software_dependencies/#python-packages">python packages</a>, and <a href="../software_dependencies/#midas">midas</a> before continuing. Furthmore, make sure you have <a href="../miscellaneous/#getting-access-to-the-pioneer-repository">set-up access to the pioneer experiment repository</a> first.</p>
+<p>Make sure you have installed the <a href="../software_dependencies/#development-tools">development tools</a>, the <a href="../software_dependencies/#python-packages">Python packages</a>, and <a href="../software_dependencies/#midas">MIDAS</a> before continuing. If you need private repository access, also make sure you have <a href="../miscellaneous/#getting-access-to-the-pioneer-repository">set up access to the PIONEER experiment repository</a>.</p>
 <p>1 <strong>Clone the repository:</strong></p>
-<pre><code>git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
+<pre><code class="language-bash">git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
+cd hdsoc_daq
 </code></pre>
-<p>2 <strong>Set up the enviromment</strong></p>
-<pre><code>cd hdsoc_daq/scripts/environment_setup
-./detect_environment.sh
+<p>2 <strong>Set up the environment</strong></p>
+<p>The main shell entrypoint is now:</p>
+<pre><code class="language-bash">source ./scripts/environment/activate_environment.sh
 </code></pre>
-<p><code>environment_variables.txt</code> should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:</p>
-<pre><code>MIDASSYS=/home/pioneer/packages/midas
-MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
-MIDAS_EXPT_NAME=HDSOC_DAQ
-HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
+<p>This helper will:</p>
+<ul>
+<li>detect and save <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code> if needed</li>
+<li>create or refresh the repo-local Python environment if needed</li>
+<li>activate the repo-local Python environment</li>
+<li>isolate the runtime from user-site Python packages</li>
+</ul>
+<p>If you only want to detect and save the MIDAS-related variables without activating the Python environment, run:</p>
+<pre><code class="language-bash">./scripts/environment/helpers/detect_midas_environment.sh
 </code></pre>
-<p>For more information on what the correct paths should look like, check <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables">TRIUMF's midas quickstart guide</a>.</p>
-<p>After verifying the paths are correct:</p>
-<pre><code>source ./setup_environment.sh --add
+<p>This writes:</p>
+<pre><code class="language-bash">scripts/environment/helpers/environment_variables.sh
 </code></pre>
-<p><strong>Note</strong>: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:</p>
-<pre><code>echo 'source /path/to/.../hdsoc_daq/scripts/environment_setup/setup_environment.sh --add --quiet' &gt;&gt; ~/.bashrc
+<p>Check that file to make sure it contains the correct paths. For example:</p>
+<pre><code class="language-bash">export MIDASSYS=/home/pioneer/packages/midas
+export MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
+export MIDAS_EXPT_NAME=ATAR_DAQ
+export ATAR_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
 </code></pre>
-<p>replacing the above with the correct path to the script.</p>
-<p>3 <strong>Installed additionally dependencies:</strong></p>
-<p>These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.</p>
-<pre><code>$HDSOC_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+<p>If you want to create or refresh only the repo-local virtual environment, run:</p>
+<pre><code class="language-bash">./scripts/environment/helpers/setup_venv.sh
 </code></pre>
-<p>4 <strong>Build</strong></p>
-<pre><code>$HDSOC_DAQ_DIR/scripts/build.sh --overwrite
+<p>3 <strong>Build</strong></p>
+<p>Once <code>MIDASSYS</code> points to a working MIDAS install, build with:</p>
+<pre><code class="language-bash">./scripts/build.sh
 </code></pre>
+<p>If you want to force a clean reconfigure first:</p>
+<pre><code class="language-bash">./scripts/build.sh --overwrite
+</code></pre>
+<p>During the CMake configure step, CPM automatically fetches and configures several C++ dependencies, including:</p>
+<ul>
+<li><code>nalu_event_collector</code></li>
+<li><code>nalu_board_controller</code></li>
+<li><code>reflect-cpp</code></li>
+<li><code>spdlog</code></li>
+<li><code>nlohmann/json</code></li>
+<li><code>pybind11</code></li>
+</ul>
+<p>So these no longer need to be installed manually as part of the normal <code>hdsoc_daq</code> setup flow.</p>
 <h3 id="running">Running</h3>
 <h4 id="starting-a-midas-webpage">Starting a Midas Webpage</h4>
 <p>Midas provides a great user interface via their webpage. To start it, use the helper script:</p>
-<pre><code>$HDSOC_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
+<pre><code class="language-bash">./scripts/webpage_scripts/start_midas_webpage.sh
 </code></pre>
 <p>Then navigate to <code>localhost:8080</code> in your favorite web browser.</p>
-<p><strong>Note</strong>: For some reason, this script may need to be run twice sometimes for it to work properly.</p>
-<p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output</p>
+<p><strong>Note</strong>: If the webpage doesn't appear, manually run <code>mhttpd</code> to debug the error output.</p>
 <h4 id="manually-starting-the-frontend">Manually Starting the Frontend</h4>
 <p>I recommend doing this the first time to make sure everything is working properly.</p>
-<pre><code>$HDSOC_DAQ_DIR/scripts/run.sh
+<pre><code class="language-bash">./scripts/run.sh -i 0
+</code></pre>
+<p>Some useful options are:</p>
+<pre><code class="language-bash">./scripts/run.sh --build -i 0
+./scripts/run.sh --debug -i 0
+./scripts/run.sh --setup-venv -i 0
+./scripts/run.sh --system-python -i 0
 </code></pre>
 <h4 id="starting-the-frontend-as-a-screen">Starting the Frontend as a Screen</h4>
-<p>Use the screening helper script</p>
-<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+<p>Use the screening helper script:</p>
+<pre><code class="language-bash">./scripts/screen_control/screen_frontend.sh -i {index}
 </code></pre>
-<p><strong>Note</strong>: Exclusing <code>-i</code> flag will set the index to 0. This is the frontend index to support running multiple frontends.</p>
-<p>to stop the screen</p>
-<pre><code>$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+<p><strong>Note</strong>: Excluding the <code>-i</code> flag sets the index to <code>0</code>. This is the frontend index used to support running multiple frontends.</p>
+<p>To stop the screen:</p>
+<pre><code class="language-bash">./scripts/screen_control/stop_screen.sh -i {index}
 </code></pre>
 <h4 id="starting-the-frontend-as-midas-program">Starting the Frontend as Midas Program</h4>
 <p>See the <a href="https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts">g-2 modified DAQ Manual's guide for adding program startup scripts</a>. For the start command, use the screen command above.</p>
@@ -670,7 +699,7 @@ HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2026</span>
       
     
   </small>

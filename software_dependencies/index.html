@@ -415,11 +415,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nalu-board-controller" class="md-nav__link">
-    Nalu Board Controller
+  <a href="#cpm-managed-libraries" class="md-nav__link">
+    CPM Managed Libraries
   </a>
   
-    <nav class="md-nav" aria-label="Nalu Board Controller">
+    <nav class="md-nav" aria-label="CPM Managed Libraries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -431,60 +431,6 @@
         
           <li class="md-nav__item">
   <a href="#installation-guide_4" class="md-nav__link">
-    Installation Guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nalu-event-collector" class="md-nav__link">
-    Nalu Event Collector
-  </a>
-  
-    <nav class="md-nav" aria-label="Nalu Event Collector">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_5" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-guide_5" class="md-nav__link">
-    Installation Guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reflect-cpp" class="md-nav__link">
-    reflect-cpp
-  </a>
-  
-    <nav class="md-nav" aria-label="reflect-cpp">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_6" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-guide_6" class="md-nav__link">
     Installation Guide
   </a>
   
@@ -740,11 +686,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nalu-board-controller" class="md-nav__link">
-    Nalu Board Controller
+  <a href="#cpm-managed-libraries" class="md-nav__link">
+    CPM Managed Libraries
   </a>
   
-    <nav class="md-nav" aria-label="Nalu Board Controller">
+    <nav class="md-nav" aria-label="CPM Managed Libraries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -756,60 +702,6 @@
         
           <li class="md-nav__item">
   <a href="#installation-guide_4" class="md-nav__link">
-    Installation Guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nalu-event-collector" class="md-nav__link">
-    Nalu Event Collector
-  </a>
-  
-    <nav class="md-nav" aria-label="Nalu Event Collector">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_5" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-guide_5" class="md-nav__link">
-    Installation Guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reflect-cpp" class="md-nav__link">
-    reflect-cpp
-  </a>
-  
-    <nav class="md-nav" aria-label="reflect-cpp">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_6" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-guide_6" class="md-nav__link">
     Installation Guide
   </a>
   
@@ -841,89 +733,76 @@
 <hr />
 <h2 id="development-tools">Development Tools</h2>
 <h3 id="overview">Overview</h3>
-<p>These tools include compilers, libraries, and other utilities that facilitate software development and installation.</p>
+<p>These tools include compilers, CMake, Python development support, and other utilities that facilitate software development and installation.</p>
 <h3 id="installation-guide">Installation Guide</h3>
-<p>This guide should work for ALMA9. You can use <code>dnf</code> for ALMA9, but I prefer to work with <code>yum</code></p>
+<p>This guide should work for ALMA9. You can use <code>dnf</code> for ALMA9, but I prefer to work with <code>yum</code>.</p>
 <p>1 <strong>Install yum package manager</strong></p>
-<pre><code>sudo dnf install yum
+<pre><code class="language-bash">sudo dnf install yum
 </code></pre>
-<p>2 <strong>Update the package index</strong>:</p>
-<pre><code>sudo yum update
+<p>2 <strong>Update the package index</strong></p>
+<pre><code class="language-bash">sudo yum update
 </code></pre>
-<p>3 <strong>Enable the EPEL repository</strong>:</p>
-<pre><code>sudo yum install epel-release
+<p>3 <strong>Enable the EPEL repository</strong></p>
+<pre><code class="language-bash">sudo yum install epel-release
 </code></pre>
-<p>4 <strong>Install Development Tools and Dependencies</strong>:</p>
-<pre><code>sudo yum groupinstall &quot;Development Tools&quot;
-sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel
+<p>4 <strong>Install Development Tools and Dependencies</strong></p>
+<pre><code class="language-bash">sudo yum groupinstall &quot;Development Tools&quot;
+sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel python3 python3-devel python3-pip
 </code></pre>
-<p>5 <strong>Install Python3</strong></p>
-<pre><code>sudo yum install python3-devel
+<p>5 <strong>Check the CMake version</strong></p>
+<pre><code class="language-bash">cmake --version
 </code></pre>
-<p>6 <strong>Install CMake from Source</strong>  </p>
-<p>If the installed CMake version is <strong>not</strong> <code>&gt;=3.23</code>, (you can check with <code>cmake --version</code>) follow these steps to install CMake manually:</p>
-<p>6.1. <strong>Remove Old CMake (If Installed)</strong></p>
-<pre><code>sudo yum remove -y cmake
+<p><code>hdsoc_daq</code> currently requires CMake <code>&gt;= 3.23</code>.</p>
+<p>If the installed CMake version is too old, follow these steps to install a newer version manually:</p>
+<pre><code class="language-bash">wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz
+tar -xvzf cmake-3.29.0.tar.gz
+cd cmake-3.29.0
+./bootstrap
+make -j$(nproc)
+sudo make install
 </code></pre>
-<p>Verify removal:</p>
-<pre><code class="language-bash">cmake --version  # Should return &quot;command not found&quot;
-</code></pre>
-<p>6.2. <strong>Install Required Dependencies</strong></p>
-<pre><code>sudo yum groupinstall -y &quot;Development Tools&quot;
-sudo yum install -y gcc gcc-c++ make openssl-devel
-</code></pre>
-<p>6.3. <strong>Download and Install the Latest CMake from Source</strong></p>
-<ol>
-<li>
-<p><strong>Download the latest version</strong> (Check <a href="https://cmake.org/download/">Kitware's website</a> for the latest version):
-   <code>wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz</code></p>
-</li>
-<li>
-<p><strong>Extract the archive</strong>:
-   <code>tar -xvzf cmake-3.29.0.tar.gz
-   cd cmake-3.29.0</code></p>
-</li>
-<li>
-<p><strong>Build and install</strong>:
-   <code>./bootstrap
-   make -j$(nproc)
-   sudo make install</code></p>
-</li>
-<li>
-<p><strong>Verify the New Installation</strong>:
-   <code>cmake --version</code></p>
-</li>
-</ol>
+<p>Always check <a href="https://cmake.org/download/">Kitware's website</a> for the current version before copying the version number above.</p>
 <hr />
 <h2 id="python-packages">Python Packages</h2>
 <h3 id="overview_1">Overview</h3>
-<p>Although this DAQ is written mostly in C++, it interfaces with with Nalu Scientific's "naludaq" package, which is a python module used for interfacing with the board. However, our use case requires C++. To avoid rewriting all of Nalu Scientific's methods in C++, pybind is used to wrap some C++ methods around existing naludaq python methods.</p>
+<p>The DAQ still depends on a Python board-control stack even though the frontend itself is written mostly in C++. The current setup uses a repo-local virtual environment to hold the Python runtime needed by the board controller path.</p>
 <h3 id="installation-guide_1">Installation Guide</h3>
-<p>Install any needed packages with pip. Two that are needed are:</p>
-<pre><code>pip install pybind11 naludaq
+<p>The recommended way to set this up is with the repo helper:</p>
+<pre><code class="language-bash">./scripts/environment/helpers/setup_venv.sh
 </code></pre>
+<p>This creates or refreshes a virtual environment at:</p>
+<pre><code class="language-bash">.atar_daq_venv
+</code></pre>
+<p>and installs the requirements from:</p>
+<pre><code class="language-bash">requirements/board_tools.txt
+</code></pre>
+<p>At the moment, that requirements file includes:</p>
+<pre><code class="language-text">naludaq==0.36.0
+naluconfigs==18.0.1
+</code></pre>
+<p>If you are not using the repo-local virtual environment, you will need those packages available in the Python environment used at runtime.</p>
 <hr />
 <h2 id="root">ROOT</h2>
 <h3 id="overview_2">Overview</h3>
-<p><a href="https://root.cern.ch/">ROOT</a> is an open-source data analysis framework developed by CERN. It is widely used in high-energy physics for data processing, statistical analysis, visualization, and storage. It is needed for some features of Midas.</p>
+<p><a href="https://root.cern.ch/">ROOT</a> is an open-source data analysis framework developed by CERN. It is needed for some MIDAS features.</p>
 <h3 id="installation-guide_2">Installation Guide</h3>
-<p>General installaiton guides are provided by ROOT at their <a href="https://root.cern/install/">Installing ROOT</a> and <a href="https://root.cern/install/build_from_source/">Building ROOT from source</a> pages.</p>
+<p>General installation guides are provided by ROOT at their <a href="https://root.cern/install/">Installing ROOT</a> and <a href="https://root.cern/install/build_from_source/">Building ROOT from source</a> pages.</p>
 <h4 id="using-yum-package-manager">Using <code>yum</code> Package Manager</h4>
-<p>1 <strong>Enable the EPEL repository</strong>:</p>
-<pre><code>sudo yum install epel-release
+<p>1 <strong>Enable the EPEL repository</strong></p>
+<pre><code class="language-bash">sudo yum install epel-release
 </code></pre>
-<p>2 <strong>Download and Install ROOT</strong>:</p>
-<pre><code>sudo yum install root
+<p>2 <strong>Download and Install ROOT</strong></p>
+<pre><code class="language-bash">sudo yum install root
 </code></pre>
 <h4 id="building-from-source">Building from source</h4>
 <p>1 <strong>Example building latest stable branch from source</strong></p>
-<pre><code>git clone --branch latest-stable --depth=1 https://github.com/root-project/root.git root_src
+<pre><code class="language-bash">git clone --branch latest-stable --depth=1 https://github.com/root-project/root.git root_src
 mkdir root_build root_install &amp;&amp; cd root_build
-cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src # &amp;&amp; check cmake configuration output for warnings or errors
-cmake --build . -- install -j4 # if you have 4 cores available for compilation
-source ../root_install/bin/thisroot.sh # or thisroot.{fish,csh}
+cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src
+cmake --build . --target install -j4
+source ../root_install/bin/thisroot.sh
 </code></pre>
-<p><strong>Note</strong>: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the <a href="https://root.cern.ch/">official ROOT website</a>. Furthermore, if you are not building from source you are installing precompiled binaries, which may not be up to date versions of ROOT. For specific versions, you may need to build root from source.</p>
+<p><strong>Note</strong>: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the <a href="https://root.cern.ch/">official ROOT website</a>.</p>
 <hr />
 <h2 id="midas">Midas</h2>
 <h3 id="overview_3">Overview</h3>
@@ -940,19 +819,26 @@ Midas provides the following functionalities:</p>
 <li>... much more ...</li>
 </ul>
 <h3 id="installation-guide_3">Installation Guide</h3>
-<p>For a general Midas installation, you can follow this <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux">Linux Quick Start Guide</a>. For the g-2 modified DAQ, we use a custom version of midas, which can be cloned and installed as follows:</p>
+<p>For a general MIDAS installation, you can follow this <a href="https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux">Linux Quick Start Guide</a>.</p>
+<p><code>hdsoc_daq</code> expects <code>MIDASSYS</code> to point to a working MIDAS install before configuration. In particular, the build checks for:</p>
+<ul>
+<li><code>$MIDASSYS/include</code></li>
+<li><code>$MIDASSYS/lib/libmidas.a</code></li>
+<li><code>$MIDASSYS/lib/libmfe.a</code></li>
+</ul>
+<p>For the g-2 modified DAQ, we use a custom version of MIDAS, which can be cloned and installed as follows:</p>
 <p>1 <strong>Set experiment name environment variable</strong></p>
-<pre><code>export MIDAS_EXPT_NAME=DAQ
+<pre><code class="language-bash">export MIDAS_EXPT_NAME=ATAR_DAQ
 </code></pre>
 <p>2 <strong>Create exptab file</strong></p>
-<pre><code>mkdir online
+<pre><code class="language-bash">mkdir online
 cd online
 touch exptab
 echo &quot;$MIDAS_EXPT_NAME $(pwd) system&quot; &gt;&gt; exptab
-export MIDAS_EXPTAB=$(pwd)/exptab   
+export MIDAS_EXPTAB=$(pwd)/exptab
 </code></pre>
-<p>3 <strong>Install Midas</strong></p>
-<pre><code>cd ..
+<p>3 <strong>Install MIDAS</strong></p>
+<pre><code class="language-bash">cd ..
 mkdir packages
 git clone --recursive git@github.com:PIONEER-Experiment/midas-modified.git midas
 cd midas
@@ -963,31 +849,37 @@ make -j$(nproc) install
 cd ..
 </code></pre>
 <p>4 <strong>Set <code>MIDASSYS</code> environment variable and add to path</strong></p>
-<pre><code>export MIDASSYS=$(pwd)
+<pre><code class="language-bash">export MIDASSYS=$(pwd)
 export PATH=$PATH:$MIDASSYS/bin
 </code></pre>
-<p><strong>Note</strong>: you can hardcode the environment variables <code>MIDASSYS</code> (and add to path), <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code> by adding the appropriate commands to your .bashrc file. This way, the environment variables are set with each new terminal session for that user.</p>
-<p>5 <strong>(Optional) it is recommended to also install the midas python package</strong>:</p>
-<pre><code>pip install -e $MIDASSYS/python --user
+<p><strong>Note</strong>: You can hardcode the environment variables <code>MIDASSYS</code>, <code>MIDAS_EXPTAB</code>, and <code>MIDAS_EXPT_NAME</code> by adding the appropriate commands to your <code>.bashrc</code> file. The repo also provides environment helpers documented on the <a href="../scripts/#environment-setup">scripts page</a>.</p>
+<p>5 <strong>(Optional) it is recommended to also install the MIDAS Python package</strong></p>
+<pre><code class="language-bash">pip install -e $MIDASSYS/python --user
 </code></pre>
 <hr />
-<h2 id="nalu-board-controller">Nalu Board Controller</h2>
+<h2 id="cpm-managed-libraries">CPM Managed Libraries</h2>
 <h3 id="overview_4">Overview</h3>
-<p>The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the <a href="https://github.com/jaca230/nalu_board_controller">github page for this library</a>.</p>
+<p>Several dependencies used by <code>hdsoc_daq</code> are no longer meant to be installed manually as part of the normal setup flow. They are fetched automatically by CPM during the CMake configure step.</p>
+<p>These include:</p>
+<ul>
+<li><code>nalu_event_collector</code></li>
+<li><code>nalu_board_controller</code></li>
+<li><code>reflect-cpp</code></li>
+<li><code>spdlog</code></li>
+<li><code>nlohmann/json</code></li>
+<li><code>pybind11</code></li>
+</ul>
 <h3 id="installation-guide_4">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1">installation guide on the github's readme</a>.</p>
-<hr />
-<h2 id="nalu-event-collector">Nalu Event Collector</h2>
-<h3 id="overview_5">Overview</h3>
-<p>The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the <a href="https://github.com/jaca230/nalu_event_collector">github page for this library</a>.</p>
-<h3 id="installation-guide_5">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see the <a href="https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation">installation guide on the github's readme</a>.</p>
-<hr />
-<h2 id="reflect-cpp">reflect-cpp</h2>
-<h3 id="overview_6">Overview</h3>
-<p>Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the <a href="https://github.com/getml/reflect-cpp">github page for this library</a>.</p>
-<h3 id="installation-guide_6">Installation Guide</h3>
-<p>This should be automatically installed when installing the <a href="../software/#hdsoc_daq">HDSoC DAQ midas frontend</a>. If you want to manually install, see <a href="https://rfl.getml.com/install/#option-2-compilation-using-cmake">reflect-cpp's installation guide</a>. I suggest compiling using cmake.</p>
+<p>No separate manual installation step is needed for the normal <code>hdsoc_daq</code> build. Once <code>MIDASSYS</code> is set and the Python environment is available, running:</p>
+<pre><code class="language-bash">./scripts/build.sh
+</code></pre>
+<p>will configure CMake and let CPM pull the required C++ packages automatically.</p>
+<p>If you want to inspect or build these projects separately, see their upstream repositories:</p>
+<ul>
+<li><a href="https://github.com/jaca230/nalu_board_controller">nalu_board_controller</a></li>
+<li><a href="https://github.com/jaca230/nalu_event_collector">nalu_event_collector</a></li>
+<li><a href="https://github.com/getml/reflect-cpp">reflect-cpp</a></li>
+</ul>
 <hr />
 
   <hr>
@@ -995,7 +887,7 @@ export PATH=$PATH:$MIDASSYS/bin
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2026</span>
       
     
   </small>
