@@ -10,13 +10,13 @@
 ![Software_Diagram](images/software_pipeline_diagram.png){: style="max-width:100%; height:auto;"}
 
 - **Ethernet Controller**: The systems ethernet controller which sockets are formed on.
-- **UDP Socket**: Two sockets are constructed. One by [naludaq python package](https://pypi.org/project/naludaq/0.31.9/) to communicate with the board. And one by the UDP receiver to receive data.
-- **Nalu Event Collector**: A library to collect events from a UDP socket receiving events from a nalu scientific board
+- **UDP Socket**: Two sockets are constructed. One by the Python board-control stack to communicate with the board and one by the UDP receiver to receive data.
+- **Nalu Event Collector**: A library to collect events from a UDP socket receiving events from a nalu scientific board.
     - **UDP Buffer**: Receives UDP packets and puts them in a buffer to be processed.
     - **Event Buffer**: Processes UDP packets into events and puts them in a buffer.
     - **Event Collector Manager**: Manages interfacing with the buffers. I.e. getting data, configuration, etc.
 - **Nalu Board Controller**: C++ methods to configure the nalu scientific board to prepare for data taking.
-    - **C++ pybind wrapper**: C++ wrapper around some methods from the [naludaq python package](https://pypi.org/project/naludaq/0.31.9/).
+    - **C++ pybind wrapper**: C++ wrapper around the Python board-control stack.
     - **Board Controller Manager**: Manages interfacing with the board from another C++ program.
 - **Midas Frontend**: Handles run control, configuration via ODB, data bank creation, etc. Interfaces with the board controller and event collector.
 - **Event Builder**: Builds events from data banks provided by potentially multiple frontends. Not necessary if only using one frontend.
@@ -27,58 +27,90 @@
 
 ### Overview
 
-The HDSoC DAQ software is a midas frontend that interfaces with several other softwares (see [software dependencies page](software.md)) to read out events from a nalu scientific board while working within the midas framework.
+The HDSoC DAQ software is a MIDAS frontend that interfaces with several other softwares (see [software dependencies page](software_dependencies.md)) to read out events from a nalu scientific board while working within the MIDAS framework.
+
+The installation chain is now split into two parts:
+
+- External dependencies that must already exist on the host, especially MIDAS and optionally ROOT.
+- Dependencies that are handled by this repository itself, either through a repo-local Python virtual environment or through CPM during the CMake configure step.
 
 ### Installation
 
-Make sure you have installed the [development tools](software_dependencies.md#development-tools), [python packages](software_dependencies.md#python-packages), and [midas](software_dependencies.md#midas) before continuing. Furthmore, make sure you have [set-up access to the pioneer experiment repository](miscellaneous.md#getting-access-to-the-pioneer-repository) first.
+Make sure you have installed the [development tools](software_dependencies.md#development-tools), the [Python packages](software_dependencies.md#python-packages), and [MIDAS](software_dependencies.md#midas) before continuing. If you need private repository access, also make sure you have [set up access to the PIONEER experiment repository](miscellaneous.md#getting-access-to-the-pioneer-repository).
 
 1 **Clone the repository:**
 
-```
+```bash
 git clone git@github.com:PIONEER-Experiment/hdsoc_daq.git
+cd hdsoc_daq
 ```
 
-2 **Set up the enviromment**
+2 **Set up the environment**
 
-```
-cd hdsoc_daq/scripts/environment_setup
-./detect_environment.sh
-```
-`environment_variables.txt` should have been generated. Check it to make sure it contains the write paths, for example, mine looks like this:
-```
-MIDASSYS=/home/pioneer/packages/midas
-MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
-MIDAS_EXPT_NAME=HDSOC_DAQ
-HDSOC_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
+The main shell entrypoint is now:
+
+```bash
+source ./scripts/environment/activate_environment.sh
 ```
 
-For more information on what the correct paths should look like, check [TRIUMF's midas quickstart guide](https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux#Environment_Variables).
+This helper will:
 
-After verifying the paths are correct:
-```
-source ./setup_environment.sh --add
-```
+- detect and save `MIDASSYS`, `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME` if needed
+- create or refresh the repo-local Python environment if needed
+- activate the repo-local Python environment
+- isolate the runtime from user-site Python packages
 
-**Note**: If you want this environment to be setup everything a user logs in on your profile, add it to your bashrc with:
-```
-echo 'source /path/to/.../hdsoc_daq/scripts/environment_setup/setup_environment.sh --add --quiet' >> ~/.bashrc
-```
-replacing the above with the correct path to the script.
+If you only want to detect and save the MIDAS-related variables without activating the Python environment, run:
 
-3 **Installed additionally dependencies:**
-
-These are the dependencies neeeded to build this software. The aforementioned dependencies are more general.
-
-```
-$HDSOC_DAQ_DIR/scripts/install_libraries/install_dependencies.sh
+```bash
+./scripts/environment/helpers/detect_midas_environment.sh
 ```
 
-4 **Build**
+This writes:
 
+```bash
+scripts/environment/helpers/environment_variables.sh
 ```
-$HDSOC_DAQ_DIR/scripts/build.sh --overwrite
+
+Check that file to make sure it contains the correct paths. For example:
+
+```bash
+export MIDASSYS=/home/pioneer/packages/midas
+export MIDAS_EXPTAB=/home/pioneer/packages/online/exptab
+export MIDAS_EXPT_NAME=ATAR_DAQ
+export ATAR_DAQ_DIR=/home/pioneer/packages/experiments/hdsoc_daq
 ```
+
+If you want to create or refresh only the repo-local virtual environment, run:
+
+```bash
+./scripts/environment/helpers/setup_venv.sh
+```
+
+3 **Build**
+
+Once `MIDASSYS` points to a working MIDAS install, build with:
+
+```bash
+./scripts/build.sh
+```
+
+If you want to force a clean reconfigure first:
+
+```bash
+./scripts/build.sh --overwrite
+```
+
+During the CMake configure step, CPM automatically fetches and configures several C++ dependencies, including:
+
+- `nalu_event_collector`
+- `nalu_board_controller`
+- `reflect-cpp`
+- `spdlog`
+- `nlohmann/json`
+- `pybind11`
+
+So these no longer need to be installed manually as part of the normal `hdsoc_daq` setup flow.
 
 ### Running
 
@@ -86,45 +118,53 @@ $HDSOC_DAQ_DIR/scripts/build.sh --overwrite
 
 Midas provides a great user interface via their webpage. To start it, use the helper script:
 
+```bash
+./scripts/webpage_scripts/start_midas_webpage.sh
 ```
-$HDSOC_DAQ/scripts/webpage_scripts/start_midas_webpage.sh
-```
+
 Then navigate to `localhost:8080` in your favorite web browser.
 
-**Note**: For some reason, this script may need to be run twice sometimes for it to work properly.
-
-**Note**: If the webpage doesn't appear, manually run `mhttpd` to debug the error output
+**Note**: If the webpage doesn't appear, manually run `mhttpd` to debug the error output.
 
 #### Manually Starting the Frontend
 
 I recommend doing this the first time to make sure everything is working properly.
 
+```bash
+./scripts/run.sh -i 0
 ```
-$HDSOC_DAQ_DIR/scripts/run.sh
+
+Some useful options are:
+
+```bash
+./scripts/run.sh --build -i 0
+./scripts/run.sh --debug -i 0
+./scripts/run.sh --setup-venv -i 0
+./scripts/run.sh --system-python -i 0
 ```
 
 #### Starting the Frontend as a Screen
 
-Use the screening helper script
-```
-$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh -i {index}
+Use the screening helper script:
+
+```bash
+./scripts/screen_control/screen_frontend.sh -i {index}
 ```
 
-**Note**: Exclusing `-i` flag will set the index to 0. This is the frontend index to support running multiple frontends.
+**Note**: Excluding the `-i` flag sets the index to `0`. This is the frontend index used to support running multiple frontends.
 
-to stop the screen
-```
-$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh -i {index}
+To stop the screen:
+
+```bash
+./scripts/screen_control/stop_screen.sh -i {index}
 ```
 
 #### Starting the Frontend as Midas Program
 
 See the [g-2 modified DAQ Manual's guide for adding program startup scripts](https://jaca230.github.io/teststand_daq_manual/midas/#adding-program-startup-scripts). For the start command, use the screen command above.
 
-
 ### Configuration
 
 See the [ODB configuration page](odb_config.md) for a description of each ODB setting.
-
 
 ---

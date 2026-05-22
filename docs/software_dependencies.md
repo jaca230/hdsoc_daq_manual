@@ -10,88 +10,57 @@ Some installations are on the PIONEER repository, which requires access to pull 
 
 ### Overview
 
-These tools include compilers, libraries, and other utilities that facilitate software development and installation.
+These tools include compilers, CMake, Python development support, and other utilities that facilitate software development and installation.
 
 ### Installation Guide
-This guide should work for ALMA9. You can use `dnf` for ALMA9, but I prefer to work with `yum`
+
+This guide should work for ALMA9. You can use `dnf` for ALMA9, but I prefer to work with `yum`.
 
 1 **Install yum package manager**
 
-```
+```bash
 sudo dnf install yum
 ```
 
-2 **Update the package index**:
+2 **Update the package index**
 
-```
+```bash
 sudo yum update
 ```
 
-3 **Enable the EPEL repository**:
+3 **Enable the EPEL repository**
 
-```
+```bash
 sudo yum install epel-release
 ```
 
-4 **Install Development Tools and Dependencies**:
+4 **Install Development Tools and Dependencies**
 
-```
-sudo yum groupinstall "Development Tools"
-sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel
-```
-
-5 **Install Python3**
-
-```
-sudo yum install python3-devel
-```
-
-6 **Install CMake from Source**  
-
-If the installed CMake version is **not** `>=3.23`, (you can check with `cmake --version`) follow these steps to install CMake manually:
-
-6.1. **Remove Old CMake (If Installed)**
-
-```
-sudo yum remove -y cmake
-```
-
-Verify removal:
 ```bash
-cmake --version  # Should return "command not found"
+sudo yum groupinstall "Development Tools"
+sudo yum install cmake gcc-c++ gcc screen subversion binutils libX11-devel libXpm-devel libXft-devel libXext-devel python3 python3-devel python3-pip
 ```
 
-6.2. **Install Required Dependencies**
+5 **Check the CMake version**
 
+```bash
+cmake --version
 ```
-sudo yum groupinstall -y "Development Tools"
-sudo yum install -y gcc gcc-c++ make openssl-devel
+
+`hdsoc_daq` currently requires CMake `>= 3.23`.
+
+If the installed CMake version is too old, follow these steps to install a newer version manually:
+
+```bash
+wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz
+tar -xvzf cmake-3.29.0.tar.gz
+cd cmake-3.29.0
+./bootstrap
+make -j$(nproc)
+sudo make install
 ```
 
-6.3. **Download and Install the Latest CMake from Source**
-
-1. **Download the latest version** (Check [Kitware's website](https://cmake.org/download/) for the latest version):
-   ```
-   wget https://github.com/Kitware/CMake/releases/download/v3.29.0/cmake-3.29.0.tar.gz
-   ```
-
-2. **Extract the archive**:
-   ```
-   tar -xvzf cmake-3.29.0.tar.gz
-   cd cmake-3.29.0
-   ```
-
-3. **Build and install**:
-   ```
-   ./bootstrap
-   make -j$(nproc)
-   sudo make install
-   ```
-
-4. **Verify the New Installation**:
-   ```
-   cmake --version
-   ```
+Always check [Kitware's website](https://cmake.org/download/) for the current version before copying the version number above.
 
 ---
 
@@ -99,16 +68,36 @@ sudo yum install -y gcc gcc-c++ make openssl-devel
 
 ### Overview
 
-Although this DAQ is written mostly in C++, it interfaces with with Nalu Scientific's "naludaq" package, which is a python module used for interfacing with the board. However, our use case requires C++. To avoid rewriting all of Nalu Scientific's methods in C++, pybind is used to wrap some C++ methods around existing naludaq python methods.
-
+The DAQ still depends on a Python board-control stack even though the frontend itself is written mostly in C++. The current setup uses a repo-local virtual environment to hold the Python runtime needed by the board controller path.
 
 ### Installation Guide
 
-Install any needed packages with pip. Two that are needed are:
+The recommended way to set this up is with the repo helper:
 
+```bash
+./scripts/environment/helpers/setup_venv.sh
 ```
-pip install pybind11 naludaq
+
+This creates or refreshes a virtual environment at:
+
+```bash
+.atar_daq_venv
 ```
+
+and installs the requirements from:
+
+```bash
+requirements/board_tools.txt
+```
+
+At the moment, that requirements file includes:
+
+```text
+naludaq==0.36.0
+naluconfigs==18.0.1
+```
+
+If you are not using the repo-local virtual environment, you will need those packages available in the Python environment used at runtime.
 
 ---
 
@@ -116,22 +105,23 @@ pip install pybind11 naludaq
 
 ### Overview
 
-[ROOT](https://root.cern.ch/) is an open-source data analysis framework developed by CERN. It is widely used in high-energy physics for data processing, statistical analysis, visualization, and storage. It is needed for some features of Midas.
+[ROOT](https://root.cern.ch/) is an open-source data analysis framework developed by CERN. It is needed for some MIDAS features.
 
 ### Installation Guide
-General installaiton guides are provided by ROOT at their [Installing ROOT](https://root.cern/install/) and [Building ROOT from source](https://root.cern/install/build_from_source/) pages.
+
+General installation guides are provided by ROOT at their [Installing ROOT](https://root.cern/install/) and [Building ROOT from source](https://root.cern/install/build_from_source/) pages.
 
 #### Using `yum` Package Manager
 
-1 **Enable the EPEL repository**:
+1 **Enable the EPEL repository**
 
-```
+```bash
 sudo yum install epel-release
 ```
 
-2 **Download and Install ROOT**:
+2 **Download and Install ROOT**
 
-```
+```bash
 sudo yum install root
 ```
 
@@ -139,15 +129,15 @@ sudo yum install root
 
 1 **Example building latest stable branch from source**
 
-```
+```bash
 git clone --branch latest-stable --depth=1 https://github.com/root-project/root.git root_src
 mkdir root_build root_install && cd root_build
-cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src # && check cmake configuration output for warnings or errors
-cmake --build . -- install -j4 # if you have 4 cores available for compilation
-source ../root_install/bin/thisroot.sh # or thisroot.{fish,csh}
+cmake -DCMAKE_INSTALL_PREFIX=../root_install ../root_src
+cmake --build . --target install -j4
+source ../root_install/bin/thisroot.sh
 ```
 
-**Note**: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the [official ROOT website](https://root.cern.ch/). Furthermore, if you are not building from source you are installing precompiled binaries, which may not be up to date versions of ROOT. For specific versions, you may need to build root from source.
+**Note**: Adjust the ROOT version and the download URL as needed. Always check for the latest version on the [official ROOT website](https://root.cern.ch/).
 
 ---
 
@@ -169,25 +159,35 @@ Midas provides the following functionalities:
 
 ### Installation Guide
 
-For a general Midas installation, you can follow this [Linux Quick Start Guide](https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux). For the g-2 modified DAQ, we use a custom version of midas, which can be cloned and installed as follows:
+For a general MIDAS installation, you can follow this [Linux Quick Start Guide](https://daq00.triumf.ca/MidasWiki/index.php/Quickstart_Linux).
+
+`hdsoc_daq` expects `MIDASSYS` to point to a working MIDAS install before configuration. In particular, the build checks for:
+
+- `$MIDASSYS/include`
+- `$MIDASSYS/lib/libmidas.a`
+- `$MIDASSYS/lib/libmfe.a`
+
+For the g-2 modified DAQ, we use a custom version of MIDAS, which can be cloned and installed as follows:
 
 1 **Set experiment name environment variable**
 
+```bash
+export MIDAS_EXPT_NAME=ATAR_DAQ
 ```
-export MIDAS_EXPT_NAME=DAQ
-```
+
 2 **Create exptab file**
 
-```
+```bash
 mkdir online
 cd online
 touch exptab
 echo "$MIDAS_EXPT_NAME $(pwd) system" >> exptab
-export MIDAS_EXPTAB=$(pwd)/exptab	
+export MIDAS_EXPTAB=$(pwd)/exptab
 ```
-3 **Install Midas**
 
-```
+3 **Install MIDAS**
+
+```bash
 cd ..
 mkdir packages
 git clone --recursive git@github.com:PIONEER-Experiment/midas-modified.git midas
@@ -201,52 +201,50 @@ cd ..
 
 4 **Set `MIDASSYS` environment variable and add to path**
 
-```
+```bash
 export MIDASSYS=$(pwd)
 export PATH=$PATH:$MIDASSYS/bin
 ```
-**Note**: you can hardcode the environment variables `MIDASSYS` (and add to path), `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME` by adding the appropriate commands to your .bashrc file. This way, the environment variables are set with each new terminal session for that user.
 
-5 **(Optional) it is recommended to also install the midas python package**:
+**Note**: You can hardcode the environment variables `MIDASSYS`, `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME` by adding the appropriate commands to your `.bashrc` file. The repo also provides environment helpers documented on the [scripts page](scripts.md#environment-setup).
 
-```
+5 **(Optional) it is recommended to also install the MIDAS Python package**
+
+```bash
 pip install -e $MIDASSYS/python --user
 ```
 
 ---
 
-## Nalu Board Controller
+## CPM Managed Libraries
 
 ### Overview
 
-The Nalu Board Controller library is a C++ library that uses pybind to wrap around some existing naludaq python methods. It allows the midas frontend to use C++ methods to configure nalu scientific's boards. You can read more in on the [github page for this library](https://github.com/jaca230/nalu_board_controller).
+Several dependencies used by `hdsoc_daq` are no longer meant to be installed manually as part of the normal setup flow. They are fetched automatically by CPM during the CMake configure step.
+
+These include:
+
+- `nalu_event_collector`
+- `nalu_board_controller`
+- `reflect-cpp`
+- `spdlog`
+- `nlohmann/json`
+- `pybind11`
 
 ### Installation Guide
 
-This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_board_controller?tab=readme-ov-file#installation-1).
+No separate manual installation step is needed for the normal `hdsoc_daq` build. Once `MIDASSYS` is set and the Python environment is available, running:
 
----
+```bash
+./scripts/build.sh
+```
 
-## Nalu Event Collector
+will configure CMake and let CPM pull the required C++ packages automatically.
 
-### Overview
+If you want to inspect or build these projects separately, see their upstream repositories:
 
-The Nalu Event Collector library is a C++ library that handles event collection from a nalu scientific board at high data rates. It has been internally tested to handle data rates as high as 300 MB/s. The HDSoCv1 board can send at most ~55 MB/s (due to an internal hardware limit), so this software handles virtually all uses cases. The library can automatically handle collecting UDP packets from a nalu scientific board, parsing them, and collecting them into events. The library holds a buffer of these events that midas can pull from to form its own events. You can read more in on the [github page for this library](https://github.com/jaca230/nalu_event_collector).
-
-### Installation Guide
-
-This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see the [installation guide on the github's readme](https://github.com/jaca230/nalu_event_collector?tab=readme-ov-file#installation).
-
----
-
-## reflect-cpp
-
-### Overview
-
-Reflect-cpp is a C++ library that achieves some level of reflection in C++. For our use case, we just use it to convert C++ structs to json and json to C++ structs. This removes a lot of boiler plate code that would otherwise go into the ODB management. You can read more in on the [github page for this library](https://github.com/getml/reflect-cpp).
-
-### Installation Guide
-
-This should be automatically installed when installing the [HDSoC DAQ midas frontend](software.md#hdsoc_daq). If you want to manually install, see [reflect-cpp's installation guide](https://rfl.getml.com/install/#option-2-compilation-using-cmake). I suggest compiling using cmake.
+- [nalu_board_controller](https://github.com/jaca230/nalu_board_controller)
+- [nalu_event_collector](https://github.com/jaca230/nalu_event_collector)
+- [reflect-cpp](https://github.com/getml/reflect-cpp)
 
 ---

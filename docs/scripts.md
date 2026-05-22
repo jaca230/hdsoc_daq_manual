@@ -6,19 +6,19 @@
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/build.sh`                                              |
-| **Description**  | Builds the project using CMake and Make. If the `--overwrite` flag is used, it cleans the previous build first. |
-| **Flags**        | `-o, --overwrite` → Remove the existing build directory before building. |
-| **Example Usage**| `./build.sh` <br> `./build.sh --overwrite` |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/build.sh` |
+| **Description**  | Builds the project using CMake. It loads the repository environment first, then configures and builds the project. |
+| **Flags**        | `-o, --overwrite` → Remove the existing build directory before building. <br> `--venv PATH` → Override the repo-local virtual environment path. <br> `--system-python` → Ignore the repo-local virtual environment and use the system Python setup. |
+| **Example Usage**| `./scripts/build.sh` <br> `./scripts/build.sh --overwrite` |
 
 ### run.sh
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/run.sh`                                                |
-| **Description**  | Runs the `frontend` executable. Supports running in background mode, with debugging, and setting an index. |
-| **Flags**        | `--debug` → Runs the executable in GDB. <br> <br> `-i <number>` → Specifies an index (default: 0). <br> `--help` → Displays usage help. |
-| **Example Usage**| `./run.sh` <br> `./run.sh --debug` <br> `./run.sh -i 2` |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/run.sh` |
+| **Description**  | Runs the `frontend` executable. It can build first, set up the repo-local virtual environment, and run under `gdb`. |
+| **Flags**        | `--build` → Build before running. <br> `--overwrite` → Rebuild from a clean build directory when used with `--build`. <br> `--setup-venv` → Create or update the repo-local Python environment before running. <br> `--venv PATH` → Override the repo-local virtual environment path. <br> `--system-python` → Skip the repo-local virtual environment and use the system Python setup. <br> `--debug` → Run the executable in GDB. <br> `-i <number>` → Specifies an index (default: `0`). |
+| **Example Usage**| `./scripts/run.sh -i 0` <br> `./scripts/run.sh --build -i 0` <br> `./scripts/run.sh --setup-venv -i 0` |
 
 ---
 
@@ -28,75 +28,94 @@
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/delete_data.sh` |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/data_management/delete_data.sh` |
 | **Description**  | Deletes MIDAS data files in the experiment directory. If `--dry-run` is used, it lists files without deleting them. |
 | **Flags**        | `--dry-run` → Lists files that would be deleted without removing them. |
-| **Example Usage**| `./delete_data.sh` <br> `./delete_data.sh --dry-run` |
-
+| **Example Usage**| `./scripts/data_management/delete_data.sh` <br> `./scripts/data_management/delete_data.sh --dry-run` |
 
 ### find_data_dir.sh
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/find_data_dir.sh` |
-| **Description**  | Finds the experiment data directory and writes it to `experiment_dir.txt`. |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/data_management/find_data_dir.sh` |
+| **Description**  | Finds the experiment data directory from `MIDAS_EXPTAB` and `MIDAS_EXPT_NAME`, then writes it to `experiment_dir.txt`. |
 | **Flags**        | _(None)_ |
-| **Example Usage**| `./find_data_dir.sh` |
+| **Example Usage**| `./scripts/data_management/find_data_dir.sh` |
 
 ---
 
 ## Environment Setup
 
-### clear_environment.sh  
+### Overview
+
+The old `scripts/environment_setup` helpers have been replaced by a newer environment system under:
+
+```text
+scripts/environment/
+scripts/environment/helpers/
+```
+
+The main user entrypoint is:
+
+```bash
+source ./scripts/environment/activate_environment.sh
+```
+
+This helper will detect and load MIDAS environment variables, optionally create the repo-local Python virtual environment, and activate it.
+
+### activate_environment.sh
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/environment_setup/clear_environment.sh` |
-| **Description**  | Clears the MIDAS environment variables by unsetting `MIDASSYS`, `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME`. |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/activate_environment.sh` |
+| **Description**  | Main shell entrypoint for preparing the ATAR DAQ environment. It detects and saves MIDAS-related environment variables if needed, creates or refreshes the repo-local virtual environment if needed, and activates it. |
+| **Flags**        | `--quiet` → Suppress informational output. <br> `--no-midas-bin` → Do not prepend `MIDASSYS/bin` to `PATH`. <br> `--system-python` → Skip the repo-local virtual environment and use the system Python setup. <br> `--venv PATH` → Override the virtual environment path. |
+| **Example Usage**| `source ./scripts/environment/activate_environment.sh` |
+
+### detect_midas_environment.sh
+
+| **Field**        | **Description**                                                  |
+|------------------|------------------------------------------------------------------|
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/helpers/detect_midas_environment.sh` |
+| **Description**  | Searches for the `midas` directory and `exptab` file, sets `MIDASSYS`, `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME`, and saves them to `scripts/environment/helpers/environment_variables.sh`. |
+| **Flags**        | `--output PATH` → Override the output file path. <br> `-q, --quiet` → Suppress the summary output. |
+| **Example Usage**| `./scripts/environment/helpers/detect_midas_environment.sh` |
+
+### load_environment.sh
+
+| **Field**        | **Description**                                                  |
+|------------------|------------------------------------------------------------------|
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/helpers/load_environment.sh` |
+| **Description**  | Loads the saved repository environment variables and optionally configures access to the repo-local virtual environment. This helper is used internally by `build.sh`, `run.sh`, and other scripts. |
+| **Flags**        | `--quiet` → Suppress informational output. <br> `--add-midas-bin` → Prepend `MIDASSYS/bin` to `PATH`. <br> `--no-venv` → Do not activate or expose the repo-local virtual environment. <br> `--setup-venv` → Create or update the repo-local virtual environment before loading it. <br> `--system-python` → Ignore the repo-local virtual environment and isolate from user-site Python. <br> `--venv PATH` → Override the virtual environment path. |
+| **Example Usage**| `source ./scripts/environment/helpers/load_environment.sh --add-midas-bin` |
+
+### setup_venv.sh
+
+| **Field**        | **Description**                                                  |
+|------------------|------------------------------------------------------------------|
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/helpers/setup_venv.sh` |
+| **Description**  | Creates or updates the repo-local Python environment used by board-controller-backed tools. It installs the requirements from `requirements/board_tools.txt`. |
+| **Flags**        | `--venv PATH` → Override the virtual environment path. <br> `--python BIN` → Python executable to use for venv creation. <br> `--requirements PATH` → Requirements file to install. <br> `--recreate` → Delete and recreate the virtual environment. |
+| **Example Usage**| `./scripts/environment/helpers/setup_venv.sh` <br> `./scripts/environment/helpers/setup_venv.sh --recreate` |
+
+### activate_venv.sh
+
+| **Field**        | **Description**                                                  |
+|------------------|------------------------------------------------------------------|
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/helpers/activate_venv.sh` |
+| **Description**  | Activates only the repo-local virtual environment. |
 | **Flags**        | _(None)_ |
-| **Example Usage**| `./clear_environment.sh` |
+| **Example Usage**| `source ./scripts/environment/helpers/activate_venv.sh` |
 
-
-### detect_environment.sh  
+### clear_environment.sh
 
 | **Field**        | **Description**                                                  |
 |------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/environment_setup/detect_environment.sh` |
-| **Description**  | Searches for the `midas` directory and `exptab` file, sets `MIDASSYS`, `MIDAS_EXPTAB`, and `MIDAS_EXPT_NAME`, and saves them to `environment_variables.txt`. |
+| **Path**         | `$ATAR_DAQ_DIR/scripts/environment/helpers/clear_environment.sh` |
+| **Description**  | Clears the MIDAS, ATAR DAQ, and Python environment variables set by the environment helpers. |
 | **Flags**        | _(None)_ |
-| **Example Usage**| `./detect_environment.sh` |
-
-
-### setup_environment.sh  
-
-| **Field**        | **Description**                                                  |
-|------------------|------------------------------------------------------------------|
-| **Path**         | `$HDSOC_DAQ_DIR/scripts/environment_setup/setup_environment.sh` |
-| **Description**  | Reads `environment_variables.txt` to set environment variables and optionally adds `MIDASSYS/bin` to the `PATH`. |
-| **Flags**        | `-a, --add` → Adds `MIDASSYS/bin` to `PATH` if `MIDASSYS` is set. <br> `-q, --quiet` → Suppresses all output. <br> `-h, --help` → Displays usage help. |
-| **Example Usage**| `./setup_environment.sh` <br> `./setup_environment.sh --add` <br> `./setup_environment.sh --quiet` |
-
----
-
-## Install Libraries
-
-### install_dependencies.sh
-
-| Field            | Description                                                     |
-|------------------|-----------------------------------------------------------------|
-| Path             | `$HDSOC_DAQ_DIR/scripts/install_libaries/install_dependencies.sh` |
-| Description      | Installs all required dependencies by calling their respective installation scripts. |
-| Flags            | (None)                                                         |
-| Example Usage    | `./install_dependencies.sh`                                     |
-
-### install_reflect_cpp.sh
-
-| Field            | Description                                                     |
-|------------------|-----------------------------------------------------------------|
-| Path             | `$HDSOC_DAQ_DIR/scripts/install_libaries/install_reflect_cpp.sh` |
-| Description      | Installs the Reflect-C++ library, allowing customization of installation directory, C++ standard, and build type. |
-| Flags            | `-o, --overwrite` → Removes the previous build before installing. <br> `-p, --prefix <path>` → Specifies the installation directory (default: /usr/local). <br> `-s, --cxx-standard <version>` → Sets the C++ standard (default: 20). <br> `-b, --build-type <type>` → Sets the build type (default: Release). |
-| Example Usage    | `./install_reflect_cpp.sh` <br> `./install_reflect_cpp.sh --overwrite` <br> `./install_reflect_cpp.sh --prefix /opt/custom` <br> `./install_reflect_cpp.sh --cxx-standard 17 --build-type Debug` |
+| **Example Usage**| `source ./scripts/environment/helpers/clear_environment.sh` |
 
 ---
 
@@ -106,10 +125,10 @@
 
 | Field            | Description                                                     |
 |------------------|-----------------------------------------------------------------|
-| Path             | `$HDSOC_DAQ_DIR/scripts/odb/set_enabled_channels.py`             |
-| Description      | Updates the enabled channels in the ODB by setting the number of enabled channels from the start (0) and disabling the rest. |
-| Flags            | `num_enabled_channels` → The number of enabled channels (between 0 and 32). |
-| Example Usage    | `./set_enabled_channels.py 16` <br> Enables the first 16 channels and disables the rest. |
+| Path             | `$ATAR_DAQ_DIR/scripts/odb/set_enabled_channels.py` |
+| Description      | Updates the enabled channels in the ODB by setting the number of enabled channels from the start (`0`) and disabling the rest. |
+| Flags            | `num_enabled_channels` → The number of enabled channels, between `0` and `32`. |
+| Example Usage    | `./scripts/odb/set_enabled_channels.py 16` <br> Enables the first 16 channels and disables the rest. |
 
 ## Screen Control
 
@@ -117,20 +136,19 @@
 
 | Field              | Description                                                     |
 |--------------------|-----------------------------------------------------------------|
-| Path               | `$HDSOC_DAQ_DIR/scripts/screen_control/screen_frontend.sh`       |
-| Description        | Starts a specified script inside a `screen` session, optionally passing an index value. |
-| Flags              | `-i` → Index for the session name (defaults to 0).             |
-| Example Usage      | `./screen_frontend.sh -i 1` <br> Starts the script `run.sh` inside a `screen` session with index 1. |
-
+| Path               | `$ATAR_DAQ_DIR/scripts/screen_control/screen_frontend.sh` |
+| Description        | Starts the frontend inside a detached `screen` session. |
+| Flags              | `-i` → Index for the session name (defaults to `0`). <br> `--setup-venv` → Create or update the repo-local virtual environment before running. <br> `--venv PATH` → Override the virtual environment path. <br> `--system-python` → Skip the repo-local virtual environment and use the system Python setup. |
+| Example Usage      | `./scripts/screen_control/screen_frontend.sh -i 1` |
 
 ### stop_screen.sh
 
 | Field              | Description                                                     |
 |--------------------|-----------------------------------------------------------------|
-| Path               | `$HDSOC_DAQ_DIR/scripts/screen_control/stop_screen.sh`          |
-| Description        | Stops a running `screen` session specified by the index.       |
-| Flags              | `-i` → Index for the session name (defaults to 0).             |
-| Example Usage      | `./stop_screen.sh -i 1` <br> Stops the `screen` session with index 1. |
+| Path               | `$ATAR_DAQ_DIR/scripts/screen_control/stop_screen.sh` |
+| Description        | Stops a running `screen` session specified by the index. |
+| Flags              | `-i` → Index for the session name (defaults to `0`). |
+| Example Usage      | `./scripts/screen_control/stop_screen.sh -i 1` |
 
 ---
 
@@ -140,21 +158,18 @@
 
 | Field              | Description                                                     |
 |--------------------|-----------------------------------------------------------------|
-| Path               | `$HDSOC_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh` |
+| Path               | `$ATAR_DAQ_DIR/scripts/webpage_scripts/start_midas_webpage.sh` |
 | Description        | Starts processes in the background, each inside a `screen` session, using process names from a `screen_names.txt` file. |
-| Flags              | None.                                                           |
-| Example Usage      | `./start_midas_webpage.sh` <br> Starts all processes defined in `screen_names.txt`. |
-
+| Flags              | None. |
+| Example Usage      | `./scripts/webpage_scripts/start_midas_webpage.sh` |
 
 ### stop_midas_webpage.sh
 
 | Field              | Description                                                     |
 |--------------------|-----------------------------------------------------------------|
-| Path               | `$HDSOC_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh`  |
+| Path               | `$ATAR_DAQ_DIR/scripts/webpage_scripts/stop_midas_webpage.sh` |
 | Description        | Stops processes running in `screen` sessions based on names listed in `screen_names.txt`. |
-| Flags              | None.                                                           |
-| Example Usage      | `./stop_midas_webpage.sh` <br> Stops all processes defined in `screen_names.txt`. |
+| Flags              | None. |
+| Example Usage      | `./scripts/webpage_scripts/stop_midas_webpage.sh` |
 
 ---
-
-
