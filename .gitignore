@@ -1,0 +1,12 @@
+.context/
+
+# Python cache / virtualenvs
+__pycache__/
+.venv/
+venv/
+
+# MkDocs / local build output
+site/
+
+# OS/editor noise
+.DS_Store
